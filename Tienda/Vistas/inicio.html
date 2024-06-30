@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDrops</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../Estilos/inicio.css" rel="stylesheet">
+</head>
+<body>
+    <section class="container py-4">
+        <header class="d-flex justify-content-between align-items-center mb-3">
+
+            <article class="d-flex align-items-center">
+                <img src="..//assets/logo.png" id="logo" alt="MyDropsLogo" class="me-2"/>
+                <span class="fw-bold"></span>
+            </article>
+
+            <p id="MyDrops" >MyDrops</p>
+
+            <div class="barraBusquedaBloq">
+                <input type="text" placeholder=" Buscar productos, marcas" id="barraBusqueda" class="form-control"/>
+                <button class="btn btn-custom">Buscar</button>
+            </div>
+
+            <article class="accionesUsuario">
+                <button class="btn btn-custom">Crea tu cuenta</button>
+                <button class="btn btn-custom">Ingresa</button>
+                <button class="btn btn-custom">Mis compras</button>
+                <a href="carrito.html">
+                    <img src="../assets/carrito.png" alt="Carrito" class="img-fluid" id="imagenCarrito">
+                </a>
+            </article>
+
+        </header>
+
+        <nav id="bajoHeader" class="navbar nav-custom mb-3">
+            <section  class="container-fluid">
+                <a class="nav-link-custom" href="#">Categorías</a>
+                <a class="nav-link-custom" href="#">Ofertas</a>
+                <a class="nav-link-custom" href="#">Historial</a>
+                <a class="nav-link-custom" href="#">Moda</a>    
+                <a class="nav-link-custom" href="#">Ayuda</a>
+            </section>
+        </nav>
+
+        <main class="py-4">
+            <section class="seccion-principal mb-4">
+                <p id="tituloGeneral">Las mejores Ofertas de invierno</p>
+                <div class="seccion-Ofertas d-inline-block mt-4">
+                    <div>
+                        <br><br><br>
+                    <p id="titOferta" class="h5 fw-bold">Ahorros unicos en productos de Electronica</p>
+                    <p id="textOferta" class="h5 fw-bold">Hasta 40% de descuento</p>
+                    </div>
+                    <img src="../assets/oferta electronica.png" alt="Electronica" class="img-fluid" id="imagenOferta">
+
+                </div>
+                <p class="mt-4 text-custom-foreground">Ofertas todos los dias, hasta 70% de descuento en productos seleccionados</p>
+            </section>
+
+            <section class="row g-4">
+                <div class="col-md-4 text-center">
+                    <p id="tituloGeneral">Tendencias</p>
+                    <div class="seccion-Tendencias">
+                    <article>
+                        <img src="../assets/cartera.jpg"  class="imagenesTendencias"/>
+                        <p>Bolsos de mano</p>
+                    </article>
+                    <article>
+                        <img src="../assets/juguete.jpg"  class="imagenesTendencias"/>
+                        <p>Juguetes</p>
+                    </article>
+                    <article>
+                        <img src="../assets/perfume.jpeg"  class="imagenesTendencias"/>
+                        <p>Perfumes</p>
+                    </article>
+                    <article>
+                        <img src="../assets/zapatos.jpeg"  class="imagenesTendencias"/>
+                        <p>Zapatos</p>
+                    </article>
+                    <article>
+                        <img src="../assets/piezas.jpg"  class="imagenesTendencias"/>
+                        <p>Piezas y recambios</p>
+                    </article>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="seccion-Anuncios">
+                        <article class="anuncios">
+                            <p>Ponte en forma en casa</p>
+                            <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
+                        </article>
+
+                        <article class="anuncios">
+                            <p>Ideas para tu cocina</p>
+                            <img src="../assets/cocina.jpg" class="imagenesAnuncios">
+                        </article>
+
+                        <article class="anuncios">
+                            <p>Hora de decorar ese living</p>
+                            <img src="../assets/muebles.jpg" class="imagenesAnuncios">
+                        </article>
+
+                        <article class="anuncios">
+                            <p>Esenciales para las vacaciones</p>
+                            <img src="../assets/equipamiento.jpg" class="imagenesAnuncios">
+                        </article>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="seccion-Productos">
+                        <img src="https://placehold.co/100x100" alt="medios-de-pago" class="mb-2"/>
+                        <p class="fw-bold text-custom-foreground">Medios de pago</p>
+                        <p>Tarjetas, efectivo y más</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="seccion-Productos">
+                        <img src="https://placehold.co/100x100" alt="menos-de-1500" class="mb-2"/>
+                        <p class="fw-bold text-custom-foreground">Menos de $1500</p>
+                        <p>Descubre productos</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="seccion-Productos">
+                        <img src="https://placehold.co/100x100" alt="compra-protegida" class="mb-2"/>
+                        <p class="fw-bold text-custom-foreground">Compra protegida</p>
+                        <p>Puedes devolver tu compra</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="seccion-Productos">
+                        <img src="https://placehold.co/100x100" alt="tiendas-oficiales" class="mb-2"/>
+                        <p class="fw-bold text-custom-foreground">Tiendas oficiales</p>
+                        <p>Encuentra tus marcas favoritas</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -10,9 +10,7 @@ header {
 footer {
     background-color: #67D8EB;
 }
-section {
-    height: 400px;
-}
+
 #textoPie1 {
     text-align: left;
     margin-left: 30px;
@@ -29,6 +27,18 @@ section {
     width: 120px;
     height: 75px;
 }
-#textoIniRegi {
+#textoRegi {
     font-size: 20px;
+}
+#textoIni{
+    font-size: 20px;
+}
+.header-top-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.header-top-right p {
+    margin-left: 10px; 
+    cursor: pointer; 
 }
