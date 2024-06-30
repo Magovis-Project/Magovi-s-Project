@@ -1,47 +1,38 @@
-header {
-    background-color: #67D8EB;
-    transition: height 0.3s ease;
-    height: 100px;
-}
-footer {
-    background-color: #67D8EB;
-    width: 100%;
-    height: 50px; 
-    position: absolute;
-    align-self:baseline;
-}
-section{
-    height: 300px;
-}
-body{
-    background-color: #FFFFFF;
-    margin:0;
-    padding:0;
-}
-#textoPie1{
- text-align: left;
- margin-left: 30px;
- 
-}
-.responsiveElement{
-    position: absolute;
-    transition: top 0.5s, left 0.5s;
-}
-
-#imagenLogo{
-    position: absolute;
-    width: 120px;
-    height: 75px;
-    top: 25px;
-    left: 25px;
-}
-#registro{
-    position: absolute;
-    font-size: 20px;
-    border-radius: 15px;
-    background-color: #67D8EB;
-    text-align: justify;
-    width: 400px;
-    height: 300px;
+:root {
+    --background: #1766a7; /* Fondo general */
+    --primary: #3465ea; /* Botones y áreas destacadas */
+    --primary-dark: #196ec2; /* Hover de los botones */
+    --text-primary: black; /* Color del texto */
+    --secondary: #85a0d0; /* Color de fondo secundario */
+   }
+   body {
+    background-color: #6e85ab;
+    font-family: Arial, sans-serif;
     padding: 15px;
+}
+header {
+    background-color: var(--background);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+.enlaces{
+    color: black;
+    text-decoration: none;
+}
+.enlaces :hover{
+    color: black;
+    text-decoration: underline;
+}
+#MyDrops{
+    font-size: 40px;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+#logo{
+    width: 100px;
+    height: 100px;
 }
