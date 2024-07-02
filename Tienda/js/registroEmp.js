@@ -6,6 +6,7 @@ function tomarDatos(){
     let correoEmp = $("#correoEmp").val();
     let contraEmp = Number($("#contraEmp").val());
     let contraVerify = Number($("#contra2").val());
+    let rut = Number($("#rut").val());
     let id;
     let check;
     
