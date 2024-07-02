@@ -1,37 +1,248 @@
-header {
-    background-color: #67D8EB;
-    width: 100%;
-    height: 100px; 
-}
-footer {
-    background-color: #67D8EB;
-    width: 100%;
-    height: 50px; 
-    position: absolute;
-    align-self:baseline;
-}
-section{
-    height: 400px;
-}
-body{
-    background-color: #FFFFFF;
-    margin:0;
-    padding:0;
-}
-#textoPie1{
- text-align: left;
- margin-left: 30px;
- 
-}
-.responsiveElement{
-    position: absolute;
-    transition: top 0.5s, left 0.5s;
+:root {
+    --background: #1766a7; /* Fondo general */
+    --primary: #3465ea; /* Botones y áreas destacadas */
+    --primary-dark: #196ec2; /* Hover de los botones */
+    --text-primary: black; /* Color del texto */
+    --secondary: #85a0d0; /* Color de fondo secundario */
+    --btn-text:rgb(255, 255, 255); /* Color del texto en los botones */
+    --nav-background: #85a0d0; /* Fondo de la barra de navegación */
+    --nav-text: #ffffff; /* Color del texto en la barra de navegación */
 }
 
-#imagenLogo{
-    position: absolute;
-    width: 120px;
-    height: 75px;
-    top: 25px;
-    left: 25px;
+/* Estilos para el cuerpo */
+body {
+    background-color: var(--background);
+    font-family: Arial, sans-serif;
+}
+#logo{
+    width: 100px;
+    height: 100px;
+}
+/* Estilos personalizados para botones */
+.btn-custom {
+    background-color: var(--primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    height: 30px;
+    width:120px;
+}
+
+#btn-Productos {
+    background-color: var(--primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    height: 30px;
+    width:160px;
+}
+
+#titOferta{
+    font-size: 35px;
+}
+
+#textOferta{
+    font-size: 25px;
+}
+
+#bajoHeader{
+    background-color: #145b94;
+    border-radius: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    text-align: right;
+    
+}
+
+#MyDrops{
+    font-size: 40px;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#imagenCarrito {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-dark);
+}
+
+#btn-Productos:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Estilos personalizados para la barra de navegación */
+.nav-custom {
+    background-color: var(--nav-background);
+    padding: 16px 0;
+}
+
+.nav-link-custom {
+    color: var(--nav-text);
+    margin-right: 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-link-custom:hover {
+    text-decoration: underline;
+
+}
+
+/* Estilos personalizados para las secciones */
+
+.seccion-principal {
+    background-color: var(--secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.tituloGeneral{
+font-size:30px;
+color: black;
+
+}
+
+.textoVacio{
+    font-size: 20px;
+    color:black;
+    
+}
+
+.seccion-Ofertas{
+    background-color: #fff;
+    padding: 16px;
+    padding-left: 30px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 16px;
+    display: flex;
+    gap:50px;
+}
+
+.imagenesTendencias{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+}
+
+.seccion-Tendencias{
+    color: #fff;
+    padding: 30px;
+    padding-left: 60px;
+    text-align: center;
+    margin-bottom: 16px;
+    display: flex;
+    gap:30px;
+}
+
+.seccion-Anuncios{
+    color: black;
+    padding: 30px;
+    margin-bottom: 16px;
+    display: flex;
+    gap:20px;
+}
+
+.anuncios{
+    padding: 20px;
+background-color: white;
+font-size: 25px;
+height: 400px;
+width: 300px;
+border-radius: 15px;
+text-align: center;
+font-weight:bolder;
+}
+
+.imagenesAnuncios{
+    border-radius: 5px;
+    height: 250px;
+    width: 200px;
+}
+
+#imagenOferta{
+    width: 400px;
+    height: 300px;
+}
+
+#divDistinto{
+    padding:16px;
+    display: flex;
+    gap:4px;
+    align-items: center;
+    width:50%;
+}
+
+.imgInfo{
+width: 60px; 
+height: 48px;
+}
+
+.lineaVert{
+    padding:16px;
+    border-left: thin solid #000;
+    height:100%;
+    width:50%;
+    display: flex;
+    gap:4px;
+    align-items: center;
+}
+
+.seccion-Info{
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+}
+
+.seccion-Vacio{
+    display: flex;
+    background-color: #fff;
+    padding: 16px;
+    padding-left: 30px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 16px;
+    gap :70px;
+}
+
+/* Estilos para el header */
+header {
+    background-color: var(--background);
+    padding: 16px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.barraBusquedaBloq {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#barraBusqueda{
+    width: 300px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+#accionesUsuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
 }
