@@ -225,3 +225,21 @@ header {
     color: white;
 }
 
+footer{
+    width: 100%;   
+    padding: 16px;
+    padding-top: 30px;
+    background-color: white; 
+    }
+
+#sectionDistinto{
+    padding:16px;
+    height:100%;
+}
+
+.lineaVertFoot{
+    padding:16px;
+    border-left: thin solid #000;
+    height:100%;
+}
+

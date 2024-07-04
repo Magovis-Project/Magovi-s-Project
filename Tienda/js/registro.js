@@ -42,27 +42,27 @@ function comprobar(ci,numero,correo,contra,contraVerify,check){
     }else{
         contrabn==false; 
     }
-    if (contrabn==true && numbn==true && cibn==true){
+    if (contrabn && numbn && cibn){
         return check==true;
-    }else if(contrabn==true && numbn==true && cibn==false){
+    }else if(contrabn && numbn && !cibn){
         return check==false;
         $("#mensajeError").html("La cedula no es valida");
-    } else if(contrabn==true && numbn==false && cibn==true){
+    } else if(contrabn && !numbn && cibn){
         return check==false;
         $("#mensajeError").html("El numero de telefono no es valido");
-    } else if(contrabn==false && numbn==true && cibn==true){
+    } else if(!contrabn && numbn && cibn){
         return check==false;
         $("#mensajeError").html("Las contraseñas deben coincidir");
-    } else if(contrabn==true && numbn==false && cibn==false){
+    } else if(contrabn==true && !numbn && !cibn){
         return check==false;
         $("#mensajeError").html("El numero de telefono no es valido"<br>"La cedula no es valida");
-    } else if(contrabn==false && numbn==false && cibn==true){
+    } else if(!contrabn && !numbn && cibn){
         return check==false;
         $("#mensajeError").html("El numero de telefono no es valido"<br>"Ambas contraseñas deben coincidir");
-    } else if(contrabn==false && numbn==true && cibn==false){
+    } else if(!contrabn && numbn && !cibn){
         return check==false;
         $("#mensajeError").html("La cedula no es valida"<br>"Ambas contraseñas deben coincidir");
-    } else if(contrabn==false && numbn==false && cibn==false){
+    } else if(!contrabn && !numbn && !cibn){
         return check==false;
         $("#mensajeError").html("El numero de telefono no es valido"<br>"Ambas contraseñas deben coincidir"<br>"La cedula no es valida");
     }
