@@ -25,10 +25,12 @@ body {
     color: var(--btn-text);
     border: none;
     border-radius: 8px;
-    padding: 8px 16px;
+    padding: 8px;
     transition: background-color 0.3s;
     height: 30px;
     width:120px;
+    text-align: center;
+    font-size: small;
 }
 
 #titOferta{
@@ -117,11 +119,11 @@ text-align: center;
 }
 
 .seccion-Tendencias{
+    background-color: var(--secondary);
+    border-radius: 16px;
     color: #fff;
     padding: 30px;
-    padding-left: 60px;
     text-align: center;
-    margin-bottom: 16px;
     display: flex;
     gap:30px;
 }

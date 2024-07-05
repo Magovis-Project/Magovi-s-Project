@@ -4,141 +4,135 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyDrops</title>
-    <script src="..//Estilos/css/bootstrap.css"></script>
-    <link href="../Estilos/inicio.css" rel="stylesheet">
+    <!-- Bootstrap CSS para la versión 4.5.3 -->
+    <link href="../Estilos/css/bootstrap.css" rel="stylesheet">
+     <link href="../Estilos/inicio.css" rel="stylesheet">
 </head>
 <body>
-    <section class="container py-4">
-        <header class="d-flex justify-content-between align-items-center mb-3">
-
+    <section style="padding: 20px;">
+        <header>
             <article class="d-flex align-items-center">
-                <img src="..//assets/logo.png" id="logo" alt="MyDropsLogo" class="me-2"/>
-                <span class="fw-bold"></span>
+                <img src="..//assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-2"/>
+                <span class="font-weight-bold"></span>
             </article>
 
-            <p id="MyDrops" >MyDrops</p>
-
-            <div class="barraBusquedaBloq">
-                <input type="text" placeholder=" Buscar productos, marcas" id="barraBusqueda" class="form-control"/>
+            <p id="MyDrops">MyDrops</p>
+            <div class="d-flex align-items-center">
+                <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2"/>
                 <button class="btn btn-custom">Buscar</button>
             </div>
-
-            <article id="accionesUsuario">
-                <a href="../Vistas/division.html"><button class="btn btn-custom">Crea tu cuenta</button> </a>
-                <button id="btnInicio" class="btn btn-custom" data-bs-toggle="modal" data-toggle="modal" data-bs-target="#modalInicio">Ingresa</button>
-                <button class="btn btn-custom">Mis compras</button>
+            <article id="accionesUsuario" class="d-flex align-items-center">
+                <a href="../Vistas/division.html">
+                    <button class="btn btn-custom mr-2">Crea tu cuenta</button>
+                </a>
+                <button id="btnInicio" class="btn btn-custom mr-2" data-toggle="modal" data-target="#modalInicio">Ingresa</button>
+                <button class="btn btn-custom mr-2">Mis compras</button>
                 <a href="carrito.html">
                     <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito">
                 </a>
             </article>
-
         </header>
-
-        <nav id="bajoHeader" class="navbar nav-custom mb-3">
-            <section  class="container-fluid">
+        <nav id="bajoHeader" >
+            <div class="container-fluid">
                 <a class="nav-link-custom" href="#">Categorías</a>
                 <a class="nav-link-custom" href="#">Ofertas</a>
                 <a class="nav-link-custom" href="#">Historial</a>
-                <a class="nav-link-custom" href="#">Moda</a>    
+                <a class="nav-link-custom" href="#">Moda</a>
                 <a class="nav-link-custom" href="#">Ayuda</a>
-            </section>
+            </div>
         </nav>
 
         <main class="py-4">
             <section class="seccion-principal mb-4">
                 <p class="tituloGeneral">Las mejores Ofertas de invierno</p>
-                <div class="seccion-Ofertas d-inline-block mt-4">
+                <div class="seccion-Ofertas d-flex align-items-center mt-4">
                     <div>
-                        <br><br><br>
-                    <p id="titOferta" class="h5 fw-bold">Ahorros unicos en productos de Electronica</p>
-                    <p id="textOferta" class="h5 fw-bold">Hasta 40% de descuento</p>
+                        <p id="titOferta" class="h5 font-weight-bold">Ahorros únicos en productos de Electrónica</p>
+                        <p id="textOferta" class="h5 font-weight-bold">Hasta 40% de descuento</p>
                     </div>
-                    <img src="../assets/oferta electronica.png" alt="Electronica" class="img-fluid" id="imagenOferta">
-
+                    <img src="../assets/oferta electronica.png" alt="Electrónica" class="img-fluid" id="imagenOferta">
                 </div>
-                <p class="mt-4 text-custom-foreground">Ofertas todos los dias, hasta 70% de descuento en productos seleccionados</p>
+                <p class="mt-4 text-custom-foreground">Ofertas todos los días, hasta 70% de descuento en productos seleccionados</p>
             </section>
 
-            <section class="seccion-Info mb-4">
+            <section class="seccion-Info" style="margin-bottom: 20px;">
                 <div id="divDistinto">
-                    <img src="../assets/logo.png" class="imgInfo"/>
-                    <p>Que es MyDrops. Facil de comprar y pedir</p>
-                    
+                    <img src="../assets/logo.png" class="imgInfo mr-2"/>
+                    <p>Qué es MyDrops. Fácil de comprar y pedir</p>
                 </div>
                 <div class="lineaVert">
-                    <img src="../assets/camioncito.png" class="imgInfo"/>
-                    <p>Informacion de tus envios. Dejanos todo a nosotros.</p>
+                    <img src="../assets/camioncito.png" class="imgInfo mr-2"/>
+                    <p>Información de tus envíos. Déjanos todo a nosotros.</p>
                 </div>
                 <div class="lineaVert">
-                    <img src="../assets/tarjetas.jpg" class="imgInfo"/>
-                    <p>Paga con credito o debito.<br>Conoce los beneficios</p>
+                    <img src="../assets/tarjetas.jpg" class="imgInfo mr-2"/>
+                    <p>Paga con crédito o débito. <br>Conoce los beneficios</p>
                 </div>
                 <div class="lineaVert">
-                    <img src="../assets/usuarioPre.jpg" class="imgInfo"/>
-                    <p>Se un usuario premium de MyDrops </p>
+                    <img src="../assets/usuarioPre.jpg" class="imgInfo mr-2"/>
+                    <p>Sé un usuario premium de MyDrops</p>
                 </div>
-                </section>
 
-            <section class="row g-4">
-                <div class="col-md-4 text-center">
+            </section>
+            <section>
+                <div style="padding-top: 20px;">
                     <p class="tituloGeneral">Tendencias</p>
                     <div class="seccion-Tendencias">
-                    <article>
-                        <img src="../assets/cartera.jpg"  class="imagenesTendencias"/>
-                        <p>Bolsos de mano</p>
-                    </article>
-                    <article>
-                        <img src="../assets/juguete.jpg"  class="imagenesTendencias"/>
-                        <p>Juguetes</p>
-                    </article>
-                    <article>
-                        <img src="../assets/perfume.jpeg"  class="imagenesTendencias"/>
-                        <p>Perfumes</p>
-                    </article>
-                    <article>
-                        <img src="../assets/zapatos.jpeg"  class="imagenesTendencias"/>
-                        <p>Zapatos</p>
-                    </article>
-                    <article>
-                        <img src="../assets/piezas.jpg"  class="imagenesTendencias"/>
-                        <p>Piezas y recambios</p>
-                    </article>
+                        <article>
+                            <img src="../assets/cartera.jpg" class="imagenesTendencias"/>
+                            <p>Bolsos de mano</p>
+                        </article>
+                        <article>
+                            <img src="../assets/juguete.jpg" class="imagenesTendencias"/>
+                            <p>Juguetes</p>
+                        </article>
+                        <article>
+                            <img src="../assets/perfume.jpeg" class="imagenesTendencias"/>
+                            <p>Perfumes</p>
+                        </article>
+                        <article>
+                            <img src="../assets/zapatos.jpeg" class="imagenesTendencias"/>
+                            <p>Zapatos</p>
+                        </article>
+                        <article>
+                            <img src="../assets/piezas.jpg" class="imagenesTendencias"/>
+                            <p>Piezas y recambios</p>
+                        </article>
                     </div>
                 </div>
-                <div class="col-md-4 text-center">
+
+                <div>
                     <div class="seccion-Anuncios">
                         <article class="anuncios">
                             <p>Ponte en forma en casa</p>
                             <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
                         </article>
-
                         <article class="anuncios">
                             <p>Ideas para tu cocina</p>
                             <img src="../assets/cocina.jpg" class="imagenesAnuncios">
                         </article>
-
                         <article class="anuncios">
                             <p>Hora de decorar ese living</p>
                             <img src="../assets/muebles.jpg" class="imagenesAnuncios">
                         </article>
-
                         <article class="anuncios">
                             <p>Esenciales para las vacaciones</p>
                             <img src="../assets/equipamiento.jpg" class="imagenesAnuncios">
                         </article>
                     </div>
                 </div>
+
                 <div class="col-md-4 text-center">
                     <div class="seccion-Productos">
                         <img src="https://placehold.co/100x100" alt="medios-de-pago" class="mb-2"/>
-                        <p class="fw-bold text-custom-foreground">Medios de pago</p>
+                        <p class="font-weight-bold text-custom-foreground">Medios de pago</p>
                         <p>Tarjetas, efectivo y más</p>
                     </div>
+
                 </div>
             </section>
         </main>
     </section>
-    
     <footer>
         
         <section class="row gy-4" style="gap: 100px; align-items:baseline; margin-left: 25px; margin-bottom: 25px; margin-right: 25px;">
@@ -193,8 +187,10 @@
         </section>
 
 </footer>
-      <script src="..//js/bootstrap.bundle.js"></script>
-      <script src="../js/jquery-3.7.1.min.js"></script>
-      <script src="../js/inicio.js"></script>
+
+    <!-- Scripts -->
+    <script src="../js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="../js/inicio.js"></script>
 </body>
 </html>
