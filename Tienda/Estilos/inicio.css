@@ -89,10 +89,12 @@ body {
 
 .seccion-principal {
     background-color: var(--secondary);
-    padding: 2rem;
     border-radius: 8px;
     text-align: center;
     margin-bottom: 16px;
+    margin-top: 16px;
+    padding-top:25px;
+    padding-bottom:15px;
 }
 
 .tituloGeneral{
@@ -102,14 +104,15 @@ text-align: center;
 }
 
 .seccion-Ofertas{
-    background-color: #fff;
-    padding: 16px;
-    padding-left: 30px;
-    border-radius: 8px;
+    background-color: #ffffff;
+
+    padding-left: 120px;
+    padding-right: 100px;
     text-align: left;
     margin-bottom: 16px;
     display: flex;
     gap:50px;
+    align-items: center;
 }
 
 .imagenesTendencias{
@@ -244,4 +247,6 @@ footer{
     border-left: thin solid #000;
     height:100%;
 }
-
+.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators{
+    filter: invert(108%);
+  }
