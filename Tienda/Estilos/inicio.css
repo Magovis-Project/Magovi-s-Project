@@ -1,10 +1,10 @@
 /* Variables de color personalizadas */
 :root {
-    --background: #1766a7; /* Fondo general */
+    --background: #14578f; /* Fondo general */
     --primary: #3465ea; /* Botones y áreas destacadas */
     --primary-dark: #196ec2; /* Hover de los botones */
     --text-primary: black; /* Color del texto */
-    --secondary: #85a0d0; /* Color de fondo secundario */
+    --secondary: #475770; /* Color de fondo secundario */
     --btn-text:rgb(255, 255, 255); /* Color del texto en los botones */
     --nav-background: #85a0d0; /* Fondo de la barra de navegación */
     --nav-text: #ffffff; /* Color del texto en la barra de navegación */
@@ -42,7 +42,7 @@ body {
 }
 
 #bajoHeader{
-    background-color: #145b94;
+    background-color: #0f4068;
     border-radius: 100px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -122,6 +122,7 @@ text-align: center;
 }
 
 .seccion-Tendencias{
+    height: 375px;
     background-color: var(--secondary);
     border-radius: 16px;
     color: #fff;
@@ -250,3 +251,51 @@ footer{
 .carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators{
     filter: invert(108%);
   }
+  .container {
+    width: 100%;
+    overflow-x: hidden; /* Only hide overflow on the x-axis if necessary */
+    overflow-y: visible; /* Ensure overflow is visible on the y-axis */
+}
+
+.horizontal-scroll {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.horizontal-scroll-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+.horizontal-scroll-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar styles */
+.horizontal-scroll::-webkit-scrollbar {
+    height: 12px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barra de Scroll Lateral</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .horizontal-scroll {
+            white-space: nowrap;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+        .horizontal-scroll-item {
+            display: inline-block;
+            width: 200px; /* Ancho fijo de cada ítem para demostrar el scroll */
+            height: 100px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 12px;
+        }
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 6px;
+            border: 3px solid #f1f1f1;
+        }
+        .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container mt-5">
+    <h2>Barra de Scroll Lateral</h2>
+    <div class="horizontal-scroll overflow-auto">
+        <div class="horizontal-scroll-item">Item 1</div>
+        <div class="horizontal-scroll-item">Item 2</div>
+        <div class="horizontal-scroll-item">Item 3</div>
+        <div class="horizontal-scroll-item">Item 4</div>
+        <div class="horizontal-scroll-item">Item 5</div>
+        <div class="horizontal-scroll-item">Item 6</div>
+        <div class="horizontal-scroll-item">Item 7</div>
+        <div class="horizontal-scroll-item">Item 8</div>
+        <div class="horizontal-scroll-item">Item 9</div>
+        <div class="horizontal-scroll-item">Item 10</div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
