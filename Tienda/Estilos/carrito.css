@@ -1,9 +1,10 @@
+/* Variables de color personalizadas */
 :root {
-    --background: #1766a7; /* Fondo general */
+    --background: #14578f; /* Fondo general */
     --primary: #3465ea; /* Botones y áreas destacadas */
     --primary-dark: #196ec2; /* Hover de los botones */
     --text-primary: black; /* Color del texto */
-    --secondary: #85a0d0; /* Color de fondo secundario */
+    --secondary: #475770; /* Color de fondo secundario */
     --btn-text:rgb(255, 255, 255); /* Color del texto en los botones */
     --nav-background: #85a0d0; /* Fondo de la barra de navegación */
     --nav-text: #ffffff; /* Color del texto en la barra de navegación */

@@ -1,10 +1,11 @@
+/* Variables de color personalizadas */
 :root {
-    --background: #1766a7; /* Fondo general */
+    --background: #14578f; /* Fondo general */
     --primary: #3465ea; /* Botones y áreas destacadas */
     --primary-dark: #196ec2; /* Hover de los botones */
     --text-primary: black; /* Color del texto */
-    --secondary: #85a0d0; /* Color de fondo secundario */
-   }
+    --secondary: #475770; /* Color de fondo secundario */
+}
    body {
     background-color: #6e85ab;
     font-family: Arial, sans-serif;
