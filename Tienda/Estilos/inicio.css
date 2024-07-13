@@ -53,7 +53,7 @@ body {
 }
 
 #MyDrops{
-    font-size: 40px;
+    font-size: 35px;
     color: white;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
@@ -132,12 +132,10 @@ text-align: center;
     gap:30px;
 }
 
-.seccion-Anuncios{
-    
+.seccion-Anuncios {
     color: black;
     padding: 10px;
     margin-bottom: 16px;
-    display: flex;
 }
 
 #anuncios{
@@ -148,8 +146,6 @@ text-align: center;
     padding: 20px;
 background-color: white;
 font-size: 25px;
-height: 375px;
-width: 255px;
 border-radius: 15px;
 text-align: center;
 font-weight:bolder;
@@ -210,7 +206,6 @@ height: 48px;
 header {
     background-color: var(--background);
     padding: 16px;
-    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -240,7 +235,8 @@ footer{
     width: 100%;   
     padding: 16px;
     padding-top: 30px;
-    background-color: white; 
+    background-color: white;
+    align-items:baseline;
     }
 
 #sectionDistinto{
@@ -259,22 +255,21 @@ footer{
   
 
   .controles-Anuncios .carousel-control-prev {
-    left: -15px; /* Adjust the left position */
+    left: -50px; /* Ajusta el valor según sea necesario */
     background-color: #ffffff;
-    width: 3%;
+    width: 40px; /* Aumenta el ancho */
     border-radius: 15px;
 }
 
 .controles-Anuncios .carousel-control-next {
-    right: -35px; /* Adjust the right position */
+    right: -50px; /* Ajusta el valor según sea necesario */
     background-color: #ffffff;
-    width: 3%;
+    width: 40px; /* Aumenta el ancho */
     border-radius: 15px;
 }
 
   .container {
     width: 100%;
-    overflow-x: hidden; /* Only hide overflow on the x-axis if necessary */
     overflow-y: visible; /* Ensure overflow is visible on the y-axis */
 }
 

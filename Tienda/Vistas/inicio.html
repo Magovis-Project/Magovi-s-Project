@@ -11,30 +11,34 @@
      <link href="../Estilos/inicio.css" rel="stylesheet">
 </head>
 <body>
-    <section style="padding: 20px;">
-        <header>
-            <article class="d-flex align-items-center">
-                <img src="..//assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-2"/>
-                <span class="font-weight-bold"></span>
-            </article>
-
-            <p id="MyDrops">MyDrops</p>
-            <div class="d-flex align-items-center">
-                <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2"/>
-                <button class="btn btn-custom">Buscar</button>
-            </div>
-            <article id="accionesUsuario" class="d-flex align-items-center">
-                <a href="../Vistas/division.html">
-                    <button class="btn btn-custom mr-2">Crea tu cuenta</button>
-                </a>
-                <button id="btnInicio" class="btn btn-custom mr-2" data-toggle="modal" data-target="#modalInicio">Ingresa</button>
-                <button class="btn btn-custom mr-2">Mis compras</button>
-                <a href="carrito.html">
-                    <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito">
-                </a>
-            </article>
-        </header>
-        <nav id="bajoHeader" >
+    <section class="container">
+        <div class="row">
+            <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
+                <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
+                    <img src="../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
+                    <span class="font-weight-bold" id="MyDrops">MyDrops</span>
+                </article>
+    
+                <div class="d-flex align-items-center mb-3 mb-md-0">
+                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
+                    <button class="btn btn-custom">Buscar</button>
+                </div>
+    
+                <article id="accionesUsuario" class="d-flex align-items-center">
+                    <a href="../Vistas/division.html" class="mr-2">
+                        <button class="btn btn-custom">Crea tu cuenta</button>
+                    </a>
+                    <button id="btnInicio" class="btn btn-custom mr-2" data-toggle="modal" data-target="#modalInicio">Ingresa</button>
+                    <button class="btn btn-custom mr-2">Mis compras</button>
+                    <a href="carrito.html">
+                        <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
+                    </a>
+                </article>
+            </header>
+        </div>
+    </section>
+    
+        <nav id="bajoHeader" class="col-12">
             <div class="container-fluid">
                 <a class="nav-link-custom" href="#">Categorías</a>
                 <a class="nav-link-custom" href="#">Ofertas</a>
@@ -43,7 +47,9 @@
                 <a class="nav-link-custom" href="#">Ayuda</a>
             </div>
         </nav>
+        </div>
     </section>
+
         <main class="py-4">
             <section class="seccion-principal mb-4">
                 <p class="tituloGeneral" style="font-weight: bold;" >Las mejores Ofertas del invierno</p>
@@ -93,26 +99,28 @@
                 </div>
                 <p class="mt-4 text-custom-foreground" style="color: white;">Ofertas todos los días, hasta 70% de descuento en productos seleccionados</p>
             </section>
+            
             <section style="padding: 20px;">
-            <section class="seccion-Info" style="margin-bottom: 20px;">
-                <div id="divDistinto">
-                    <img src="../assets/logo.png" class="imgInfo mr-2"/>
-                    <p>Qué es MyDrops. Fácil de comprar y pedir</p>
-                </div>
-                <div class="lineaVert">
-                    <img src="../assets/camioncito.png" class="imgInfo mr-2"/>
-                    <p>Información de tus envíos. Déjanos todo a nosotros.</p>
-                </div>
-                <div class="lineaVert">
-                    <img src="../assets/tarjetas.jpg" class="imgInfo mr-2"/>
-                    <p>Paga con crédito o débito. <br>Conoce los beneficios</p>
-                </div>
-                <div class="lineaVert">
-                    <img src="../assets/usuarioPre.jpg" class="imgInfo mr-2"/>
-                    <p>Sé un usuario premium de MyDrops</p>
-                </div>
-
-            </section>
+                <section class="seccion-Info" style="margin-bottom: 20px;">
+                    <div class="row">
+                        <div class="col-3 mb-3" id="divDistinto">
+                            <img src="../assets/logo.png" class="imgInfo mr-2"/>
+                            <p>Qué es MyDrops. Fácil de comprar y pedir</p>
+                        </div>
+                        <div class="col-3 mb-3 lineaVert">
+                            <img src="../assets/camioncito.png" class="imgInfo mr-2"/>
+                            <p>Información de tus envíos. Déjanos todo a nosotros.</p>
+                        </div>
+                        <div class="col-3 mb-3 lineaVert">
+                            <img src="../assets/tarjetas.jpg" class="imgInfo mr-2"/>
+                            <p>Paga con crédito o débito. <br>Conoce los beneficios</p>
+                        </div>
+                        <div class="col-3 mb-3 lineaVert">
+                            <img src="../assets/usuarioPre.jpg" class="imgInfo mr-2"/>
+                            <p>Sé un usuario premium de MyDrops</p>
+                        </div>
+                    </div>
+                </section>
             
 
             
@@ -158,33 +166,65 @@
                 
                 </div>
 
-                <div>
+                <div class="container">
                     <div class="seccion-Anuncios">
                         <div id="carouselExampleControls" class="carousel slide controles-Anuncios" data-ride="carousel">
                             <div class="carousel-inner">
-                                <div class="carousel-item active" style="display: flex; gap: 20px; margin-left: 3%;">
-                                    <article class="anunciosCard">
-                                        <p>Ponte en forma en casa</p>
-                                        <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
-                                    </article>
-                                    <article class="anunciosCard">
-                                        <p>Ideas para tu cocina</p>
-                                        <img src="../assets/cocina.jpg" class="imagenesAnuncios">
-                                    </article>
-                                    <article class="anunciosCard">
-                                        <p>Hora de decorar ese living</p>
-                                        <img src="../assets/muebles.jpg" class="imagenesAnuncios">
-                                    </article>
-                                    <article class="anunciosCard">
-                                        <p>Esenciales para las vacaciones</p>
-                                        <img src="../assets/equipamiento.jpg" class="imagenesAnuncios">
-                                    </article>
+                                <div class="carousel-item active">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Ponte en forma en casa</p>
+                                                <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Ideas para tu cocina</p>
+                                                <img src="../assets/cocina.jpg" class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Hora de decorar ese living</p>
+                                                <img src="../assets/muebles.jpg" class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Esenciales para las vacaciones</p>
+                                                <img src="../assets/equipamiento.jpg" class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="carousel-item" style="display: flex; gap: 20px;">
-                                    <img src="..." class="d-block w-100" alt="...">
-                                </div>
-                                <div class="carousel-item" style="display: flex; gap: 20px;">
-                                    <img src="..." class="d-block w-100" alt="...">
+                                <div class="carousel-item">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Artículo 1</p>
+                                                <img src="..." class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Artículo 2</p>
+                                                <img src="..." class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Artículo 3</p>
+                                                <img src="..." class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-12">
+                                            <article class="anunciosCard">
+                                                <p>Artículo 4</p>
+                                                <img src="..." class="imagenesAnuncios">
+                                            </article>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -210,64 +250,70 @@
             </section>
         </main>
     </section>
-    <footer>
-        
-        <section class="row gy-4" style="gap: 100px; align-items:baseline; margin-left: 25px; margin-bottom: 25px; margin-right: 25px;">
-            <section class="sectionDistinto" class="col-md-4">
+    <footer class="col-12 text-center p-3 m-0">
+        <div style="gap: 25px; margin-top: 15px;" class="row justify-content-center">
+            <section class="col-md-3 col-sm-12 mb-3">
                 <h3>Redes Sociales</h3>
                 <br>
-                <img src="../assets/x.png" style="height: 25px; width: 25px;"> <p>X.</p>
-                <img src="../assets/ig.png" style="height: 25px; width: 25px;"> <p>Instagram.</p>
-                <img src="../assets/facebook.png" style="height: 25px; width: 25px;"> <p>Facebook.</p>
-                
+                <div class="d-flex align-items-center mb-2">
+                    <img src="../assets/x.png" style="height: 25px; width: 25px;" alt="X">
+                    <p class="mb-0 ml-2">X.</p>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <img src="../assets/ig.png" style="height: 25px; width: 25px;" alt="Instagram">
+                    <p class="mb-0 ml-2">Instagram.</p>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <img src="../assets/facebook.png" style="height: 25px; width: 25px;" alt="Facebook">
+                    <p class="mb-0 ml-2">Facebook.</p>
+                </div>
             </section>
-
-          <section class="lineaVertFoot" class="col-md-4">
-            <h3>Todo en un solo lugar</h3>
-            <br>
-            <ul class="list-unstyled">
-              <li class="d-flex align-items-center mb-2">
-                Envío Asegurado
-                <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-              </li>
-              <li class="d-flex align-items-center mb-2">
-                Garantía de Entrega
-                <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-              </li>
-              <li class="d-flex align-items-center mb-2">
-                Productos Originales
-                <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-            </li>
-              <li class="d-flex align-items-center mb-2">
-                El mejor Precio
-                <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-            </li>
-              <li class="d-flex align-items-center mb-2">
-                Compra fácil, rápido y seguro
-                <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-              </li>
-            </ul>
-        </section>
-
-          <section class="col-md-4">
-            <div class="lineaVertFoot">
+    
+            <section class="col-md-3 col-sm-12 mb-3">
+                <h3>Todo en un solo lugar</h3>
+                <br>
+                <ul class="list-unstyled">
+                    <li class="d-flex align-items-center mb-2">
+                        Envío Asegurado
+                        <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        Garantía de Entrega
+                        <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        Productos Originales
+                        <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        El mejor Precio
+                        <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+                    </li>
+                    <li class="d-flex align-items-center mb-2">
+                        Compra fácil, rápido y seguro
+                        <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+                    </li>
+                </ul>
+            </section>
+    
+            <section class="col-md-3 col-sm-12 mb-3">
                 <h3>Contacto:</h3>
                 <br>
-              <img src="https://openui.fly.dev/openui/24x24.svg?text=📞" alt="phone" class="me-2" aria-hidden="true">
-              <span>Atención telefónica: (+598) 91 923 568</span>
-              <br><br>
-              <img src="https://openui.fly.dev/openui/24x24.svg?text=⏰" alt="clock" class="me-2" aria-hidden="true">
-              <span>De Lunes a Sábados en el horario de 09:00hs a 18:00hs y Domingos de 10:00hs a 16:00hs</span>
-            </div>
-
-              </section>
-        </section>
-
-</footer>
+                <div class="d-flex align-items-center mb-2">
+                    <img src="https://openui.fly.dev/openui/24x24.svg?text=📞" alt="phone" class="mr-2" aria-hidden="true">
+                    <span>Atención telefónica: (+598) 91 923 568</span>
+                </div>
+                <div class="d-flex align-items-center mb-2">
+                    <img src="https://openui.fly.dev/openui/24x24.svg?text=⏰" alt="clock" class="mr-2" aria-hidden="true">
+                    <span>De Lunes a Sábados en el horario de 09:00hs a 18:00hs y Domingos de 10:00hs a 16:00hs</span>
+                </div>
+            </section>
+        </div>
+    </footer>
 
     <!-- Scripts -->
     <script src="../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="../js/jsboot/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
     <script src="../js/inicio.js"></script>
 </body>
 </html>
