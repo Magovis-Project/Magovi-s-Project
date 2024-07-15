@@ -308,6 +308,7 @@ footer{
 }
 
 .horizontal-scroll::-webkit-scrollbar-thumb {
+
     background: #888;
     border-radius: 6px;
 }
@@ -328,4 +329,12 @@ footer{
 .cuadradoBlanco:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+a{
+    color: #000;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: none;
 }
