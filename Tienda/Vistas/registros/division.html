@@ -8,15 +8,33 @@
     <link href="../../Estilos/registro.css" rel="stylesheet">
 </head>
 <body>
-    <div class="min-vh-100 d-flex flex-column">
-        <header class="d-flex justify-content-between align-items-center mb-3">
-            <article class="d-flex align-items-center">
-               <a href="../../Vistas/inicio.html"> <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="me-2"/> </a>
-                <span class="fw-bold"></span>
+  <section class="container">
+    <div class="row">
+        <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
+            <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
+                <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
+                <span class="font-weight-bold" id="MyDrops">MyDrops</span>
             </article>
 
-            <p id="MyDrops" >MyDrops</p>
+            <div class="d-flex align-items-center mb-3 mb-md-0">
+                <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
+                <button class="btn btn-custom">Buscar</button>
+            </div>
+
+            <article id="accionesUsuario" class="d-flex align-items-center">
+                <a href="../registros/division.html" class="mr-2">
+                    <button class="btn btn-custom">Crea tu cuenta</button>
+                </a>
+                <a href="../inicios/divisionIni.html"><button id="btnInicio" class="btn btn-custom mr-2" >Ingresa</button></a>
+                <button class="btn btn-custom mr-2">Mis compras</button>
+                <a href="../carrito.html">
+                    <img src="../../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
+                </a>
+            </article>
         </header>
+    </div>
+  </section>
+
         <div class="d-flex flex-fill justify-content-center align-items-center p-6">
             <section class="d-flex justify-content-center align-items-center" >
                 <div class="col-12 col-md-8 bg-white p-4 rounded-lg shadow mb-4 d-flex flex-column align-items-center">
@@ -28,62 +46,66 @@
             </section>
                 </div> 
                 
-                <footer style="width: 100%;padding: 16px;padding-top: 30px;background-color: white;">
-        
-                    <section class="row gy-4" style="align-items:baseline; margin-left: 25px; margin-bottom: 25px; margin-right: 25px;">
-                        <section style="padding:16px;height:100%;" class="col-md-4">
-                            <h3>Redes Sociales</h3>
-                            <br>
-                            <img src="../../assets/x.png" style="height: 25px; width: 25px;"> <p>X.</p>
-                            <img src="../../assets/ig.png" style="height: 25px; width: 25px;"> <p>Instagram.</p>
-                            <img src="../../assets/facebook.png" style="height: 25px; width: 25px;"> <p>Facebook.</p>
-                            
-                        </section>
-        
-                      <section style="padding:16px;border-left: thin solid #000;height:100%;" class="col-md-4">
-                        <h3>Todo en un solo lugar</h3>
-                        <br>
-                        <ul class="list-unstyled">
-                          <li class="d-flex align-items-center mb-2">
-                            Envío Asegurado
-                            <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-                          </li>
-                          <li class="d-flex align-items-center mb-2">
-                            Garantía de Entrega
-                            <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-                          </li>
-                          <li class="d-flex align-items-center mb-2">
-                            Productos Originales
-                            <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-                        </li>
-                          <li class="d-flex align-items-center mb-2">
-                            El mejor Precio
-                            <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-                        </li>
-                          <li class="d-flex align-items-center mb-2">
-                            Compra fácil, rápido y seguro
-                            <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="me-2" aria-hidden="true">
-                          </li>
-                        </ul>
-                    </section>
-        
-                      <section class="col-md-4">
-                        <div style="padding:16px;border-left: thin solid #000;height:100%;">
-                            <h3>Contacto:</h3>
-                            <br>
-                          <img src="https://openui.fly.dev/openui/24x24.svg?text=📞" alt="phone" class="me-2" aria-hidden="true">
-                          <span>Atención telefónica: (+598) 91 923 568</span>
-                          <br><br>
-                          <img src="https://openui.fly.dev/openui/24x24.svg?text=⏰" alt="clock" class="me-2" aria-hidden="true">
-                          <span>De Lunes a Sábados en el horario de 09:00hs a 18:00hs y Domingos de 10:00hs a 16:00hs</span>
-                        </div>
-        
-                          </section>
-                    </section>
-        
-            </footer> 
-            
-  </button>
+
+  <footer class="col-12 text-center p-3 m-0">
+      <div style="gap: 25px; margin-top: 15px;" class="row justify-content-center">
+          <section class="col-md-3 col-sm-12 mb-3">
+                <h3>Redes Sociales</h3>
+                    <br>
+                      <div class="d-flex align-items-center mb-2">
+                        <img src="../../assets/x.png" style="height: 25px; width: 25px;" alt="X">
+                        <p class="mb-0 ml-2">X.</p>
+                      </div>
+                      <div class="d-flex align-items-center mb-2">
+                        <img src="../../assets/ig.png" style="height: 25px; width: 25px;" alt="Instagram">
+                        <p class="mb-0 ml-2">Instagram.</p>
+                      </div>
+                      <div class="d-flex align-items-center mb-2">
+                        <img src="../../assets/facebook.png" style="height: 25px; width: 25px;" alt="Facebook">
+                        <p class="mb-0 ml-2">Facebook.</p>
+                      </div>
+          </section>
+              
+          <section class="col-md-3 col-sm-12 mb-3">
+            <h3>Todo en un solo lugar</h3>
+            <br>
+            <ul class="list-unstyled">
+              <li class="d-flex align-items-center mb-2">
+                  Envío Asegurado
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                  Garantía de Entrega
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                  Productos Originales
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                  El mejor Precio
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+              </li>
+              <li class="d-flex align-items-center mb-2">
+                  Compra fácil, rápido y seguro
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=✔" alt="checkmark" class="ml-2" aria-hidden="true">
+              </li>
+            </ul>
+          </section>
+          
+          <section class="col-md-3 col-sm-12 mb-3">
+              <h3>Contacto:</h3>
+              <br>
+              <div class="d-flex align-items-center mb-2">
+                  <img src="https://openui.fly.dev/openui/24x24.svg?text=📞" alt="phone" class="mr-2" aria-hidden="true">
+                   <span>Atención telefónica: (+598) 91 923 568</span>
+               </div>
+               <div class="d-flex align-items-center mb-2">
+                   <img src="https://openui.fly.dev/openui/24x24.svg?text=⏰" alt="clock" class="mr-2" aria-hidden="true">
+                   <span>De Lunes a Sábados en el horario de 09:00hs a 18:00hs y Domingos de 10:00hs a 16:00hs</span>
+               </div>
+          </section>
+   </footer>
     <script src="../../js/jquery-3.5.1.min.js"></script>
     <script src="../../js/jsboot/bootstrap.bundle.min.js"></script>
 </body>

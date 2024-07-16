@@ -5,44 +5,243 @@
     --primary-dark: #196ec2; /* Hover de los botones */
     --text-primary: black; /* Color del texto */
     --secondary: #475770; /* Color de fondo secundario */
+    --btn-text:rgb(255, 255, 255); /* Color del texto en los botones */
+    --nav-background: #85a0d0; /* Fondo de la barra de navegación */
+    --nav-text: #ffffff; /* Color del texto en la barra de navegación */
 }
-   body {
-    background-color: #6e85ab;
-    font-family: Arial, sans-serif;
-    
-}
-header {
+
+/* Estilos para el cuerpo */
+body {
     background-color: var(--background);
-    padding: 16px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-}
-.enlaces{
-    color: black;
-    text-decoration: none;
-}
-.enlaces :hover{
-    color: black;
-    text-decoration: underline;
-}
-#MyDrops{
-    font-size: 40px;
-    color: white;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    font-family: Arial, sans-serif;
 }
 #logo{
     width: 100px;
     height: 100px;
 }
+/* Estilos personalizados para botones */
+.btn-custom {
+    background-color: var(--primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 8px;
+    transition: background-color 0.3s;
+    height: 30px;
+    width:120px;
+    text-align: center;
+    font-size: small;
+}
+
+#titOferta{
+    font-size: 35px;
+}
+
+#textOferta{
+    font-size: 25px;
+}
+
+#bajoHeader{
+    background-color: #0f4068;
+    border-radius: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 40px;
+    padding-left: 40px;
+    text-align: right;
+    
+}
+
+#MyDrops{
+    font-size: 35px;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#imagenCarrito {
+    width: 40px;
+    height: 40px;
+}
+
+.btn-custom:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Estilos personalizados para la barra de navegación */
+.nav-custom {
+    background-color: var(--nav-background);
+    padding: 16px 0;
+}
+
+.nav-link-custom {
+    color: var(--nav-text);
+    margin-right: 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.nav-link-custom:hover {
+    text-decoration: underline;
+
+}
+
+/* Estilos personalizados para las secciones */
+
+.seccion-principal {
+    background-color: var(--secondary);
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    padding-top:25px;
+    padding-bottom:15px;
+}
+
+.tituloGeneral{
+font-size:30px;
+color: white;
+text-align: center;
+}
+
+.seccion-Ofertas{
+    background-color: #ffffff;
+
+    padding-left: 120px;
+    padding-right: 100px;
+    text-align: left;
+    margin-bottom: 16px;
+    display: flex;
+    gap:50px;
+    align-items: center;
+}
+
+.imagenesTendencias{
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+}
+
+.seccion-Tendencias{
+    height: 375px;
+    background-color: var(--secondary);
+    border-radius: 16px;
+    color: #fff;
+    padding: 30px;
+    text-align: center;
+    display: flex;
+    gap:30px;
+}
+
+.seccion-Anuncios {
+    color: black;
+    padding: 10px;
+    margin-bottom: 16px;
+}
+
+#anuncios{
+    display: inline-block;
+}
+
+.anunciosCard{
+    padding: 20px;
+background-color: white;
+font-size: 25px;
+border-radius: 15px;
+text-align: center;
+font-weight:bolder;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.imagenesAnuncios{
+    border-radius: 5px;
+    height: 250px;
+    width: 200px;
+}
+
+#imagenOferta{
+    width: 400px;
+    height: 300px;
+}
+
+#divDistinto{
+    padding:16px;
+    display: flex;
+    gap:4px;
+    align-items: center;
+    width:50%;
+}
+
+.imgInfo{
+width: 60px; 
+height: 48px;
+}
+
+.lineaVert{
+    padding:16px;
+    border-left: thin solid #000;
+    height:100%;
+    width:50%;
+    display: flex;
+    gap:4px;
+    align-items: center;
+}
+
+.seccion-Info{
+    background-color: #fff;
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+}
+
+.seccion-Productos{
+    background-color: #fff;
+    padding: 16px;
+    padding-left: 30px;
+    border-radius: 8px;
+    text-align: left;
+    margin-bottom: 16px;
+}
+
+/* Estilos para el header */
+header {
+    background-color: var(--background);
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.barraBusquedaBloq {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#barraBusqueda{
+    width: 300px;
+    height: 40px;
+    border-radius: 15px;
+}
+
+#accionesUsuario {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+}
 
 footer{
-width: 100%;   
-padding: 16px;
-padding-top: 30px;
-background-color: white; 
+    width: 100%;   
+    padding: 16px;
+    padding-top: 30px;
+    background-color: white;
+    align-items:baseline;
+    }
+
+#sectionDistinto{
+    padding:16px;
+    height:100%;
 }
 
 .lineaVertFoot{
@@ -50,9 +249,78 @@ background-color: white;
     border-left: thin solid #000;
     height:100%;
 }
+.carousel-control-prev-icon, .carousel-control-next-icon, .carousel-indicators{
+    filter: invert(108%);
+  }
+  
 
-#sectionDistinto{
+  .controles-Anuncios .carousel-control-prev {
+    left: -50px; /* Ajusta el valor según sea necesario */
+    background-color: #ffffff;
+    width: 40px; /* Aumenta el ancho */
+    border-radius: 15px;
+}
 
-    padding:16px;
-    height:100%;
+.controles-Anuncios .carousel-control-next {
+    right: -50px; /* Ajusta el valor según sea necesario */
+    background-color: #ffffff;
+    width: 40px; /* Aumenta el ancho */
+    border-radius: 15px;
+}
+
+  .container {
+    width: 100%;
+    overflow-y: visible; /* Ensure overflow is visible on the y-axis */
+}
+
+.horizontal-scroll {
+    white-space: nowrap;
+    overflow-x: auto;
+    padding: 20px;
+}
+
+.horizontal-scroll-item {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: white;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    line-height: 35px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+.horizontal-scroll-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom scrollbar styles */
+.horizontal-scroll::-webkit-scrollbar {
+    height: 12px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+
+.horizontal-scroll::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.enlaces{
+    color: black;
+    text-decoration: none;
+}
+.enlaces :hover{
+    color: black;
+    text-decoration: underline;
 }

@@ -315,15 +315,3 @@ footer{
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-.enlaces{
-    color: black;
-    text-decoration: none;
-}
-.enlaces :hover{
-    color: black;
-    text-decoration: underline;
-}
-#msj{
-    color: red;
-    font-size: medium;
-}
