@@ -135,11 +135,7 @@ text-align: center;
 .seccion-Anuncios {
     color: black;
     padding: 10px;
-    margin-bottom: 16px;
-}
-
-#anuncios{
-    display: inline-block;
+    margin-top: 25px;
 }
 
 .anunciosCard{
@@ -149,13 +145,12 @@ font-size: 25px;
 border-radius: 15px;
 text-align: center;
 font-weight:bolder;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .imagenesAnuncios{
     border-radius: 5px;
-    height: 250px;
-    width: 200px;
+    height: 300px;
+    width: 250px;
 }
 
 #imagenOferta{
@@ -314,4 +309,19 @@ footer{
 
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+.horizontal-scroll-anuncios {
+    width: 400px;
+    height: 450px;
+    border-radius: 15px;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-right: 10px;
+}
+
+.horizontal-scroll-anuncios:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
 }
