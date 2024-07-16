@@ -1,0 +1,318 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+ 
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    transition: 0.7s;
+    padding: 300px 20px; /* Ajusta el padding superior para más espacio */
+    z-index: 10;
+}
+
+header.abajo{
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 5px 5px;
+    backdrop-filter: blur(10px);
+}
+
+header.abajo ul li a{
+    font-size: 16px;
+			color: #000;
+}
+
+header .logo {
+    position: absolute;
+    top: -50px; /* Ajusta esto según la altura de tu logo */
+    left: 50%;
+    transform: translateX(-50%);
+    transition: top 0.7s;
+    z-index: -1; /* Asegúrate de que esté por encima del header */
+}
+
+header.abajo .logo {
+    top: -2000px; /* Ajusta esto para mover el logo fuera de la vista */
+    transition: top 0.9s;
+}
+
+header .logo img {
+    max-width: 400px; /* Ancho máximo del logo */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+}
+
+header ul li a{
+    padding-right: 25px;
+    font-size: 20px;
+    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0 20px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: 0.7s;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#ImagenFondo {
+    background-image: url('Imgs/Escritorio.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    min-height: 100vh; /* Ajustar la altura mínima para cubrir toda la vista */
+    margin: 0; 
+    padding: 0; 
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 20px;
+    z-index: 15;
+}
+
+nav ul li a:hover {
+    color: #f0a500;
+}
+
+
+
+#about {
+    background-color: #e3e0de;
+    padding: 20px 20px; /* Ajusta el padding según sea necesario */
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-family:Georgia, 'Times New Roman', Times, serif ;
+    text-align: center; 
+    margin-bottom: 50px;
+}
+
+.about-text {
+    flex: 1;
+    text-align: left;
+    padding-right: 30px; /* Espacio entre el texto y la imagen */
+    padding-left: 20px;
+    
+}
+
+.about-text p {
+    font-size: 17px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.8; /* Ajusta la altura de línea para separar líneas de texto */
+    margin-bottom: 20px; /* Espacio entre párrafos */
+}
+
+.about img {
+    max-width: 90%; /* Ajusta el tamaño máximo de la imagen */
+    height: auto; /* Altura automática para mantener la proporción */
+}
+
+#services {
+    background-color: #e3e0de;
+    padding: 100px 20px;
+    padding-bottom: 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+#services h2{
+  font-size: 30px;
+}
+
+.service-left h3{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.services-container {
+    color:lightcyan;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 0;
+    position: relative;
+    text-shadow: 4px 4px 8px rgb(0, 0, 0);
+}
+
+.service {
+    flex: 1;
+    padding: 20px;
+}
+
+.service-left {
+    background-image: url('./Imgs/color-diseno-pagina-web.jpg');
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+    border-radius: 8px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.service-left:hover {
+    transform: translateX(10px);
+}
+
+.service-right h3{
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2em;
+}
+
+.service-right {
+    background-image: url('./Imgs/Desarrollo.jpg'); /* Ruta relativa */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    text-align: left;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.service-right:hover {
+    transform: translateX(-10px); /* Mueve la sección hacia el costado al pasar el ratón por encima */
+}
+
+.service-divider {
+    width: 2px;
+    background-color: #ccc;
+    height: 100%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+#portfolio {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+    background-color: #e3e0de;
+    padding: 50px 20px;
+}
+
+.ejemplo, .ejemplo2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ejemplo img {
+    order: 2;
+    max-width: 40%;
+    height: auto;
+    margin-right: 75px; /* Espacio entre la imagen y el texto */
+}
+
+.ejemplo p {
+    text-align: left;
+    margin-left: 200px;
+    margin-right: 200px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.ejemplo h3{
+    text-align: center; /* Centra el texto del título */
+    font-size: 24px; /* Tamaño de fuente adecuado para un título */
+    margin-bottom: 100px; 
+}
+
+.ejemplo div {
+    flex: 1;
+}
+
+.ejemplo2 img {
+    order: 1;
+    max-width: 50%;
+    height: auto;
+    margin-right: 20px; /* Espacio entre la imagen y el texto */
+}
+
+
+.ejemplo2 div {
+    flex: 1;
+}
+
+.ejemplo2 p {
+    text-align: left;
+    margin-left: 150px;
+    margin-right: 150px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-bottom: 20px;
+}
+
+.ejemplo2 h3{
+    text-align: center; /* Centra el texto del título */
+    font-size: 24px; /* Tamaño de fuente adecuado para un título */
+    margin-bottom: 40px; 
+}
+
+ #contact {
+    background: #333;
+    text-align: center;
+    padding: 20px 0;
+    color: white
+}
+
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+.footer-left {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-center {
+    flex: 2;
+    text-align: center;
+}
+
+.footer-center img {
+    vertical-align: middle;
+    margin-right: 0px; /* Espacio entre la imagen y el texto */
+}
