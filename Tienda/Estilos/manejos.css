@@ -315,3 +315,41 @@ footer{
 .horizontal-scroll::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+.bloqBlanco{
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    color: #000;
+    gap: 3px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.btnsGenerales{
+background-color: #14578f;
+color: white;
+border-radius: 5px;
+}
+.segmentos{
+    display: flex;
+    margin-top: 5px;
+}
+.backoffice-section {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+.backoffice-section h3 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.backoffice-section .btn {
+    margin-right: 5px;
+}
+.segmento-botones{
+    display: flex;
+    margin-top: 5px;
+    flex-direction: column;
+    gap: 5px;
+}
