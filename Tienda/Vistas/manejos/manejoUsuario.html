@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyDrops</title>
-    <!-- Bootstrap CSS para la versión 4.5.3 -->
+    <title>MyDrops - Perfil de Usuario</title>
+    <!-- Bootstrap CSS -->
     <link href="../../Estilos/css/bootstrap.css" rel="stylesheet">
     <link href="../../Estilos/manejos.css" rel="stylesheet">
 </head>
@@ -19,7 +19,7 @@
 
             <div class="d-flex align-items-center mb-3 mb-md-0">
                 <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
-                <button class="btn btn-custom">Buscar</button>
+                <button class="btnBuscar"><img src="../../assets/lupa.png" style="width: 30px; height: 30px; filter:brightness(200);"></button>
             </div>
 
             <article id="accionesUsuario" class="d-flex align-items-center">
@@ -34,10 +34,238 @@
             </article>
         </header>
     </div>
-  </section>
-        <section>
-          <br>
+    </section>
+
+    <section class="container">
+        <div class="row">
+    <div class="col-4" style="margin: 20px 0;">
+        <section class="bloqUsuario">
+            <img src="../../assets/usuarioFoto.png" style="width: 200px; height: 200px; align-self: center;">
+            <h2 class="usuario">juanpg123</h2> <!-- Cambié el ID para que sea único -->
+            <p><strong>Nombre:</strong> <span class="nombre">Juan</span></p>
+            <p><strong>Apellido:</strong> <span class="apellido">Perez</span></p>
+            <p><strong>Correo Electrónico:</strong> <span class="correo">juan.perez@gmail.com</span></p>
+            <p><strong>Teléfono:</strong> <span class="telefono">+34 123 456 789</span></p>
+            <p><strong>Cédula:</strong> 50921201</p>
         </section>
+
+        <section class="bloqUsuario" style="height: 150px; padding: 25px; justify-content: center;">
+            <a href="#"><h5>Ayuda</h5></a>
+            <a href="#"><h5>Contáctanos</h5></a>
+        </section>
+
+    </div>
+    <!-- Menú de Perfil -->
+    <div class="menu-perfil col-8">
+        <div style="justify-content:center;justify-content: space-between; display: flex;">
+        <h3 style="flex-grow: 0.9;">Mi Perfil</h3>
+        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#configuracionModal"><img src="../../assets/configuacion.png" id="engranaje"></button>
+        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#edicionModal"><img src="../../assets/lapiz.png" id="lapiz"></button>
+
+    </div>
+
+        <!-- Información Personal -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingInfoPersonal" data-toggle="collapse" data-target="#collapseInfoPersonal" aria-expanded="true" aria-controls="collapseInfoPersonal">
+                <img src="../../assets/usuarioFoto.png" style="height: 50px; width: 50px;">
+                <h5 class="mb-0">Información Personal </h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseInfoPersonal" class="collapse show" aria-labelledby="headingInfoPersonal">
+                <div class="card-body collapse-content">
+                    <p><strong>Nombre: </strong> <span class="nombre">Juan Pérez</span></p>
+                    <p><strong>Apellido: </strong> <span class="apellido">García</span></p>
+                    <p><strong>Correo Electrónico: </strong> <span class="correo">juan.perez@gmail.com</span></p>
+                    <p><strong>Teléfono: </strong> <span class="telefono">+34 123 456 789</span></p>
+                    <p><strong>Cédula: </strong> 50921201</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Datos de tu Cuenta -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingDatosCuenta" data-toggle="collapse" data-target="#collapseDatosCuenta" aria-expanded="false" aria-controls="collapseDatosCuenta">
+                <img src="../../assets/datosPersona.png" style="height: 50px; width: 50px; filter:grayscale(100);">
+                <h5 class="mb-0">Datos de tu Cuenta</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseDatosCuenta" class="collapse" aria-labelledby="headingDatosCuenta">
+                <div class="card-body collapse-content">
+                    <p><strong>Nombre de Usuario:</strong> <span class="usuario">juanpg123</span></p>
+                    <p><strong>Tipo de Cuenta:</strong> Premium</p>
+                    <p><strong>Fecha de Creación:</strong> 15 de enero de 2022</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seguridad -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingSeguridad" data-toggle="collapse" data-target="#collapseSeguridad" aria-expanded="false" aria-controls="collapseSeguridad">
+                <img src="../../assets/candado.png" style="height: 60px; width: 60px; filter: grayscale(100);">
+                <h5 class="mb-0">Seguridad</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseSeguridad" class="collapse" aria-labelledby="headingSeguridad">
+                <div class="card-body collapse-content">
+                    <p><strong>Última actualización de contraseña:</strong> 2 de marzo de 2023</p>
+                    <p><strong>Autenticación de Dos Factores:</strong> Activada</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tarjetas -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingTarjetas" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseTarjetas">
+                <img src="../../assets/medioPago.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <h5 class="mb-0">Mis medios de pago</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseTarjetas" class="collapse" aria-labelledby="headingTarjetas">
+                <div class="card-body collapse-content">
+                    <p><strong>Tarjeta de Crédito:</strong><span id="tarjeta"> **** **** **** 1234</span></p>
+                    <p><strong>PayPal:</strong> <span id="paypal">Sin conectar</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Direcciones -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingDirecciones" data-toggle="collapse" data-target="#collapseDirecciones" aria-expanded="false" aria-controls="collapseDirecciones">
+                <img src="../../assets/direcciones.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <h5 class="mb-0">Direcciones</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseDirecciones" class="collapse" aria-labelledby="headingDirecciones">
+                <div class="card-body collapse-content">
+                    <p><strong>Dirección Principal:</strong> Calle Falsa 123, Ciudad Real, España</p>
+                    <p><strong>Dirección Secundaria:</strong> Avenida Siempreviva 742, Springfield</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Privacidad -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingPrivacidad" data-toggle="collapse" data-target="#collapsePrivacidad" aria-expanded="false" aria-controls="collapsePrivacidad">
+                <img src="../../assets/privacidad.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <h5 class="mb-0">Privacidad</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapsePrivacidad" class="collapse" aria-labelledby="headingPrivacidad">
+                <div class="card-body collapse-content">
+                    <div class="form-group">
+                        <label for="perfilPublico"><strong>Cuenta Pública</strong></label>
+                        <input type="checkbox" id="perfilPublico" name="perfilPublico">
+                    </div>
+                    <p><strong>Historial de Productos: </strong>
+                        <input type="checkbox" id="historialOculto"> Oculto 
+                        <input type="checkbox" id="historialOculto"> Visible
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comunicaciones -->
+        <div class="card mt-3">
+            <div class="card-header" id="headingComunicaciones" data-toggle="collapse" data-target="#collapseComunicaciones" aria-expanded="false" aria-controls="collapseComunicaciones">
+                <img src="../../assets/comunicacion.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <h5 class="mb-0">Comunicaciones</h5>
+                <span class="arrow"></span>
+            </div>
+            <div id="collapseComunicaciones" class="collapse" aria-labelledby="headingComunicaciones">
+                <div class="card-body collapse-content">
+                    <p><strong>Suscripción al Newsletter:</strong> Activa</p>
+                    <p><strong>Notificaciones de Producto:</strong> Desactivadas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+    <!-- Fin del Menú de Perfil -->
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="edicionModal" tabindex="-1" aria-labelledby="edicionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #e7dfff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edicionModalLabel">Editar Información Personal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1 class="h4 font-weight-bold mb-4">Ingresa los datos a modificar a continuación:</h1>
+                <form>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" id="nombreCam" name="nombre" class="form-control" />
+
+                        <label for="apellido" class="form-label mt-3">Apellido</label>
+                        <input type="text" id="apellidoCam" name="apellido" class="form-control" />
+
+                        <label for="numero" class="form-label mt-3">Número telefonico</label>
+                        <input type="number" id="numeroCam" name="numero" class="form-control" />
+
+                        <label for="mail" class="form-label mt-3">Correo/Mail</label>
+                        <input type="email" id="correoCam" name="email" class="form-control" />
+
+                        <!-- Campo adicional para nombre de usuario -->
+                        <label for="usuario" class="form-label mt-3">Nombre de Usuario</label>
+                        <input type="text" id="usuarioCam" name="usuario" class="form-control" />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" id="btnGuardar" data-dismiss="modal">Guardar Cambios</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Configuracion -->
+<div class="modal fade" id="configuracionModal" tabindex="-1" aria-labelledby="edicionModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content" style="background-color: #e7dfff;">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edicionModalLabel">Editar configuracion de la cuenta:</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <h1 class="font-weight-bold mb-4">Seguridad:</h1>
+                <h4><strong>Contraseña: </strong></h4>
+                <form>
+                    <div class="mb-3">
+
+                        <label for="contraseña" class="form-label mt-3">Contraseña</label>
+                        <input type="password" id="contra" name="contraseña" class="form-control" />
+
+                        <label for="contraseña" class="form-label mt-3">Nueva contraseña</label>
+                        <input type="password" id="contranueva" name="contraseña" class="form-control" />
+
+                        <label for="contraVerify" class="form-label mt-3">Verifique la contraseña</label>
+                        <input type="password" id="contranueva2" name="contraVerify" class="form-control" />
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary" id="btnGuardarConfig" data-dismiss="modal">Guardar Cambios</button>
+                    </div>
+                </form>
+                <br>
+                <h4><strong>Datos de pago: </strong></h4>
+                <button class="btn btn-primary" id="btnBorarPagos">Borrar datos de tarjetas </button> <br>
+
+                <label for="paypal" class="form-label mt-3" style="font-size: 20px;">Correo de la cuenta de paypal</label>
+                <input type="email" id="paypalIng" name="paypal" class="form-control" />
+                <br>
+                <button class="btn btn-primary" id="btnAggPaypal">Asignar direccion de paypal</button>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
     <footer class="col-12 text-center p-3 m-0">
@@ -102,8 +330,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
-    <script src="../js/inicio.js"></script>
+    <script src="../../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="../../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="../../js/manejoUsuario.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 /* Variables de color personalizadas */
 :root {
-    --background: #14578f; /* Fondo general */
+    --background: #196aac; /* Fondo general */
     --primary: #3465ea; /* Botones y áreas destacadas */
     --primary-dark: #196ec2; /* Hover de los botones */
     --text-primary: black; /* Color del texto */
@@ -33,6 +33,18 @@ body {
     font-size: small;
 }
 
+.btnBuscar {
+    background-color: var(--primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    transition: background-color 0.3s;
+    width: 50px;
+    text-align: center;
+    font-size: small;
+}
+
 #titOferta{
     font-size: 35px;
 }
@@ -43,11 +55,9 @@ body {
 
 #bajoHeader{
     background-color: #0f4068;
-    border-radius: 100px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     padding-right: 40px;
-    padding-left: 40px;
     text-align: right;
     
 }
@@ -88,24 +98,31 @@ body {
 /* Estilos personalizados para las secciones */
 
 .seccion-principal {
-    background-color: var(--secondary);
     border-radius: 8px;
+    background-color:rgb(79, 44, 207);
     text-align: center;
     margin-bottom: 16px;
-    margin-top: 16px;
     padding-top:25px;
     padding-bottom:15px;
+
 }
 
 .tituloGeneral{
 font-size:30px;
-color: white;
+color: rgb(255, 255, 255);
 text-align: center;
+}
+
+#tituloTendencias{
+font-size:30px;
+color: white;
+text-align: start;
+margin-left: 20px;
 }
 
 .seccion-Ofertas{
     background-color: #ffffff;
-
+    margin: 0 auto;
     padding-left: 120px;
     padding-right: 100px;
     text-align: left;
@@ -122,36 +139,58 @@ text-align: center;
 }
 
 .seccion-Tendencias{
-    height: 375px;
+    
+    margin: 0 20px 30px 20px;
+    height: 435px;
     background-color: var(--secondary);
     border-radius: 16px;
     color: #fff;
     padding: 30px;
     text-align: center;
-    display: flex;
     gap:30px;
 }
 
 .seccion-Anuncios {
-    color: black;
-    padding: 10px;
-    margin-top: 25px;
+    background-color: var(--secondary);
+    border-radius: 15px;
+    margin: 0px 20px 20px 20px;
+    padding:20px;
+    height: 550px;
+    display: flex; /* Utiliza Flexbox */
+    flex-wrap: wrap; /* Permite que las tarjetas se ajusten a múltiples líneas */
+    gap: 20px; /* Espacio entre tarjetas */
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    align-items: stretch; /* Asegura que todas las tarjetas tengan la misma altura */
 }
 
-.anunciosCard{
+.anunciosCard {
+    align-items: center;
+    justify-content: center;
     padding: 20px;
-background-color: white;
-font-size: 25px;
-border-radius: 15px;
-text-align: center;
-font-weight:bolder;
+    background-color: white;
+    font-size: 25px;
+    border-radius: 15px;
+    font-weight: bolder;
+    word-wrap: break-word; /* Divide palabras largas */
+    white-space: normal; /* Permite saltos de línea */
+    text-overflow: ellipsis; /* Añade puntos suspensivos al texto desbordante */
+    display: flex; /* Utiliza Flexbox dentro de la tarjeta */
+    flex-direction: column; /* Alinea elementos verticalmente */
+    justify-content: space-between; /* Espacia los elementos dentro de la tarjeta */
+    height: 200px; /* Altura fija para todas las tarjetas */
 }
 
-.imagenesAnuncios{
-    border-radius: 5px;
-    height: 300px;
-    width: 250px;
+.anunciosCard p {
+    flex-grow: 1; /* Permite que el texto crezca para llenar el espacio disponible */
+    align-items: center; /* Centra el texto verticalmente dentro de la tarjeta */
+    justify-content: center; /* Centra el texto horizontalmente dentro de la tarjeta */
 }
+
+.imagenesAnuncios {
+    max-width: 300px; /* Asegura que la imagen no desborde el contenedor */
+    height: 250px; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio entre la imagen y el texto */
+    }
 
 #imagenOferta{
     width: 400px;
@@ -181,7 +220,13 @@ height: 48px;
     align-items: center;
 }
 
+.seccion-Bloques{
+    display: flex;
+    margin-bottom:30px ;
+}
+
 .seccion-Info{
+    margin: 0 20px 30px 20px;
     background-color: #fff;
     padding: 8px;
     border-radius: 8px;
@@ -189,6 +234,7 @@ height: 48px;
 }
 
 .seccion-Productos{
+    margin: 0 20px 30px 20px;
     background-color: #fff;
     padding: 16px;
     padding-left: 30px;
@@ -199,11 +245,12 @@ height: 48px;
 
 /* Estilos para el header */
 header {
-    background-color: var(--background);
-    padding: 16px;
+    background-color: #14578f;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
     gap: 16px;
 }
 
@@ -214,9 +261,9 @@ header {
 }
 
 #barraBusqueda{
-    width: 300px;
+    width: 330px;
     height: 40px;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 #accionesUsuario {
@@ -263,9 +310,10 @@ footer{
     border-radius: 15px;
 }
 
-  .container {
-    width: 100%;
-    overflow-y: visible; /* Ensure overflow is visible on the y-axis */
+.container {
+    max-width: 1200px; /* Define un ancho máximo */
+    margin: 0 auto;    /* Centra el contenedor */
+    overflow-y: visible; /* Asegura que el desbordamiento sea visible en el eje y */
 }
 
 .horizontal-scroll {
@@ -284,7 +332,7 @@ footer{
     text-align: center;
     line-height: 35px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-right: 10px;
+    margin: 0 5px 10px auto; /* Ajusta márgenes para centrar */
 }
 
 .horizontal-scroll-item:hover {
@@ -311,12 +359,12 @@ footer{
     background: #555;
 }
 .horizontal-scroll-anuncios {
-    width: 400px;
-    height: 450px;
+    width: 350px;
+    height: 425px;
     border-radius: 15px;
+    text-align: center  ;
     display: inline-block;
     background-color: white;
-    text-align: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     margin-right: 10px;
 }
@@ -324,4 +372,41 @@ footer{
 .horizontal-scroll-anuncios:hover {
     transform: translateY(-10px);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.bloqBlanco{
+    border: var(--background) 15px solid ;
+    background-color: white;
+    padding: 20px;
+    gap: 20px;
+    border-radius: 20px;
+    color: #000;
+    display:flex;
+    align-items: center;
+}
+
+#seccion-Categorias{
+justify-content: center;
+margin: 0 20px 30px 15%;
+padding-top: 10px;
+padding-bottom: 10px;
+text-align: center;
+display: inline-block;
+gap: 10px;
+background-color: white;
+border-radius: 15px;
+}
+
+#seccion-Categorias .btn{
+    font-size: large;
+    height: 100px;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 10px;
+    border: #505050 1px solid ;
+}
+
+#seccion-Categorias .btn:hover{
+    color: blue;
+
 }

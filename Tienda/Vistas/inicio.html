@@ -11,9 +11,9 @@
      <link href="../Estilos/inicio.css" rel="stylesheet">
 </head>
 <body>
-    <section class="container">
-        <div class="row">
-            <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
+    <header class=" d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <section class="container">
+            <div class="row">
                 <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
                     <img src="../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
                     <span class="font-weight-bold" id="MyDrops">MyDrops</span>
@@ -21,7 +21,7 @@
     
                 <div class="d-flex align-items-center mb-3 mb-md-0">
                     <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
-                    <button class="btn btn-custom">Buscar</button>
+                    <button class="btnBuscar"><img src="../assets/lupa.png" style="width: 30px; height: 30px; filter:brightness(200);"></button>
                 </div>
     
                 <article id="accionesUsuario" class="d-flex align-items-center">
@@ -34,9 +34,9 @@
                         <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
                     </a>
                 </article>
-            </header>
-        </div>
-    </section>
+            </div>
+        </section>
+    </header>
     
         <nav id="bajoHeader" class="col-12">
             <div class="container-fluid">
@@ -100,7 +100,6 @@
                 <p class="mt-4 text-custom-foreground" style="color: white;">Ofertas todos los días, hasta 70% de descuento en productos seleccionados</p>
             </section>
             
-            <section style="padding: 20px;">
                 <section class="seccion-Info" style="margin-bottom: 20px;">
                     <div class="row">
                         <div class="col-3 mb-3" id="divDistinto">
@@ -121,13 +120,12 @@
                         </div>
                     </div>
                 </section>
-            
 
-            
-                <div style="padding-top: 20px;">
-                    <p class="tituloGeneral">Tendencias</p>
-                    
                     <div class="seccion-Tendencias">
+                        <div style="background-color: #5c6f8f; border-radius: 10px;">
+                        <p id="tituloTendencias">Tendencias</p>
+                        </div>
+                        <div style="background-color: #5c6f8f; border-radius: 10px;height: 320px;width: 100%;padding: 20px;">
                         <div class="horizontal-scroll">
                             <div class="horizontal-scroll-item">
                                 <img src="../assets/cartera.jpg" class="imagenesTendencias"/>
@@ -159,13 +157,40 @@
 
                             </div>
                             <div class="horizontal-scroll-item">
-
+                            </div>
                             </div>
                         </div>
                     </div>
                 
-                </div>
                     
+                <section class="seccion-Bloques col-12">
+                    <div class="bloqBlanco col-6">
+                        <div>
+                            <h5>Explora las novedadas</h5>
+                            <br>
+                            <h4>Nuevos productos en MyDrops</h4>
+                            <br>
+                            <button class="btn-custom" style="justify-content: end;">Ver mas</button>
+                        </div>
+                        <div>
+                            <img src="../assets/producto2.jpg" style="height: 250px;width: 350px;">
+                        </div>
+                    </div>
+                    <div class="bloqBlanco col-6">
+                        <div>
+                            <h5>Descubre precios inigualables al alcance de la mano</h5>
+                            <br>
+                            <h4>Conoce empresas a tu alrededor</h4>
+                            <br>
+                            <button class="btn-custom" style="justify-content: end;">Ver mas</button>
+                        </div>
+                        <div>
+                            <img src="../assets/imagen producto.jpg" style="height: 250px;width: 300px;">
+                        </div>
+                    </div>
+
+                </section>
+
                     <div class="seccion-Anuncios">
                         <div class="horizontal-scroll">
                             <div class="horizontal-scroll-anuncios">
@@ -192,14 +217,34 @@
                                     <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
                                 </article>
                             </div>
-                            
                         </div>
                     </div>
 
                 </div>
-            </section>
+
+                <section id="seccion-Categorias" class="col-8">
+                    <button class="btn col-2"><img src="../assets/muebles.jpg"style="width: 50px; height=auto">Muebles</button>
+                    <button class="btn col-2"><img src="">Categoria 2</button>
+                    <button class="btn col-2"><img src="">Categoria 3</button>
+                    <button class="btn col-2"><img src="">Categoria 4</button>
+                <br>
+                    <button class="btn col-2"><img src="">Categoria 5</button>
+                    <button class="btn col-2"><img src="">Categoria 6</button>
+                    <button class="btn col-2"><img src="">Categoria 7</button>
+                    <button class="btn col-2"><img src="">Categoria 8</button>
+                <br>
+                    <button class="btn col-2"><img src="">Categoria 9</button>
+                    <button class="btn col-2"><img src="">Categoria 10</button>
+                    <button class="btn col-2"><img src="">Categoria 11</button>
+                    <button class="btn col-2"><img src="">Categoria 12</button>
+                <br>
+                    <button class="btn col-2"><img src="">Categoria 13</button>
+                    <button class="btn col-2"><img src="">Categoria 14</button>
+                    <button class="btn col-2"><img src="">Categoria 15</button>
+                    <button class="btn col-2"><img src="">Categoria 16</button>
+                </div>
+                </section>
         </main>
-    </section>
     <footer class="col-12 text-center p-3 m-0">
         <div style="gap: 25px; margin-top: 15px;" class="row justify-content-center">
             <section class="col-md-3 col-sm-12 mb-3">

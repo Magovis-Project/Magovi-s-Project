@@ -33,6 +33,19 @@ body {
     font-size: small;
 }
 
+.btnBuscar{
+    background-color: var(--primary);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    transition: background-color 0.3s;
+    height: 3s0px;
+    width:50px;
+    text-align: center;
+    font-size: small;
+}
+
 #titOferta{
     font-size: 35px;
 }
