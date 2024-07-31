@@ -14,12 +14,12 @@
     <header class=" d-flex flex-column flex-md-row align-items-center justify-content-between">
         <section class="container">
             <div class="row">
-                <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
+                <article style="margin-right:10px;" class="d-flex align-items-center col-3">
                     <img src="../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
                     <span class="font-weight-bold" id="MyDrops">MyDrops</span>
                 </article>
     
-                <div class="d-flex align-items-center mb-3 mb-md-0">
+                <div class="d-flex align-items-center col-4">
                     <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
                     <button class="btnBuscar"><img src="../assets/lupa.png" style="width: 30px; height: 30px; filter:brightness(200);"></button>
                 </div>
@@ -39,16 +39,26 @@
     </header>
     
         <nav id="bajoHeader" class="col-12">
-            <div class="container-fluid">
-                <a class="nav-link-custom" href="#">Categorías</a>
+            <div class="container" style="display: flex;">
+                <div style="flex: 1;">
+                <div class="dropdown">
+                    <p class="nav-link-custom drop">Categorias</p>
+                    <div class="dropdown-content">
+                      <a href="#">Accesorios</a>
+                      <a href="#">Calzado</a>
+                      <a href="#">Moda</a>
+                      <a href="#">Ver todas</a>
+                    </div>
+                  </div>
                 <a class="nav-link-custom" href="#">Ofertas</a>
                 <a class="nav-link-custom" href="../Vistas/inicios/inicioUsu.html">Historial</a>
-                <a class="nav-link-custom" href="#">Moda</a>
+            </div>
+            <div>
                 <a class="nav-link-custom" href="#">Ayuda</a>
             </div>
-        </nav>
         </div>
-    </section>
+        </nav>
+
 
         <main class="py-4">
             <section class="seccion-principal mb-4">
@@ -119,7 +129,7 @@
                             <p>Sé un usuario premium de MyDrops</p>
                         </div>
                     </div>
-                </section>
+                </section> 
 
                     <div class="seccion-Tendencias">
                         <div style="background-color: #5c6f8f; border-radius: 10px;">
@@ -141,7 +151,7 @@
                             </div>
                             <div class="horizontal-scroll-item">
                                 <img src="../assets/zapatos.jpeg" class="imagenesTendencias"/>
-                                <p>Zapatos</p>
+                                <p>Calzado</p>
                             </div>
                             <div class="horizontal-scroll-item">
                                 <img src="../assets/piezas.jpg" class="imagenesTendencias"/>
