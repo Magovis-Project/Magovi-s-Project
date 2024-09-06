@@ -459,3 +459,10 @@ border-radius: 5px;
     display: flex;
     justify-content: space-between;
 }
+
+.secciones{
+    margin-bottom: 10px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}

@@ -6,7 +6,7 @@ class Database
 
     public function __construct()
     {
-        $config = include(__DIR__ . '/../config/database.php');
+        $config = include(__DIR__ . '/../config/BaseDatos.php');
         $this->conn = new mysqli($config['host'], $config['username'], $config['password'], $config['database']);
 
         if ($this->conn->connect_error) {
