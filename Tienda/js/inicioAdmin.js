@@ -14,3 +14,22 @@ $(document).ready(function() {
         }
     }
 });
+
+$.ajax({
+    url: '/Tienda/Controlador/UsuarioControlador.php',  // Solo la ruta del archivo PHP
+    method: 'GET',
+    data: { action: 'getUsuariosJSON' },  // Enviar acción o parámetros
+    dataType: 'json',
+    success: function(data) {
+        console.log(data);
+        let listaUsuarios = $('#lista-usuarios');
+        listaUsuarios.empty();  // Vaciar la lista antes de llenarla
+        data.forEach(function(usuario) {
+            let fila = `<tr><td>${usuario.nombre}</td><td>${usuario.apellido}</td></tr>`;
+            listaUsuarios.append(fila);  // Agregar cada fila a la tabla
+        });
+    },
+    error: function(xhr, status, error) {
+        console.error('Error al obtener los datos:', error);
+    }
+});
