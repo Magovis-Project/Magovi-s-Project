@@ -45,12 +45,12 @@ body {
     font-size: small;
 }
 
-#titOferta{
+.titOferta{
     font-size: 35px;
 }
 
-#textOferta{
-    font-size: 25px;
+.textOferta{
+    font-size: 30px;
 }
 
 #bajoHeader{
@@ -194,7 +194,7 @@ margin-left: 20px;
     margin-bottom: 10px; /* Espacio entre la imagen y el texto */
     }
 
-#imagenOferta{
+.imagenOferta{
     width: 400px;
     height: 300px;
 }

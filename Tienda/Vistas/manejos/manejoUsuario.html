@@ -13,20 +13,20 @@
     <div class="row">
         <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
             <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
-                <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
+                <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;"  >
                 <span class="font-weight-bold" id="MyDrops">MyDrops</span>
             </article>
 
             <div class="d-flex align-items-center mb-3 mb-md-0">
-                <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
-                <button class="btnBuscar"><img src="../../assets/lupa.png" style="width: 30px; height: 30px; filter:brightness(200);"></button>
+                <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2"  >
+                <button class="btnBuscar"><img src="../../assets/lupa.png" alt="Lupa" style="width: 30px; height: 30px; filter:brightness(200);"></button>
             </div>
 
             <article id="accionesUsuario" class="d-flex align-items-center">
-                <a href="../registros/division.html" class="mr-2">
-                    <button class="btn btn-custom">Crea tu cuenta</button>
+                <a href="../registros/division.html" class="mr-2 btn btn-custom">
+                    Crea tu cuenta
                 </a>
-                <a href="../inicios/divisionIni.html"><button id="btnInicio" class="btn btn-custom mr-2" >Ingresa</button></a>
+                <a href="../inicios/divisionIni.html" id="btnInicio" class="btn btn-custom mr-2">Ingresa</a>
                 <button class="btn btn-custom mr-2">Mis compras</button>
                 <a href="../carrito.html">
                     <img src="../../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
@@ -40,7 +40,7 @@
         <div class="row">
     <div class="col-4" style="margin: 20px 0;">
         <section class="bloqUsuario">
-            <img src="../../assets/usuarioFoto.png" style="width: 200px; height: 200px; align-self: center;">
+            <img src="../../assets/usuarioFoto.png" alt="TuFoto" style="width: 200px; height: 200px; align-self: center;">
             <h2 class="usuario">juanpg123</h2> <!-- Cambié el ID para que sea único -->
             <p><strong>Nombre:</strong> <span class="nombre">Juan</span></p>
             <p><strong>Apellido:</strong> <span class="apellido">Perez</span></p>
@@ -59,15 +59,15 @@
     <div class="menu-perfil col-8">
         <div style="justify-content:center;justify-content: space-between; display: flex;">
         <h3 style="flex-grow: 0.9;">Mi Perfil</h3>
-        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#configuracionModal"><img src="../../assets/configuacion.png" id="engranaje"></button>
-        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#edicionModal"><img src="../../assets/lapiz.png" id="lapiz"></button>
+        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#configuracionModal"><img src="../../assets/configuacion.png" id="engranaje" alt="Configuracion"></button>
+        <button style="border-radius: 10px; background-color:#3465ea; border: none;" data-toggle="modal" data-target="#edicionModal"><img src="../../assets/lapiz.png" id="lapiz" alt="Edicion"></button>
 
     </div>
 
         <!-- Información Personal -->
         <div class="card mt-3">
             <div class="card-header" id="headingInfoPersonal" data-toggle="collapse" data-target="#collapseInfoPersonal" aria-expanded="true" aria-controls="collapseInfoPersonal">
-                <img src="../../assets/usuarioFoto.png" style="height: 50px; width: 50px;">
+                <img src="../../assets/usuarioFoto.png" style="height: 50px; width: 50px;" alt="FotoUsuario">
                 <h5 class="mb-0">Información Personal </h5>
                 <span class="arrow"></span>
             </div>
@@ -85,7 +85,7 @@
         <!-- Datos de tu Cuenta -->
         <div class="card mt-3">
             <div class="card-header" id="headingDatosCuenta" data-toggle="collapse" data-target="#collapseDatosCuenta" aria-expanded="false" aria-controls="collapseDatosCuenta">
-                <img src="../../assets/datosPersona.png" style="height: 50px; width: 50px; filter:grayscale(100);">
+                <img src="../../assets/datosPersona.png" alt="Datos" style="height: 50px; width: 50px; filter:grayscale(100);">
                 <h5 class="mb-0">Datos de tu Cuenta</h5>
                 <span class="arrow"></span>
             </div>
@@ -101,7 +101,7 @@
         <!-- Seguridad -->
         <div class="card mt-3">
             <div class="card-header" id="headingSeguridad" data-toggle="collapse" data-target="#collapseSeguridad" aria-expanded="false" aria-controls="collapseSeguridad">
-                <img src="../../assets/candado.png" style="height: 60px; width: 60px; filter: grayscale(100);">
+                <img src="../../assets/candado.png" alt="Seguridad" style="height: 60px; width: 60px; filter: grayscale(100);">
                 <h5 class="mb-0">Seguridad</h5>
                 <span class="arrow"></span>
             </div>
@@ -116,7 +116,7 @@
         <!-- Tarjetas -->
         <div class="card mt-3">
             <div class="card-header" id="headingTarjetas" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseTarjetas">
-                <img src="../../assets/medioPago.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <img src="../../assets/medioPago.png" alt="Medios de Pago" style="height: 50px; width: 50px; filter: grayscale(100);">
                 <h5 class="mb-0">Mis medios de pago</h5>
                 <span class="arrow"></span>
             </div>
@@ -131,7 +131,7 @@
         <!-- Direcciones -->
         <div class="card mt-3">
             <div class="card-header" id="headingDirecciones" data-toggle="collapse" data-target="#collapseDirecciones" aria-expanded="false" aria-controls="collapseDirecciones">
-                <img src="../../assets/direcciones.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <img src="../../assets/direcciones.png" alt="Direccional" style="height: 50px; width: 50px; filter: grayscale(100);">
                 <h5 class="mb-0">Direcciones</h5>
                 <span class="arrow"></span>
             </div>
@@ -146,19 +146,19 @@
         <!-- Privacidad -->
         <div class="card mt-3">
             <div class="card-header" id="headingPrivacidad" data-toggle="collapse" data-target="#collapsePrivacidad" aria-expanded="false" aria-controls="collapsePrivacidad">
-                <img src="../../assets/privacidad.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <img src="../../assets/privacidad.png" alt="Privacidad" style="height: 50px; width: 50px; filter: grayscale(100);">
                 <h5 class="mb-0">Privacidad</h5>
                 <span class="arrow"></span>
             </div>
             <div id="collapsePrivacidad" class="collapse" aria-labelledby="headingPrivacidad">
                 <div class="card-body collapse-content">
                     <div class="form-group">
-                        <label for="perfilPublico"><strong>Cuenta Pública</strong></label>
+                        <label><strong>Cuenta Pública</strong></label>
                         <input type="checkbox" id="perfilPublico" name="perfilPublico">
                     </div>
                     <p><strong>Historial de Productos: </strong>
                         <input type="checkbox" id="historialOculto"> Oculto 
-                        <input type="checkbox" id="historialOculto"> Visible
+                        <input type="checkbox" id="historialVisble"> Visible
 
                     </p>
                 </div>
@@ -168,7 +168,7 @@
         <!-- Comunicaciones -->
         <div class="card mt-3">
             <div class="card-header" id="headingComunicaciones" data-toggle="collapse" data-target="#collapseComunicaciones" aria-expanded="false" aria-controls="collapseComunicaciones">
-                <img src="../../assets/comunicacion.png" style="height: 50px; width: 50px; filter: grayscale(100);">
+                <img src="../../assets/comunicacion.png" alt="Comunicacion" style="height: 50px; width: 50px; filter: grayscale(100);">
                 <h5 class="mb-0">Comunicaciones</h5>
                 <span class="arrow"></span>
             </div>
@@ -198,21 +198,21 @@
                 <h1 class="h4 font-weight-bold mb-4">Ingresa los datos a modificar a continuación:</h1>
                 <form>
                     <div class="mb-3">
-                        <label for="nombre" class="form-label">Nombre</label>
-                        <input type="text" id="nombreCam" name="nombre" class="form-control" />
+                        <label class="form-label">Nombre</label>
+                        <input type="text" id="nombreCam" name="nombre" class="form-control"  >
 
-                        <label for="apellido" class="form-label mt-3">Apellido</label>
-                        <input type="text" id="apellidoCam" name="apellido" class="form-control" />
+                        <label class="form-label mt-3">Apellido</label>
+                        <input type="text" id="apellidoCam" name="apellido" class="form-control"  >
 
-                        <label for="numero" class="form-label mt-3">Número telefonico</label>
-                        <input type="number" id="numeroCam" name="numero" class="form-control" />
+                        <label class="form-label mt-3">Número telefonico</label>
+                        <input type="number" id="numeroCam" name="numero" class="form-control"  >
 
-                        <label for="mail" class="form-label mt-3">Correo/Mail</label>
-                        <input type="email" id="correoCam" name="email" class="form-control" />
+                        <label class="form-label mt-3">Correo/Mail</label>
+                        <input type="email" id="correoCam" name="email" class="form-control"  >
 
                         <!-- Campo adicional para nombre de usuario -->
-                        <label for="usuario" class="form-label mt-3">Nombre de Usuario</label>
-                        <input type="text" id="usuarioCam" name="usuario" class="form-control" />
+                        <label class="form-label mt-3">Nombre de Usuario</label>
+                        <input type="text" id="usuarioCam" name="usuario" class="form-control"  >
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-primary" id="btnGuardar" data-dismiss="modal">Guardar Cambios</button>
@@ -228,7 +228,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content" style="background-color: #e7dfff;">
             <div class="modal-header">
-                <h5 class="modal-title" id="edicionModalLabel">Editar configuracion de la cuenta:</h5>
+                <h5 class="modal-title" id="configuracionModalLabel">Editar configuracion de la cuenta:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true"></span>
                 </button>
@@ -239,14 +239,14 @@
                 <form>
                     <div class="mb-3">
 
-                        <label for="contraseña" class="form-label mt-3">Contraseña</label>
-                        <input type="password" id="contra" name="contraseña" class="form-control" />
+                        <label class="form-label mt-3">Contraseña</label>
+                        <input type="password" id="contra" name="contraseña" class="form-control"  >
 
-                        <label for="contraseña" class="form-label mt-3">Nueva contraseña</label>
-                        <input type="password" id="contranueva" name="contraseña" class="form-control" />
+                        <label class="form-label mt-3">Nueva contraseña</label>
+                        <input type="password" id="contranueva" name="contraseña" class="form-control"  >
 
-                        <label for="contraVerify" class="form-label mt-3">Verifique la contraseña</label>
-                        <input type="password" id="contranueva2" name="contraVerify" class="form-control" />
+                        <label class="form-label mt-3">Verifique la contraseña</label>
+                        <input type="password" id="contranueva2" name="contraVerify" class="form-control"  >
                     </div>
                     <div class="d-flex justify-content-center">
                         <button type="button" class="btn btn-primary" id="btnGuardarConfig" data-dismiss="modal">Guardar Cambios</button>
@@ -256,8 +256,8 @@
                 <h4><strong>Datos de pago: </strong></h4>
                 <button class="btn btn-primary" id="btnBorarPagos">Borrar datos de tarjetas </button> <br>
 
-                <label for="paypal" class="form-label mt-3" style="font-size: 20px;">Correo de la cuenta de paypal</label>
-                <input type="email" id="paypalIng" name="paypal" class="form-control" />
+                <label class="form-label mt-3" style="font-size: 20px;">Correo de la cuenta de paypal</label>
+                <input type="email" id="paypalIng" name="paypal" class="form-control"  >
                 <br>
                 <button class="btn btn-primary" id="btnAggPaypal">Asignar direccion de paypal</button>
                 
