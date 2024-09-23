@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyDrops</title>
     <!-- Bootstrap CSS para la versión 4.5.3 -->
-    <link href="../Estilos/css/bootstrap.css" rel="stylesheet">
-    <link href="../Estilos/css/" rel="stylesheet">
+    <link href="../Tienda/Estilos/css/bootstrap.css" rel="stylesheet">
+    <link href="../Tienda/Estilos/css/" rel="stylesheet">
     
-    <link href="../Estilos/inicio.css" rel="stylesheet">
+    <link href="../Tienda/Estilos/inicio.css" rel="stylesheet">
 </head>
 <body>
     <header class=" d-flex flex-column flex-md-row align-items-center justify-content-between">
         <section class="container">
             <div class="row">
                 <article style="margin-right:10px;" class="d-flex align-items-center col-3">
-                    <img src="../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;" />
+                    <img src="../Tienda/assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;">
                     <span class="font-weight-bold" id="MyDrops">MyDrops</span>
                 </article>
     
                 <div class="d-flex align-items-center col-4">
-                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" />
-                    <button class="btnBuscar"><img src="../assets/lupa.png" style="width: 30px; height: 30px; filter:brightness(200);"></button>
+                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" >
+                    <button class="btnBuscar"><img src="../Tienda/assets/lupa.png" alt="lupa" style="width: 30px; height: 30px; filter:brightness(200);"></button>
                 </div>
     
                 <article id="accionesUsuario" class="d-flex align-items-center">
-                    <a href="../Vistas/registros/division.html" class="mr-2">
-                        <button class="btn btn-custom">Crea tu cuenta</button>
+                    <a href="../Tienda/Vistas/registros/division.html" class="mr-2 btn btn-custom">
+                        Crea tu cuenta
                     </a>
-                    <a href="../Vistas/inicios/divisionIni.html"><button id="btnInicio" class="btn btn-custom mr-2" >Ingresa</button></a>
+                    <a href="../Tienda/Vistas/inicios/divisionIni.html" id="btnInicio" class="btn btn-custom mr-2">Ingresa</a>
                     <button class="btn btn-custom mr-2">Mis compras</button>
-                    <a href="carrito.html">
-                        <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
+                    <a href="../Tienda/Vistas/carrito.html">
+                        <img src="../Tienda/assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
                     </a>
                 </article>
             </div>
@@ -51,7 +51,7 @@
                     </div>
                   </div>
                 <a class="nav-link-custom" href="#">Ofertas</a>
-                <a class="nav-link-custom" href="../Vistas/inicios/inicioUsu.html">Historial</a>
+                <a class="nav-link-custom" href="../Tienda/Vistas/inicios/inicioUsu.html">Historial</a>
             </div>
             <div>
                 <a class="nav-link-custom" href="#">Ayuda</a>
@@ -73,28 +73,28 @@
                         <div class="carousel-item active">
                             <div class="seccion-Ofertas d-flex align-items-center mt-4">
                                 <div>
-                                    <p id="titOferta" class="h5 font-weight-bold">Ahorros únicos en productos de Electrónica</p>
-                                    <p id="textOferta" class="h5 font-weight-bold">Hasta 40% de descuento</p>
+                                    <p class="titOferta" class="h5 font-weight-bold">Ahorros únicos en productos de Electrónica</p>
+                                    <p class="textOferta" class="h5 font-weight-bold">Hasta 40% de descuento</p>
                                 </div>
-                                <img src="../assets/oferta electronica.png" alt="Ofertas en Electrónica" class="img-fluid" id="imagenOferta">
+                                <img src="../Tienda/assets/oferta_electronica.png" alt="Ofertas en Electrónica" class="img-fluid imagenOferta"  >
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="seccion-Ofertas d-flex align-items-center mt-4">
                                 <div>
-                                    <p id="titOferta" class="h5 font-weight-bold">Sorprende a papá con un celular nuevo</p>
-                                    <p id="textOferta" class="h5 font-weight-bold">Hasta 60% de descuento</p>
+                                    <p class="titOferta" class="h5 font-weight-bold">Sorprende a papá con un celular nuevo</p>
+                                    <p class="textOferta" class="h5 font-weight-bold">Hasta 60% de descuento</p>
                                 </div>
-                                <img src="../assets/celulares.png" alt="Ofertas en Celulares" class="img-fluid" id="imagenOferta">
+                                <img src="../Tienda/assets/celulares.png" alt="Ofertas en Celulares" class="img-fluid imagenOferta"  >
                             </div>
                         </div>
                         <div class="carousel-item">
                             <div class="seccion-Ofertas d-flex align-items-center mt-4">
                                 <div>
-                                    <p id="titOferta" class="h5 font-weight-bold">Calienta el ambiente con estos descuentos</p>
-                                    <p id="textOferta" class="h5 font-weight-bold">Hasta 35% de descuento y 12 cuotas</p>
+                                    <p class="titOferta" class="h5 font-weight-bold">Calienta el ambiente con estos descuentos</p>
+                                    <p class="textOferta" class="h5 font-weight-bold">Hasta 35% de descuento y 12 cuotas</p>
                                 </div>
-                                <img src="../assets/estufa.png" alt="Ofertas en Estufas" class="img-fluid" id="imagenOferta">
+                                <img src="../Tienda/assets/estufa.png" alt="Ofertas en Estufas" class="img-fluid imagenOferta"  >
                             </div>
                         </div>
                     </div>
@@ -113,19 +113,19 @@
                 <section class="seccion-Info" style="margin-bottom: 20px;">
                     <div class="row">
                         <div class="col-3 mb-3" id="divDistinto">
-                            <img src="../assets/logo.png" class="imgInfo mr-2"/>
+                            <img src="../Tienda/assets/logo.png" alt="logo" class="imgInfo mr-2">
                             <p>Qué es MyDrops. Fácil de comprar y pedir</p>
                         </div>
                         <div class="col-3 mb-3 lineaVert">
-                            <img src="../assets/camioncito.png" class="imgInfo mr-2"/>
+                            <img src="../Tienda/assets/camioncito.png" alt="camion" class="imgInfo mr-2">
                             <p>Información de tus envíos. Déjanos todo a nosotros.</p>
                         </div>
                         <div class="col-3 mb-3 lineaVert">
-                            <img src="../assets/tarjetas.jpg" class="imgInfo mr-2"/>
+                            <img src="../Tienda/assets/tarjetas.jpg" alt="tarjetas" class="imgInfo mr-2">
                             <p>Paga con crédito o débito. <br>Conoce los beneficios</p>
                         </div>
                         <div class="col-3 mb-3 lineaVert">
-                            <img src="../assets/usuarioPre.jpg" class="imgInfo mr-2"/>
+                            <img src="../Tienda/assets/usuarioPre.jpg" alt="UsuarioPremium" class="imgInfo mr-2">
                             <p>Sé un usuario premium de MyDrops</p>
                         </div>
                     </div>
@@ -138,23 +138,23 @@
                         <div style="background-color: #5c6f8f; border-radius: 10px;height: 320px;width: 100%;padding: 20px;">
                         <div class="horizontal-scroll">
                             <div class="horizontal-scroll-item">
-                                <img src="../assets/cartera.jpg" class="imagenesTendencias"/>
+                                <img src="../Tienda/assets/cartera.jpg" alt="Carteras" class="imagenesTendencias">
                             <p>Bolsos de mano</p>
                             </div>
                             <div class="horizontal-scroll-item">
-                                <img src="../assets/juguete.jpg" class="imagenesTendencias"/>
+                                <img src="../Tienda/assets/juguete.jpg" alt="Juguetes" class="imagenesTendencias">
                                 <p>Juguetes</p>
                             </div>
                             <div class="horizontal-scroll-item">
-                                <img src="../assets/perfume.jpeg" class="imagenesTendencias"/>
+                                <img src="../Tienda/assets/perfume.jpeg" alt="Perfume" class="imagenesTendencias">
                                 <p>Perfumes</p>
                             </div>
                             <div class="horizontal-scroll-item">
-                                <img src="../assets/zapatos.jpeg" class="imagenesTendencias"/>
+                                <img src="../Tienda/assets/zapatos.jpeg" alt="Zapatos" class="imagenesTendencias">
                                 <p>Calzado</p>
                             </div>
                             <div class="horizontal-scroll-item">
-                                <img src="../assets/piezas.jpg" class="imagenesTendencias"/>
+                                <img src="../Tienda/assets/piezas.jpg" alt="Piezas" class="imagenesTendencias">
                             <p>Piezas y recambios</p>
                             </div>
                             <div class="horizontal-scroll-item">
@@ -183,7 +183,7 @@
                             <button class="btn-custom" style="justify-content: end;">Ver mas</button>
                         </div>
                         <div>
-                            <img src="../assets/producto2.jpg" style="height: 250px;width: 350px;">
+                            <img src="../Tienda/assets/producto2.jpg" alt="Maquillaje" style="height: 250px;width: 350px;">
                         </div>
                     </div>
                     <div class="bloqBlanco col-6">
@@ -195,7 +195,7 @@
                             <button class="btn-custom" style="justify-content: end;">Ver mas</button>
                         </div>
                         <div>
-                            <img src="../assets/imagen producto.jpg" style="height: 250px;width: 300px;">
+                            <img src="../Tienda/assets/imagen_producto.jpg" alt="Productos Ofertas" style="height: 250px;width: 300px;">
                         </div>
                     </div>
 
@@ -206,53 +206,50 @@
                             <div class="horizontal-scroll-anuncios">
                                 <article class="anunciosCard">
                                     <p>Esenciales para las vacaciones</p>
-                                    <img src="../assets/equipamiento.jpg" class="imagenesAnuncios">
+                                    <img src="../Tienda/assets/equipamiento.jpg" alt="Veraniego" class="imagenesAnuncios">
                                 </article>
                             </div>
                             <div class="horizontal-scroll-anuncios">
                                 <article class="anunciosCard">
                                     <p>Hora de decorar ese living</p>
-                                    <img src="../assets/muebles.jpg" class="imagenesAnuncios">
+                                    <img src="../Tienda/assets/muebles.jpg" alt="Muebles" class="imagenesAnuncios">
                                 </article>
                             </div>
                             <div class="horizontal-scroll-anuncios">
                                 <article class="anunciosCard">
                                     <p>Ideas para tu cocina</p>
-                                    <img src="../assets/cocina.jpg" class="imagenesAnuncios">
+                                    <img src="../Tienda/assets/cocina.jpg" alt="Cocinas" class="imagenesAnuncios">
                                 </article>
                             </div>
                             <div class="horizontal-scroll-anuncios">
                                 <article class="anunciosCard">
                                     <p>Ponte en forma en casa</p>
-                                    <img src="../assets/yoga.jpeg" class="imagenesAnuncios">
+                                    <img src="../Tienda/assets/yoga.jpeg" alt="Deportivos" class="imagenesAnuncios">
                                 </article>
                             </div>
                         </div>
                     </div>
 
-                </div>
-
                 <section id="seccion-Categorias" class="col-8">
-                    <button class="btn col-2"><img src="../assets/muebles.jpg"style="width: 50px; height=auto">Muebles</button>
-                    <button class="btn col-2"><img src="">Categoria 2</button>
-                    <button class="btn col-2"><img src="">Categoria 3</button>
-                    <button class="btn col-2"><img src="">Categoria 4</button>
+                    <button class="btn col-2"><img src="../Tienda/assets/muebles.jpg" alt="Muebles" style="width: 50px; height: auto">Muebles</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 2</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 3</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 4</button>
                 <br>
-                    <button class="btn col-2"><img src="">Categoria 5</button>
-                    <button class="btn col-2"><img src="">Categoria 6</button>
-                    <button class="btn col-2"><img src="">Categoria 7</button>
-                    <button class="btn col-2"><img src="">Categoria 8</button>
+                    <button class="btn col-2"><img src="#" alt="vacio" >Categoria 5</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 6</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 7</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 8</button>
                 <br>
-                    <button class="btn col-2"><img src="">Categoria 9</button>
-                    <button class="btn col-2"><img src="">Categoria 10</button>
-                    <button class="btn col-2"><img src="">Categoria 11</button>
-                    <button class="btn col-2"><img src="">Categoria 12</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 9</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 10</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 11</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 12</button>
                 <br>
-                    <button class="btn col-2"><img src="">Categoria 13</button>
-                    <button class="btn col-2"><img src="">Categoria 14</button>
-                    <button class="btn col-2"><img src="">Categoria 15</button>
-                    <button class="btn col-2"><img src="">Categoria 16</button>
-                </div>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 13</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 14</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 15</button>
+                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 16</button>
                 </section>
         </main>
     <footer class="col-12 text-center p-3 m-0">
@@ -261,15 +258,15 @@
                 <h3>Redes Sociales</h3>
                 <br>
                 <div class="d-flex align-items-center mb-2">
-                    <img src="../assets/x.png" style="height: 25px; width: 25px;" alt="X">
+                    <img src="../Tienda/assets/x.png" style="height: 25px; width: 25px;" alt="X">
                     <p class="mb-0 ml-2">X.</p>
                 </div>
                 <div class="d-flex align-items-center mb-2">
-                    <img src="../assets/ig.png" style="height: 25px; width: 25px;" alt="Instagram">
+                    <img src="../Tienda/assets/ig.png" style="height: 25px; width: 25px;" alt="Instagram">
                     <p class="mb-0 ml-2">Instagram.</p>
                 </div>
                 <div class="d-flex align-items-center mb-2">
-                    <img src="../assets/facebook.png" style="height: 25px; width: 25px;" alt="Facebook">
+                    <img src="../Tienda/assets/facebook.png" style="height: 25px; width: 25px;" alt="Facebook">
                     <p class="mb-0 ml-2">Facebook.</p>
                 </div>
             </section>
@@ -317,8 +314,8 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script src="../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
-    <script src="../js/inicio.js"></script>
+    <script src="../Tienda/js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="../Tienda/js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="../Tienda/js/inicio.js"></script>
 </body>
 </html>

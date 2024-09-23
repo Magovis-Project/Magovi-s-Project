@@ -1,6 +1,6 @@
 <?php
 require_once("ConexionModel.php");
-$conn = ConexionModel::getInstance()->getDatabaseInstance();
+$conn = ConexionModelo::getInstance()->getDatabaseInstance();
 try {
     $consulta = $conn->prepare("SELECT * FROM usuario;");
     $consulta->execute();

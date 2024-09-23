@@ -5,7 +5,7 @@ class EmpresaController
 
     public function __construct()
     {
-        $this->conn = ConexionModel::getInstance()->getDatabaseInstance();
+        $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
     // Buscar una empresa por su ID

@@ -5,7 +5,7 @@ class UsuarioController
 
     public function __construct()
     {
-        $this->conn = ConexionModel::getInstance()->getDatabaseInstance();
+        $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
     public function getUsuariosJSON()

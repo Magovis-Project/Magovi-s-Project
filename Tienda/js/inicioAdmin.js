@@ -6,10 +6,10 @@ $(document).ready(function() {
 
     function tomarDatos() {
         // Obtener los valores ingresados
-        let contra1 = $("#contra1").val();
-        let contra2 = $("#contra2").val();
+        let mail = $("#mail").val();
+        let contra = $("#contra").val();
 
-        if (contra1==="boquitaElMasGrande" && contra2==="TumbaLaCasaMami789"){
+        if (mail==="MagovisContact@gmail.com" && contra2==="ContraseñaApropiada123"){
             window.location.href = "../manejos/backOffice.html";
         }
     }

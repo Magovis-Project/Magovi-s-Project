@@ -5,7 +5,7 @@ class ArticuloController
 
     public function __construct()
     {
-        $this->conn = ConexionModel::getInstance()->getDatabaseInstance();
+        $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
     // Obtener todos los artículos
