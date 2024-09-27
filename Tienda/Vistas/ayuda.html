@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda MyDrops</title>
+    <!-- Bootstrap CSS para la versión 4.5.3 -->
+    <link href="../Estilos/css/bootstrap.css" rel="stylesheet">
+    <link href="../Estilos/css/" rel="stylesheet">
+    <link href="../Estilos/inicio.css" rel="stylesheet">
+</head>
+<body>
+    <header class="d-flex flex-column flex-md-row align-items-center justify-content-between">
+        <section class="container">
+            <div class="row">
+                <article style="margin-right:10px;" class="d-flex align-items-center col-3">
+                    <img src="../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;">
+                    <span class="font-weight-bold" id="MyDrops">MyDrops</span>
+                </article>
+
+                <div class="d-flex align-items-center col-4">
+                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2">
+                    <button class="btnBuscar">
+                        <img src="../Tienda/assets/lupa.png" alt="lupa" style="width: 30px; height: 30px; filter:brightness(200);">
+                    </button>
+                </div>
+
+                <article id="accionesUsuario" class="d-flex align-items-center">
+                    <a href="../Vistas/registros/division.html" class="mr-2 btn btn-custom">
+                        Crea tu cuenta
+                    </a>
+                    <a href="../Vistas/inicios/divisionIni.html" id="btnInicio" class="btn btn-custom mr-2">Ingresa</a>
+                    <button class="btn btn-custom mr-2">Mis compras</button>
+                    <a href="carrito.html">
+                        <img src="../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
+                    </a>
+                </article>
+            </div>
+        </section>
+    </header>
+
+    <nav id="bajoHeader" class="col-12">
+        <div class="container" style="display: flex;">
+            <div style="flex: 1;">
+                <div class="dropdown">
+                    <p class="nav-link-custom drop">Categorías</p>
+                    <div class="dropdown-content">
+                        <a href="#">Accesorios</a>
+                        <a href="#">Calzado</a>
+                        <a href="#">Moda</a>
+                        <a href="#">Ver todas</a>
+                    </div>
+                </div>
+                <a class="nav-link-custom" href="#">Ofertas</a>
+                <a class="nav-link-custom" href="../Tienda/Vistas/inicios/inicioUsu.html">Historial</a>
+            </div>
+            <div>
+                <a class="nav-link-custom" href="#">Ayuda</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="py-4">
+        <div class="container">
+            <h1 class="text-center mb-4">Centro de Ayuda MyDrops</h1>
+
+            <!-- Colapsable de Preguntas Frecuentes -->
+            <div class="accordion" id="accordionHelp">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                ¿Cómo crear una cuenta en MyDrops?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Para crear una cuenta, haz clic en "Crea tu cuenta" en la esquina superior derecha de la página principal. Completa el formulario con tus datos personales, acepta los términos y condiciones, y ¡listo! Recibirás un correo electrónico de confirmación.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                ¿Cómo recuperar mi contraseña?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Si olvidaste tu contraseña, ve a la página de inicio de sesión y haz clic en "Olvidé mi contraseña". Introduce tu correo electrónico registrado y te enviaremos un enlace para restablecerla.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                ¿Cómo gestionar mis compras?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Para gestionar tus compras, inicia sesión en tu cuenta y dirígete a "Mis compras". Allí podrás ver el estado de tus pedidos, cancelar compras, y realizar seguimientos de tus envíos.
+                        </div>
+                    </div>
+                </div>
+                <!-- Nueva sección de Seguridad -->
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                ¿Cómo proteger mi cuenta de MyDrops?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Para proteger tu cuenta, asegúrate de utilizar una contraseña segura, que incluya letras mayúsculas, minúsculas, números y símbolos. Además, nunca compartas tu contraseña con nadie y activa la verificación en dos pasos para una mayor seguridad.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                ¿Qué hago si sospecho que mi cuenta ha sido hackeada?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Si crees que tu cuenta ha sido comprometida, cambia tu contraseña de inmediato y revisa tus compras recientes. También es recomendable que contactes con nuestro servicio de atención al cliente para obtener asistencia adicional.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                ¿Cómo evitar el robo de información personal?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Para evitar el robo de información personal, utiliza conexiones seguras (como WiFi encriptada o datos móviles) al acceder a MyDrops. No compartas información sensible a través de correos electrónicos o mensajes no solicitados y mantén tu software de seguridad actualizado.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSeven">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                ¿Cómo reportar una compra fraudulenta?
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionHelp">
+                        <div class="card-body">
+                            Si detectas una compra fraudulenta, repórtala de inmediato desde la sección "Mis compras" o contactando a nuestro equipo de soporte. Proporciona toda la información necesaria para que podamos investigar el incidente y tomar las medidas adecuadas.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-light">
+        <p>&copy; 2024 MyDrops. Todos los derechos reservados.</p>
+        <p><a href="#">Política de privacidad</a> | <a href="#">Términos y condiciones</a></p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/jsboot/bootstrap.js"></script>
+</body>
+</html>

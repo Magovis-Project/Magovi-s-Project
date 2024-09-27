@@ -9,7 +9,7 @@ $(document).ready(function() {
         let mail = $("#mail").val();
         let contra = $("#contra").val();
 
-        if (mail==="MagovisContact@gmail.com" && contra2==="ContraseñaApropiada123"){
+        if (mail==="MagovisContact@gmail.com" && contra==="ContraseñaApropiada123"){
             window.location.href = "../manejos/backOffice.html";
         }
     }
