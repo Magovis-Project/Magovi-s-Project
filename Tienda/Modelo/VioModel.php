@@ -1,7 +1,7 @@
 <?php
 require_once 'conexionModelo.php';
 
-class ConformaModel
+class VioModel
 {
     private $conn;
 
@@ -10,33 +10,33 @@ class ConformaModel
         $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
-    public function getConforma()
+    public function getVios()
     {
-        $consulta = $this->conn->prepare("SELECT * FROM Conforma;");
+        $consulta = $this->conn->prepare("SELECT * FROM Vio;");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createConforma($id_usuario, $id_articulo)
+    public function createVio($id_usuario, $id_articulo)
     {
-        $consulta = $this->conn->prepare("INSERT INTO Conforma (Id_Usuario, ID_Articulo)
+        $consulta = $this->conn->prepare("INSERT INTO Vio (Id_Usuario, Id_Articulo) 
                                           VALUES (:id_usuario, :id_articulo)");
         $consulta->bindParam(':id_usuario', $id_usuario);
         $consulta->bindParam(':id_articulo', $id_articulo);
         $consulta->execute();
     }
 
-    public function deleteConforma($id_usuario, $id_articulo)
+    public function deleteVio($id_usuario, $id_articulo)
     {
-        $consulta = $this->conn->prepare("DELETE FROM Conforma WHERE Id_Usuario = :id_usuario AND ID_Articulo = :id_articulo");
+        $consulta = $this->conn->prepare("DELETE FROM Vio WHERE Id_Usuario = :id_usuario AND Id_Articulo = :id_articulo");
         $consulta->bindParam(':id_usuario', $id_usuario);
         $consulta->bindParam(':id_articulo', $id_articulo);
         $consulta->execute();
     }
 
-    public function getConformaByIds($id_usuario, $id_articulo)
+    public function getVioByIds($id_usuario, $id_articulo)
     {
-        $consulta = $this->conn->prepare("SELECT * FROM Conforma WHERE Id_Usuario = :id_usuario AND ID_Articulo = :id_articulo");
+        $consulta = $this->conn->prepare("SELECT * FROM Vio WHERE Id_Usuario = :id_usuario AND Id_Articulo = :id_articulo");
         $consulta->bindParam(':id_usuario', $id_usuario);
         $consulta->bindParam(':id_articulo', $id_articulo);
         $consulta->execute();

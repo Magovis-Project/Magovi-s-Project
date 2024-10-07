@@ -1,55 +1,51 @@
 <?php
+require_once 'conexionModelo.php';
+
 class CarritoModel
 {
     private $conn;
 
     public function __construct()
     {
-        // Obtener la conexión a la base de datos utilizando la clase de conexión
         $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
-    // Obtener todos los carritos
-    public function obtenerCarritos()
+    public function getCarrito()
     {
-        $consulta = $this->conn->prepare("SELECT * FROM carrito;");
+        $consulta = $this->conn->prepare("SELECT * FROM Carrito;");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Crear un nuevo carrito
-    public function crearCarrito($id_usuario, $estado_carrito)
+    public function createCarrito($id_usuario, $cantidad)
     {
-        $consulta = $this->conn->prepare("INSERT INTO carrito (id_usuario, estado_carrito) VALUES (?, ?);");
-        $consulta->bindParam(1, $id_usuario);
-        $consulta->bindParam(2, $estado_carrito);
-        return $consulta->execute();
+        $consulta = $this->conn->prepare("INSERT INTO Carrito (Id_Usuario, Cantidad)
+                                          VALUES (:id_usuario, :cantidad)");
+        $consulta->bindParam(':id_usuario', $id_usuario);
+        $consulta->bindParam(':cantidad', $cantidad);
+        $consulta->execute();
     }
 
-    // Buscar un carrito por su ID
-    public function buscarCarritoPorId($id_carrito)
+    public function updateCarrito($id_usuario, $cantidad)
     {
-        $consulta = $this->conn->prepare("SELECT * FROM carrito WHERE id_carrito = ?;");
-        $consulta->bindParam(1, $id_carrito);
+        $consulta = $this->conn->prepare("UPDATE Carrito SET Cantidad = :cantidad WHERE Id_Usuario = :id_usuario");
+        $consulta->bindParam(':id_usuario', $id_usuario);
+        $consulta->bindParam(':cantidad', $cantidad);
+        $consulta->execute();
+    }
+
+    public function deleteCarrito($id_usuario)
+    {
+        $consulta = $this->conn->prepare("DELETE FROM Carrito WHERE Id_Usuario = :id_usuario");
+        $consulta->bindParam(':id_usuario', $id_usuario);
+        $consulta->execute();
+    }
+
+    public function getCarritoById($id_usuario)
+    {
+        $consulta = $this->conn->prepare("SELECT * FROM Carrito WHERE Id_Usuario = :id_usuario");
+        $consulta->bindParam(':id_usuario', $id_usuario);
         $consulta->execute();
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
-
-    // Actualizar el estado de un carrito
-    public function actualizarCarrito($id_carrito, $estado_carrito)
-    {
-        $consulta = $this->conn->prepare("UPDATE carrito SET estado_carrito = ? WHERE id_carrito = ?;");
-        $consulta->bindParam(1, $estado_carrito);
-        $consulta->bindParam(2, $id_carrito);
-        return $consulta->execute();
-    }
-
-    // Eliminar un carrito por su ID
-    public function eliminarCarrito($id_carrito)
-    {
-        $consulta = $this->conn->prepare("DELETE FROM carrito WHERE id_carrito = ?;");
-        $consulta->bindParam(1, $id_carrito);
-        return $consulta->execute();
-    }
 }
-?>

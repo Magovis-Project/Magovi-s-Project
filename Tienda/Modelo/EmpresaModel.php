@@ -1,4 +1,5 @@
 <?php
+require_once 'conexionModelo.php';
 
 class EmpresaModel
 {
@@ -9,51 +10,53 @@ class EmpresaModel
         $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
-    public function getEmpresaById($id_empresa)
-    {
-        $consulta = $this->conn->prepare("SELECT * FROM empresa WHERE id_empresa = :id_empresa");
-        $consulta->bindParam(":id_empresa", $id_empresa);
-        $consulta->execute();
-        return $consulta->fetch(PDO::FETCH_ASSOC);
-    }
-
     public function getEmpresas()
     {
-        $consulta = $this->conn->prepare("SELECT * FROM empresa;");
+        $consulta = $this->conn->prepare("SELECT * FROM Empresa;");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function createEmpresa($nombre, $direccion, $email, $hashedPassword, $RUT)
+    public function createEmpresa($nombre, $direccion, $telefono, $email, $logo, $cedula_juridica)
     {
-        $consulta = $this->conn->prepare("INSERT INTO empresa (nombre_empresa, direccion_empresa, email_empresa, password_empresa, RUT) 
-                                          VALUES (:nombre, :direccion, :email, :password, :RUT)");
-        $consulta->bindParam(":nombre", $nombre);
-        $consulta->bindParam(":direccion", $direccion);
-        $consulta->bindParam(":email", $email);
-        $consulta->bindParam(":password", $hashedPassword);
-        $consulta->bindParam(":RUT", $RUT);
+        $consulta = $this->conn->prepare("INSERT INTO Empresa (Nombre, Direccion, Telefono, Email, Logo, Cedula_Juridica)
+                                          VALUES (:nombre, :direccion, :telefono, :email, :logo, :cedula_juridica)");
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':direccion', $direccion);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':logo', $logo);
+        $consulta->bindParam(':cedula_juridica', $cedula_juridica);
         $consulta->execute();
     }
 
-    public function updateEmpresa($id_empresa, $nombre, $direccion, $email, $hashedPassword, $RUT)
+    public function updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $logo, $cedula_juridica)
     {
-        $consulta = $this->conn->prepare("UPDATE empresa SET nombre_empresa = :nombre, direccion_empresa = :direccion, 
-                                          email_empresa = :email, password_empresa = IFNULL(:password, password_empresa), 
-                                          RUT = :RUT WHERE id_empresa = :id_empresa");
-        $consulta->bindParam(":id_empresa", $id_empresa);
-        $consulta->bindParam(":nombre", $nombre);
-        $consulta->bindParam(":direccion", $direccion);
-        $consulta->bindParam(":email", $email);
-        $consulta->bindParam(":password", $hashedPassword);
-        $consulta->bindParam(":RUT", $RUT);
+        $consulta = $this->conn->prepare("UPDATE Empresa SET Nombre = :nombre, Direccion = :direccion, Telefono = :telefono,
+                                          Email = :email, Logo = :logo, Cedula_Juridica = :cedula_juridica
+                                          WHERE Id_Empresa = :id_empresa");
+        $consulta->bindParam(':id_empresa', $id_empresa);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':direccion', $direccion);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->bindParam(':email', $email);
+        $consulta->bindParam(':logo', $logo);
+        $consulta->bindParam(':cedula_juridica', $cedula_juridica);
         $consulta->execute();
     }
 
     public function deleteEmpresa($id_empresa)
     {
-        $consulta = $this->conn->prepare("DELETE FROM empresa WHERE id_empresa = :id_empresa");
-        $consulta->bindParam(":id_empresa", $id_empresa);
+        $consulta = $this->conn->prepare("DELETE FROM Empresa WHERE Id_Empresa = :id_empresa");
+        $consulta->bindParam(':id_empresa', $id_empresa);
         $consulta->execute();
+    }
+
+    public function getEmpresaById($id_empresa)
+    {
+        $consulta = $this->conn->prepare("SELECT * FROM Empresa WHERE Id_Empresa = :id_empresa");
+        $consulta->bindParam(':id_empresa', $id_empresa);
+        $consulta->execute();
+        return $consulta->fetch(PDO::FETCH_ASSOC);
     }
 }

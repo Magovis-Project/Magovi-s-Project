@@ -10,65 +10,44 @@ class ConformaControlador
         $this->conformaModel = new ConformaModel();
     }
 
-    // Obtener todos los registros de "conforma"
     public function getConformaJSON()
     {
         try {
-            $conformas = $this->conformaModel->obtenerConforma();
+            $conforma = $this->conformaModel->getConforma();
             header('Content-Type: application/json');
-            echo json_encode($conformas);
+            echo json_encode($conforma);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
         }
     }
 
-    // Crear un nuevo registro en "conforma"
-    public function createConforma($id_usuario, $id_articulo, $id_carrito)
+    public function createConforma($id_usuario, $id_articulo)
     {
         try {
-            $this->conformaModel->crearConforma($id_usuario, $id_articulo, $id_carrito);
-            echo json_encode(['mensaje' => 'Registro en Conforma creado exitosamente.']);
+            $this->conformaModel->createConforma($id_usuario, $id_articulo);
+            echo json_encode(['success' => true, 'message' => 'Relación conforma creada exitosamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Buscar un registro por ID de usuario, ID de artículo e ID de carrito
-    public function buscarConforma($id_usuario, $id_articulo, $id_carrito)
+    public function deleteConforma($id_usuario, $id_articulo)
     {
         try {
-            $conforma = $this->conformaModel->buscarConforma($id_usuario, $id_articulo, $id_carrito);
-            echo json_encode($conforma ?: ['mensaje' => 'Registro no encontrado.']);
+            $this->conformaModel->deleteConforma($id_usuario, $id_articulo);
+            echo json_encode(['success' => true, 'message' => 'Relación conforma eliminada correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Actualizar un registro en "conforma"
-    public function updateConforma($id_usuario, $id_articulo, $id_carrito)
+    public function getConformaByIds($id_usuario, $id_articulo)
     {
         try {
-            $this->conformaModel->actualizarConforma($id_usuario, $id_articulo, $id_carrito);
-            echo json_encode(['mensaje' => 'Registro actualizado exitosamente.']);
+            $conforma = $this->conformaModel->getConformaByIds($id_usuario, $id_articulo);
+            echo json_encode($conforma);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
-        }
-    }
-
-    // Eliminar un registro en "conforma"
-    public function deleteConforma($id_usuario, $id_articulo, $id_carrito)
-    {
-        try {
-            $this->conformaModel->eliminarConforma($id_usuario, $id_articulo, $id_carrito);
-            echo json_encode(['mensaje' => 'Registro eliminado exitosamente.']);
-        } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 }
-?>

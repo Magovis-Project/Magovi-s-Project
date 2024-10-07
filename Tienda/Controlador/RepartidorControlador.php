@@ -10,65 +10,54 @@ class RepartidorControlador
         $this->repartidorModel = new RepartidorModel();
     }
 
-    // Obtener todos los repartidores en formato JSON
     public function getRepartidoresJSON()
     {
         try {
-            $repartidores = $this->repartidorModel->obtenerRepartidores();
+            $repartidores = $this->repartidorModel->getRepartidores();
             header('Content-Type: application/json');
             echo json_encode($repartidores);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
         }
     }
 
-    // Crear un nuevo repartidor
-    public function createRepartidor($id_carrito, $empresa_matriz)
+    public function createRepartidor($nombre, $telefono)
     {
         try {
-            $this->repartidorModel->crearRepartidor($id_carrito, $empresa_matriz);
-            echo json_encode(['mensaje' => 'Repartidor creado exitosamente.']);
+            $this->repartidorModel->createRepartidor($nombre, $telefono);
+            echo json_encode(['success' => true, 'message' => 'Repartidor creado exitosamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Buscar un repartidor por su ID
-    public function buscarRepartidorPorId($id_repartidor)
+    public function updateRepartidor($id_repartidor, $nombre, $telefono)
     {
         try {
-            $repartidor = $this->repartidorModel->buscarRepartidorPorId($id_repartidor);
-            echo json_encode($repartidor ?: ['mensaje' => 'Repartidor no encontrado.']);
+            $this->repartidorModel->updateRepartidor($id_repartidor, $nombre, $telefono);
+            echo json_encode(['success' => true, 'message' => 'Repartidor actualizado correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Actualizar un repartidor
-    public function updateRepartidor($id_repartidor, $id_carrito, $empresa_matriz)
-    {
-        try {
-            $this->repartidorModel->actualizarRepartidor($id_repartidor, $id_carrito, $empresa_matriz);
-            echo json_encode(['mensaje' => 'Repartidor actualizado exitosamente.']);
-        } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
-        }
-    }
-
-    // Eliminar un repartidor
     public function deleteRepartidor($id_repartidor)
     {
         try {
-            $this->repartidorModel->eliminarRepartidor($id_repartidor);
-            echo json_encode(['mensaje' => 'Repartidor eliminado exitosamente.']);
+            $this->repartidorModel->deleteRepartidor($id_repartidor);
+            echo json_encode(['success' => true, 'message' => 'Repartidor eliminado correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function getRepartidorById($id_repartidor)
+    {
+        try {
+            $repartidor = $this->repartidorModel->getRepartidorById($id_repartidor);
+            echo json_encode($repartidor);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 }
-?>

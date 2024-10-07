@@ -1,4 +1,6 @@
 <?php
+require_once 'conexionModelo.php';
+
 class RepartidorModel
 {
     private $conn;
@@ -8,48 +10,44 @@ class RepartidorModel
         $this->conn = conexionModelo::getInstance()->getDatabaseInstance();
     }
 
-    // Obtener todos los repartidores
-    public function obtenerRepartidores()
+    public function getRepartidores()
     {
-        $consulta = $this->conn->prepare("SELECT * FROM repartidor;");
+        $consulta = $this->conn->prepare("SELECT * FROM Repartidor;");
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // Crear un nuevo repartidor
-    public function crearRepartidor($id_carrito, $empresa_matriz)
+    public function createRepartidor($nombre, $telefono)
     {
-        $consulta = $this->conn->prepare("INSERT INTO repartidor (id_carrito, empresa_matriz) VALUES (?, ?);");
-        $consulta->bindParam(1, $id_carrito);
-        $consulta->bindParam(2, $empresa_matriz);
-        return $consulta->execute();
+        $consulta = $this->conn->prepare("INSERT INTO Repartidor (Nombre, Telefono) 
+                                          VALUES (:nombre, :telefono)");
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->execute();
     }
 
-    // Buscar repartidor por ID
-    public function buscarRepartidorPorId($id_repartidor)
+    public function updateRepartidor($id_repartidor, $nombre, $telefono)
     {
-        $consulta = $this->conn->prepare("SELECT * FROM repartidor WHERE id_repartidor = ?;");
-        $consulta->bindParam(1, $id_repartidor);
+        $consulta = $this->conn->prepare("UPDATE Repartidor SET Nombre = :nombre, Telefono = :telefono 
+                                          WHERE Id_Repartidor = :id_repartidor");
+        $consulta->bindParam(':id_repartidor', $id_repartidor);
+        $consulta->bindParam(':nombre', $nombre);
+        $consulta->bindParam(':telefono', $telefono);
+        $consulta->execute();
+    }
+
+    public function deleteRepartidor($id_repartidor)
+    {
+        $consulta = $this->conn->prepare("DELETE FROM Repartidor WHERE Id_Repartidor = :id_repartidor");
+        $consulta->bindParam(':id_repartidor', $id_repartidor);
+        $consulta->execute();
+    }
+
+    public function getRepartidorById($id_repartidor)
+    {
+        $consulta = $this->conn->prepare("SELECT * FROM Repartidor WHERE Id_Repartidor = :id_repartidor");
+        $consulta->bindParam(':id_repartidor', $id_repartidor);
         $consulta->execute();
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
-
-    // Actualizar repartidor
-    public function actualizarRepartidor($id_repartidor, $id_carrito, $empresa_matriz)
-    {
-        $consulta = $this->conn->prepare("UPDATE repartidor SET id_carrito = ?, empresa_matriz = ? WHERE id_repartidor = ?;");
-        $consulta->bindParam(1, $id_carrito);
-        $consulta->bindParam(2, $empresa_matriz);
-        $consulta->bindParam(3, $id_repartidor);
-        return $consulta->execute();
-    }
-
-    // Eliminar repartidor
-    public function eliminarRepartidor($id_repartidor)
-    {
-        $consulta = $this->conn->prepare("DELETE FROM repartidor WHERE id_repartidor = ?;");
-        $consulta->bindParam(1, $id_repartidor);
-        return $consulta->execute();
-    }
 }
-?>

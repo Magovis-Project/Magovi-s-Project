@@ -1,74 +1,63 @@
 <?php
 require_once 'ResenaModel.php';
 
-class ResenaControlador
+class ReseñaControlador
 {
-    private $resenaModel;
+    private $reseñaModel;
 
     public function __construct()
     {
-        $this->resenaModel = new ResenaModel();
+        $this->reseñaModel = new ReseñaModel();
     }
 
-    // Obtener todas las reseñas
-    public function getResenasJSON()
+    public function getReseñasJSON()
     {
         try {
-            $resenas = $this->resenaModel->obtenerResenas();
+            $reseñas = $this->reseñaModel->getReseñas();
             header('Content-Type: application/json');
-            echo json_encode($resenas);
+            echo json_encode($reseñas);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
         }
     }
 
-    // Crear una nueva reseña
-    public function createResena($id_usuario, $id_articulo, $calificacion, $comentario)
+    public function createReseña($id_usuario, $id_articulo, $comentario, $calificacion)
     {
         try {
-            $this->resenaModel->crearResena($id_usuario, $id_articulo, $calificacion, $comentario);
-            echo json_encode(['mensaje' => 'Reseña creada exitosamente.']);
+            $this->reseñaModel->createReseña($id_usuario, $id_articulo, $comentario, $calificacion);
+            echo json_encode(['success' => true, 'message' => 'Reseña creada exitosamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Buscar una reseña por ID de usuario y ID de artículo
-    public function buscarResena($id_usuario, $id_articulo)
+    public function updateReseña($id_usuario, $id_articulo, $comentario, $calificacion)
     {
         try {
-            $resena = $this->resenaModel->buscarResena($id_usuario, $id_articulo);
-            echo json_encode($resena ?: ['mensaje' => 'Reseña no encontrada.']);
+            $this->reseñaModel->updateReseña($id_usuario, $id_articulo, $comentario, $calificacion);
+            echo json_encode(['success' => true, 'message' => 'Reseña actualizada correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Actualizar una reseña
-    public function updateResena($id_usuario, $id_articulo, $calificacion, $comentario)
+    public function deleteReseña($id_usuario, $id_articulo)
     {
         try {
-            $this->resenaModel->actualizarResena($id_usuario, $id_articulo, $calificacion, $comentario);
-            echo json_encode(['mensaje' => 'Reseña actualizada exitosamente.']);
+            $this->reseñaModel->deleteReseña($id_usuario, $id_articulo);
+            echo json_encode(['success' => true, 'message' => 'Reseña eliminada correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    // Eliminar una reseña
-    public function deleteResena($id_usuario, $id_articulo)
+    public function getReseñaByIds($id_usuario, $id_articulo)
     {
         try {
-            $this->resenaModel->eliminarResena($id_usuario, $id_articulo);
-            echo json_encode(['mensaje' => 'Reseña eliminada exitosamente.']);
+            $reseña = $this->reseñaModel->getReseñaByIds($id_usuario, $id_articulo);
+            echo json_encode($reseña);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 }
-?>

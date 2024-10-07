@@ -1,92 +1,117 @@
-CREATE DATABASE MyDrops_BD;
+-- Creación de la base de datos
+CREATE DATABASE MyDrops_BD
 USE MyDrops_BD;
 
-CREATE TABLE usuario(
-    id_usuario INT AUTO_INCREMENT NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    apellido VARCHAR(50) NOT NULL,
-    direccion VARCHAR(100) NOT NULL,
-    foto VARCHAR(255) NOT NULL,
-    email VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(15) NOT NULL,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    PRIMARY KEY (id_usuario)
+-- Tabla Usuarios
+CREATE TABLE Usuarios (
+    Id_Usuario INT PRIMARY KEY AUTO_INCREMENT,
+    Password VARCHAR(255) NOT NULL,
+    Direccion VARCHAR(255) NOT NULL,
+    Apellido VARCHAR(255) NOT NULL,
+    Nombre VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Telefono INT,
+    Cedula INT NOT NULL,
+    Fecha_Creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Foto BLOB
 );
 
-CREATE TABLE tarjetas(
-    id_usuario INT NOT NULL,
-    numero_tarjeta VARCHAR(16) NOT NULL,
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
-    PRIMARY KEY (id_usuario)
+-- Tabla Empresa
+CREATE TABLE Empresa (
+    ID_Empresa INT PRIMARY KEY AUTO_INCREMENT,
+    Password VARCHAR(255) NOT NULL,
+    Direccion VARCHAR(255) NOT NULL,
+    Nombre VARCHAR(255) NOT NULL,
+    RUT VARCHAR(20) NOT NULL,
+    Email VARCHAR(255) NOT NULL,
+    Telefono VARCHAR(20) NOT NULL,
+    Valoracion DECIMAL(2, 1),
 );
 
-CREATE TABLE empresa(
-    id_empresa INT AUTO_INCREMENT NOT NULL,
-    nombre_empresa VARCHAR(50) NOT NULL,
-    direccion_empresa VARCHAR(100) NOT NULL,
-    email_empresa VARCHAR(50) NOT NULL,
-    password_empresa VARCHAR(255) NOT NULL,
-    RUT VARCHAR(12) NOT NULL,
-    PRIMARY KEY (id_empresa)
+-- Tabla Articulos
+CREATE TABLE Articulos (
+    Id_Articulos INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Empresa INT,
+    Nombre VARCHAR(255) NOT NULL,
+    Precio DECIMAL(10, 2) NOT NULL,
+    Cantidad INT NOT NULL,
+    Tipo VARCHAR(50) NOT NULL,
+    FOREIGN KEY (ID_Empresa) REFERENCES Empresa(ID_Empresa)
 );
 
-CREATE TABLE articulos(
-    id_articulo INT AUTO_INCREMENT NOT NULL,
-    id_empresa INT NOT NULL,
-    nombre VARCHAR(50) NOT NULL,
-    precio DECIMAL(10,2) NOT NULL,
-    cantidad INT NOT NULL,
-    tipo INT NOT NULL,
-    FOREIGN KEY(id_empresa) REFERENCES empresa(id_empresa),
-    PRIMARY KEY (id_articulo)
+-- Tabla Carrito
+CREATE TABLE Carrito (
+    Id_Usuario INT PRIMARY KEY,
+    Cantidad INT NOT NULL,
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario)
 );
 
-CREATE TABLE compras(
-    id_usuario INT NOT NULL,
-    id_articulo INT NOT NULL,
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
-    FOREIGN KEY(id_articulo) REFERENCES articulos(id_articulo),
-    PRIMARY KEY (id_usuario, id_articulo)
+-- Tabla Conforma
+CREATE TABLE Conforma (
+    Id_Usuario INT,
+    ID_Articulo INT,
+    PRIMARY KEY (Id_Usuario, ID_Articulo),
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario),
+    FOREIGN KEY (ID_Articulo) REFERENCES Articulos(Id_Articulos)
 );
 
-CREATE TABLE carrito(
-    id_carrito INT AUTO_INCREMENT NOT NULL,
-    id_usuario INT NOT NULL,
-    estado_carrito ENUM("Entregado", "Recibido", "Armado", "En camino") NOT NULL,
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
-    PRIMARY KEY (id_carrito)
+-- Tabla Reseña
+CREATE TABLE Reseña (
+    Id_Reseña INT PRIMARY KEY AUTO_INCREMENT,
+    Rating DECIMAL(2, 1) NOT NULL,
+    Comentario TEXT NOT NULL,
+    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    Id_Articulos INT,
+    Id_Usuario INT,
+    FOREIGN KEY (Id_Articulos) REFERENCES Articulos(Id_Articulos),
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario)
 );
 
-CREATE TABLE repartidor(
-    id_repartidor INT AUTO_INCREMENT NOT NULL,
-    id_carrito INT NOT NULL,
-    empresa_matriz VARCHAR(50) NOT NULL,
-    FOREIGN KEY(id_carrito) REFERENCES carrito(id_carrito),
-    PRIMARY KEY (id_repartidor)
+-- Tabla Envio
+CREATE TABLE Envio (
+    ID_Envio INT PRIMARY KEY AUTO_INCREMENT,
+    ID_Usuario INT,
+    Estado VARCHAR(50) NOT NULL,
+    Id_Repartidor INT,
+    FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(Id_Usuario),
+    FOREIGN KEY (Id_Repartidor) REFERENCES Repartidor(ID_Repartidor)
 );
 
-CREATE TABLE conforma(
-    id_usuario INT NOT NULL,
-    id_articulo INT NOT NULL,
-    id_carrito INT NOT NULL,
-    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario),
-    FOREIGN KEY(id_articulo) REFERENCES articulos(id_articulo),
-    FOREIGN KEY(id_carrito) REFERENCES carrito(id_carrito),
-    PRIMARY KEY (id_usuario, id_articulo, id_carrito)
+-- Tabla Repartidor
+CREATE TABLE Repartidor (
+    ID_Repartidor INT PRIMARY KEY AUTO_INCREMENT,
+    Empresa_Matriz VARCHAR(255)
 );
 
-CREATE TABLE reseña(
-    id_reseña INT AUTO_INCREMENT NOT NULL,
-    id_usuario INT NOT NULL,
-    id_articulo INT NOT NULL,
-    comentario VARCHAR(255) NOT NULL,
-    rating INT DEFAULT 0,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
-    FOREIGN KEY (id_articulo) REFERENCES articulos(id_articulo),
-    PRIMARY KEY (id_reseña)
+-- Tabla Vio
+CREATE TABLE Vio (
+    Id_Articulos INT,
+    Id_Usuario INT,
+    Fecha DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (Id_Articulos, Id_Usuario, Fecha),
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario),
+    FOREIGN KEY (Id_Articulos) REFERENCES Articulos(Id_Articulos)
 );
+
+-- Tabla Likeo
+CREATE TABLE Likeo (
+    Id_Usuario INT,
+    ID_Articulo INT,
+    PRIMARY KEY (Id_Usuario, ID_Articulo),
+    FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario),
+    FOREIGN KEY (ID_Articulo) REFERENCES Articulos(Id_Articulos)
+);
+
+-- Tabla Compone
+CREATE TABLE Compone (
+    Id_Envio INT,
+    ID_Articulo INT,
+    PRIMARY KEY (Id_Envio, ID_Articulo),
+    FOREIGN KEY (Id_Envio) REFERENCES Envio(ID_Envio),
+    FOREIGN KEY (ID_Articulo) REFERENCES Articulos(Id_Articulos)
+);
+
+
 
 -- Insertar datos en la tabla usuario
 INSERT INTO usuario (nombre, apellido, direccion, foto, email, password, telefono)

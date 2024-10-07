@@ -1,17 +1,19 @@
 <?php
-class UsuarioControlador
+require_once 'UsuariosModel.php';
+
+class UsuariosControlador
 {
-    private $usuarioModel;
+    private $usuariosModel;
 
     public function __construct()
     {
-        $this->usuarioModel = new UsuarioModel();
+        $this->usuariosModel = new UsuariosModel();
     }
 
     public function getUsuariosJSON()
     {
         try {
-            $usuarios = $this->usuarioModel->getUsuarios();
+            $usuarios = $this->usuariosModel->getUsuarios();
             header('Content-Type: application/json');
             echo json_encode($usuarios);
         } catch (PDOException $e) {
@@ -19,20 +21,20 @@ class UsuarioControlador
         }
     }
 
-    public function createUsuario($nombre, $apellido, $direccion, $foto, $email, $password, $telefono)
+    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
     {
         try {
-            $this->usuarioModel->createUsuario($nombre, $apellido, $direccion, $foto, $email, $password, $telefono);
+            $this->usuariosModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto);
             echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    public function updateUsuario($id_usuario, $nombre, $apellido, $direccion, $foto, $email, $telefono)
+    public function updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
     {
         try {
-            $this->usuarioModel->updateUsuario($id_usuario, $nombre, $apellido, $direccion, $foto, $email, $telefono);
+            $this->usuariosModel->updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto);
             echo json_encode(['success' => true, 'message' => 'Usuario actualizado correctamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
@@ -42,7 +44,7 @@ class UsuarioControlador
     public function deleteUsuario($id_usuario)
     {
         try {
-            $this->usuarioModel->deleteUsuario($id_usuario);
+            $this->usuariosModel->deleteUsuario($id_usuario);
             echo json_encode(['success' => true, 'message' => 'Usuario eliminado correctamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
@@ -52,11 +54,10 @@ class UsuarioControlador
     public function getUsuarioById($id_usuario)
     {
         try {
-            $usuario = $this->usuarioModel->getUsuarioById($id_usuario);
+            $usuario = $this->usuariosModel->getUsuarioById($id_usuario);
             echo json_encode($usuario);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 }
-?>

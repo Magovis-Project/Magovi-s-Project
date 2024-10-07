@@ -1,6 +1,5 @@
 <?php
-
-require_once 'modelos/EmpresaModel.php';
+require_once 'EmpresaModel.php';
 
 class EmpresaControlador
 {
@@ -11,42 +10,54 @@ class EmpresaControlador
         $this->empresaModel = new EmpresaModel();
     }
 
-    public function getEmpresaById($id_empresa)
+    public function getEmpresasJSON()
     {
-        $empresa = $this->empresaModel->getEmpresaById($id_empresa);
-        if ($empresa) {
-            header("Content-Type: application/json");
-            echo json_encode($empresa);
-        } else {
-            echo json_encode(["error" => true, "mensaje" => "Empresa no encontrada"]);
+        try {
+            $empresas = $this->empresaModel->getEmpresas();
+            header('Content-Type: application/json');
+            echo json_encode($empresas);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
         }
     }
 
-    public function getEmpresasJSON()
+    public function createEmpresa($nombre, $direccion, $telefono, $email, $logo, $cedula_juridica)
     {
-        $empresas = $this->empresaModel->getEmpresas();
-        header("Content-Type: application/json");
-        echo json_encode($empresas);
+        try {
+            $this->empresaModel->createEmpresa($nombre, $direccion, $telefono, $email, $logo, $cedula_juridica);
+            echo json_encode(['success' => true, 'message' => 'Empresa creada exitosamente']);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
     }
 
-    public function createEmpresa($nombre, $direccion, $email, $password, $RUT)
+    public function updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $logo, $cedula_juridica)
     {
-        // Hash de la contraseña
-        $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-        $this->empresaModel->createEmpresa($nombre, $direccion, $email, $hashedPassword, $RUT);
-        echo json_encode(["mensaje" => "Empresa creada con éxito"]);
-    }
-
-    public function updateEmpresa($id_empresa, $nombre, $direccion, $email, $password, $RUT)
-    {
-        $hashedPassword = !empty($password) ? password_hash($password, PASSWORD_BCRYPT) : null;
-        $this->empresaModel->updateEmpresa($id_empresa, $nombre, $direccion, $email, $hashedPassword, $RUT);
-        echo json_encode(["mensaje" => "Empresa actualizada con éxito"]);
+        try {
+            $this->empresaModel->updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $logo, $cedula_juridica);
+            echo json_encode(['success' => true, 'message' => 'Empresa actualizada correctamente']);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
     }
 
     public function deleteEmpresa($id_empresa)
     {
-        $this->empresaModel->deleteEmpresa($id_empresa);
-        echo json_encode(["mensaje" => "Empresa eliminada con éxito"]);
+        try {
+            $this->empresaModel->deleteEmpresa($id_empresa);
+            echo json_encode(['success' => true, 'message' => 'Empresa eliminada correctamente']);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function getEmpresaById($id_empresa)
+    {
+        try {
+            $empresa = $this->empresaModel->getEmpresaById($id_empresa);
+            echo json_encode($empresa);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
     }
 }

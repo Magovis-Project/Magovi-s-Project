@@ -1,69 +1,63 @@
 <?php
-require_once 'ArticuloModel.php';
+require_once 'ArticulosModel.php';
 
-class ArticuloControlador
+class ArticulosControlador
 {
-    private $articuloModel;
+    private $articulosModel;
 
     public function __construct()
     {
-        $this->articuloModel = new ArticuloModel();
+        $this->articulosModel = new ArticulosModel();
     }
 
     public function getArticulosJSON()
     {
         try {
-            $articulos = $this->articuloModel->obtenerArticulos();
+            $articulos = $this->articulosModel->getArticulos();
             header('Content-Type: application/json');
             echo json_encode($articulos);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
         }
     }
 
-    public function createArticulo($nombre, $precio, $cantidad, $tipo, $id_empresa)
+    public function createArticulo($id_empresa, $nombre, $precio, $cantidad, $tipo)
     {
         try {
-            $this->articuloModel->crearArticulo($nombre, $precio, $cantidad, $tipo, $id_empresa);
-            echo json_encode(['mensaje' => 'Artículo creado exitosamente.']);
+            $this->articulosModel->createArticulo($id_empresa, $nombre, $precio, $cantidad, $tipo);
+            echo json_encode(['success' => true, 'message' => 'Artículo creado exitosamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    public function buscarArticuloPorId($id_articulo)
+    public function updateArticulo($id_articulo, $id_empresa, $nombre, $precio, $cantidad, $tipo)
     {
         try {
-            $articulo = $this->articuloModel->buscarArticuloPorId($id_articulo);
-            echo json_encode($articulo ?: ['mensaje' => 'Artículo no encontrado.']);
+            $this->articulosModel->updateArticulo($id_articulo, $id_empresa, $nombre, $precio, $cantidad, $tipo);
+            echo json_encode(['success' => true, 'message' => 'Artículo actualizado correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
-        }
-    }
-
-    public function updateArticulo($id_articulo, $nombre, $precio, $cantidad, $tipo)
-    {
-        try {
-            $this->articuloModel->actualizarArticulo($id_articulo, $nombre, $precio, $cantidad, $tipo);
-            echo json_encode(['mensaje' => 'Artículo actualizado exitosamente.']);
-        } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
     public function deleteArticulo($id_articulo)
     {
         try {
-            $this->articuloModel->eliminarArticulo($id_articulo);
-            echo json_encode(['mensaje' => 'Artículo eliminado exitosamente.']);
+            $this->articulosModel->deleteArticulo($id_articulo);
+            echo json_encode(['success' => true, 'message' => 'Artículo eliminado correctamente']);
         } catch (PDOException $e) {
-            $error = ['error' => true, 'mensaje' => $e->getMessage()];
-            echo json_encode($error);
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function getArticuloById($id_articulo)
+    {
+        try {
+            $articulo = $this->articulosModel->getArticuloById($id_articulo);
+            echo json_encode($articulo);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 }
-?>
