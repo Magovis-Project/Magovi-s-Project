@@ -59,4 +59,33 @@ class EmpresaModel
         $consulta->execute();
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Método para validar el RUT
+    public function validarRUT($rut)
+    {
+        // Verificar longitud
+        $rut = str_replace(['.', '-'], '', $rut); // Eliminar puntos y guiones
+        if (strlen($rut) < 8 || strlen($rut) > 10) {
+            return false;
+        }
+
+        $digitoVerificador = strtoupper(substr($rut, -1));
+        $numeros = substr($rut, 0, -1);
+        $pesos = [2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7]; // Pesos de derecha a izquierda
+        $suma = 0;
+        $j = 0;
+
+        // Calcular la suma
+        for ($i = strlen($numeros) - 1; $i >= 0; $i--) {
+            $suma += (int)$numeros[$i] * $pesos[$j];
+            $j = ($j + 1) % count($pesos);
+        }
+
+        // Calcular el residuo
+        $residuo = $suma % 11;
+        $dvCalculado = $residuo === 0 ? '0' : ($residuo === 1 ? 'K' : (11 - $residuo));
+
+        // Comparar el dígito verificador calculado con el ingresado
+        return $dvCalculado === $digitoVerificador;
+    }
 }
