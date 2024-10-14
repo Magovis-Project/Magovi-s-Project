@@ -12,6 +12,10 @@
 
 /* Estilos para el cuerpo */
 body {
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
     background-color: var(--background);
     font-family: Arial, sans-serif;
 }
@@ -336,4 +340,29 @@ footer{
 .enlaces :hover{
     color: black;
     text-decoration: underline;
+}
+
+/* Asegura que el formulario y el cuadro estén alineados horizontalmente */
+.contenedor-formulario {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* El formulario ocupa 2 partes, el cuadro 1 */
+    gap: 15px;
+    align-items: start;
+}
+
+/* El formulario ocupa más espacio */
+.formulario {
+    background-color: white;
+    max-width: 700px;
+}
+
+/* El cuadro de Reportar Problema */
+.reportar-problema {
+    background-color: white;
+    max-width: 300px;
+}
+
+#mensajeError{
+    text-align: center;
+    color: red;
 }

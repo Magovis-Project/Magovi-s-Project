@@ -112,67 +112,78 @@ CREATE TABLE Compone (
 );
 
 
-
--- Insertar datos en la tabla usuario
-INSERT INTO usuario (nombre, apellido, direccion, foto, email, password, telefono)
+-- Insertar datos en la tabla Usuarios
+INSERT INTO Usuarios (Password, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Foto)
 VALUES
-('Juan', 'Pérez', 'Av. Siempre Viva 123', 'juan.jpg', 'juan.perez@example.com', 'password123', '555-1234'),
-('Ana', 'García', 'Calle Falsa 456', 'ana.jpg', 'ana.garcia@example.com', 'password456', '555-5678'),
-('Pedro', 'Martínez', 'Paseo de la Reforma 789', 'pedro.jpg', 'pedro.martinez@example.com', 'password789', '555-9101');
+('password123', 'Av. Siempre Viva 123', 'Pérez', 'Juan', 'juan.perez@example.com', 5551234, 12345678, NULL),
+('password456', 'Calle Falsa 456', 'García', 'Ana', 'ana.garcia@example.com', 5555678, 87654321, NULL),
+('password789', 'Paseo de la Reforma 789', 'Martínez', 'Pedro', 'pedro.martinez@example.com', 5559101, 11223344, NULL);
 
--- Insertar datos en la tabla tarjetas
-INSERT INTO tarjetas (id_usuario, numero_tarjeta)
+-- Insertar datos en la tabla Empresa
+INSERT INTO Empresa (Password, Direccion, Nombre, RUT, Email, Telefono, Valoracion)
 VALUES
-(1, '1234567812345678'),
-(2, '2345678923456789'),
-(3, '3456789034567890');
+('empresaA123', 'Calle Principal 1', 'Empresa A', '12345678-9', 'contacto@empresaA.com', '555-0011', 4.5),
+('empresaB123', 'Av. Secundaria 2', 'Empresa B', '98765432-1', 'contacto@empresaB.com', '555-0022', 4.0);
 
--- Insertar datos en la tabla empresa
-INSERT INTO empresa (nombre_empresa, direccion_empresa, email_empresa, password_empresa, RUT)
+-- Insertar datos en la tabla Articulos
+INSERT INTO Articulos (ID_Empresa, Nombre, Precio, Cantidad, Tipo)
 VALUES
-('Empresa A', 'Calle Principal 1', 'contacto@empresaA.com', 'passwordA', '12345678-9'),
-('Empresa B', 'Av. Secundaria 2', 'contacto@empresaB.com', 'passwordB', '98765432-1');
+(1, 'Producto A1', 10.00, 100, 'Tipo 1'),
+(1, 'Producto A2', 20.00, 200, 'Tipo 2'),
+(2, 'Producto B1', 30.00, 150, 'Tipo 1');
 
--- Insertar datos en la tabla articulos
-INSERT INTO articulos (id_empresa, nombre, precio, cantidad, tipo)
+-- Insertar datos en la tabla Carrito
+INSERT INTO Carrito (Id_Usuario, Cantidad)
 VALUES
-(1, 'Artículo 1', 10.00, 100, 1),
-(1, 'Artículo 2', 20.00, 200, 2),
-(2, 'Artículo 3', 30.00, 150, 1);
+(1, 2),
+(2, 3),
+(3, 1);
 
--- Insertar datos en la tabla compras
-INSERT INTO compras (id_usuario, id_articulo)
+-- Insertar datos en la tabla Conforma
+INSERT INTO Conforma (Id_Usuario, ID_Articulo)
 VALUES
 (1, 1),
 (2, 2),
 (3, 3);
 
--- Insertar datos en la tabla carrito
-INSERT INTO carrito (id_usuario, estado_carrito)
+-- Insertar datos en la tabla Reseña
+INSERT INTO Reseña (Rating, Comentario, Id_Articulos, Id_Usuario)
 VALUES
-(1, 'Armado'),
-(2, 'En camino'),
-(3, 'Recibido');
+(5.0, 'Excelente calidad', 1, 1),
+(4.0, 'Buena relación calidad-precio', 2, 2),
+(3.5, 'Satisfactorio', 3, 3);
 
--- Insertar datos en la tabla repartidor
-INSERT INTO repartidor (id_carrito, empresa_matriz)
+-- Insertar datos en la tabla Repartidor
+INSERT INTO Repartidor (Empresa_Matriz)
 VALUES
-(1, 'Empresa A'),
-(2, 'Empresa B');
+('Empresa A'),
+('Empresa B');
 
--- Insertar datos en la tabla conforma
-INSERT INTO conforma (id_usuario, id_articulo, id_carrito)
+-- Insertar datos en la tabla Envio
+INSERT INTO Envio (ID_Usuario, Estado, Id_Repartidor)
 VALUES
-(1, 1, 1),
-(2, 2, 2),
-(3, 3, 3);
+(1, 'En camino', 1),
+(2, 'Entregado', 2);
 
--- Insertar datos en la tabla reseña
-INSERT INTO reseña (id_usuario, id_articulo, comentario, rating)
+-- Insertar datos en la tabla Vio
+INSERT INTO Vio (Id_Articulos, Id_Usuario)
 VALUES
-(1, 1, 'Excelente producto', 5),
-(2, 2, 'Buena calidad', 4),
-(3, 3, 'Satisfecho con la compra', 3);
+(1, 1),
+(2, 2),
+(3, 3);
+
+-- Insertar datos en la tabla Likeo
+INSERT INTO Likeo (Id_Usuario, ID_Articulo)
+VALUES
+(1, 2),
+(2, 1);
+
+-- Insertar datos en la tabla Compone
+INSERT INTO Compone (Id_Envio, ID_Articulo)
+VALUES
+(1, 1),
+(1, 2),
+(2, 3);
 
 
 
