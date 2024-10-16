@@ -1,7 +1,7 @@
 <?php
-require_once 'conexionModelo.php';
+require_once 'ConexionModel.php';
 
-class UsuariosModel
+class UsuarioModel
 {
     private $conn;
 

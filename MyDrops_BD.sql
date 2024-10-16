@@ -9,11 +9,11 @@ CREATE TABLE Usuarios (
     Direccion VARCHAR(255) NOT NULL,
     Apellido VARCHAR(255) NOT NULL,
     Nombre VARCHAR(255) NOT NULL,
-    Email VARCHAR(255) NOT NULL,
+    Email VARCHAR(255) NOT NULL UNIQUE,
     Telefono INT,
-    Cedula INT NOT NULL,
+    Cedula INT NOT NULL UNIQUE,
     Fecha_Creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Foto BLOB
+    Foto TEXT
 );
 
 -- Tabla Empresa
@@ -21,11 +21,11 @@ CREATE TABLE Empresa (
     ID_Empresa INT PRIMARY KEY AUTO_INCREMENT,
     Password VARCHAR(255) NOT NULL,
     Direccion VARCHAR(255) NOT NULL,
-    Nombre VARCHAR(255) NOT NULL,
-    RUT VARCHAR(20) NOT NULL,
-    Email VARCHAR(255) NOT NULL,
+    Nombre VARCHAR(255) NOT NULL UNIQUE,
+    RUT VARCHAR(20) NOT NULL UNIQUE,
+    Email VARCHAR(255) NOT NULL UNIQUE,
     Telefono VARCHAR(20) NOT NULL,
-    Valoracion DECIMAL(2, 1),
+    Valoracion DECIMAL(2, 1)
 );
 
 -- Tabla Articulos

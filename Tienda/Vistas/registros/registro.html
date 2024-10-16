@@ -25,38 +25,47 @@
             <section class="contenedor-formulario d-grid">
                 <!-- Formulario -->
                 <div class="formulario p-4 rounded-lg shadow text-center">
-                    <h1 class="h4 font-weight-bold mb-4">Ingresa tus datos a continuación:</h1>
+                    <h1 class="h3 font-weight-bold mb-4">Ingresa tus datos a continuación:</h1>
                     <form id="formRegistro">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                                <div id="mensajeErrorNombre"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="apellido" placeholder="Apellido">
+                                <div id="mensajeErrorApellido"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="ci" placeholder="Cédula de Identidad">
+                                <div id="mensajeErrorCi"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="direccion" placeholder="Direccion">
+                                <div id="mensajeErrorDireccion"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="ciudad" placeholder="Ciudad">
+                                <div id="mensajeErrorCiudad"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="numero" placeholder="Teléfono">
+                                <div id="mensajeErrorTele"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="email" class="form-control" id="correo" placeholder="Correo">
+                                <div id="mensajeErrorCorreo"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="password" class="form-control" id="contra" placeholder="Contraseña">
+                                <div id="mensajeErrorContra"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="password" class="form-control" id="contra2" placeholder="Repetir Contraseña">
+                                <div id="mensajeErrorContraVerify"></div>
                             </div>
                             <div class="col-12 d-grid">
-                                <div id="mensajeError"></div>
+                                
                                 <br>
                                 <button type="button" class="btn btn-primary" id="btnGuardar">Guardar</button>
                             </div>

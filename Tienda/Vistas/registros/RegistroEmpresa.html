@@ -25,32 +25,38 @@
             <section class="contenedor-formulario d-grid">
                 <!-- Formulario -->
                 <div class="formulario p-4 rounded-lg shadow text-center">
-                    <h1 class="h4 font-weight-bold mb-4">Ingresa los datos de tu empresa a continuación:</h1>
+                    <h1 class="h3 font-weight-bold mb-4">Ingresa los datos de tu empresa a continuación:</h1>
                     <form id="formRegistroEmp">
                         <div class="row">
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="nombreEmp" placeholder="Nombre de la Empresa">
+                                <div id="mensajeErrorNombreEmp" class="mensaje-error"></div>    
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="text" class="form-control" id="ubicacionEmp" placeholder="Ubicación">
+                                <div id="mensajeErrorUbicacionEmp" class="mensaje-error"></div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" id="rut" placeholder="RUT">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <input type="text" class="form-control" id="numeroEmp" placeholder="Teléfono">
+                                <input type="text" class="form-control" id="numeroEmp" placeholder="Número de Teléfono">
+                                <div id="mensajeErrorNumeroEmp" class="mensaje-error"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="email" class="form-control" id="correoEmp" placeholder="Correo">
+                                <div id="mensajeErrorCorreoEmp" class="mensaje-error"></div>
                             </div>
                             <div class="col-md-6 mb-3">
                                 <input type="password" class="form-control" id="contraEmp" placeholder="Contraseña">
+                                <div id="mensajeErrorContraEmp" class="mensaje-error"></div>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <input type="password" class="form-control" id="contra2" placeholder="Repetir Contraseña">
+                                <input type="text" class="form-control" id="rut" placeholder="RUT">
+                                <div id="mensajeErrorRut" class="mensaje-error"></div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="password" class="form-control" id="contra2" placeholder="Confirmar Contraseña">
+                                <div id="mensajeErrorContraVerify" class="mensaje-error"></div>
                             </div>
                             <div class="col-12 d-grid">
-                                <div id="mensajeError"></div>
                                 <br>
                                 <button type="button" class="btn btn-primary" id="btnGuardar">Crear cuenta de Empresa</button>
                             </div>
