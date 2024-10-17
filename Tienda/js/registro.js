@@ -183,7 +183,7 @@ function comprobar(ci, numero, contra, contraVerify) {
 }
 
 function validarContrasena(contra) {
-    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.,]{8,}$/;
+    const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.:;,]{8,}$/;
     return regex.test(contra);
 }
 

@@ -160,3 +160,5 @@ class UsuariosControlador
     }
 }
  
+$controlador = new UsuariosControlador(); 
+$controlador->processRequest();

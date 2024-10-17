@@ -67,6 +67,12 @@ CREATE TABLE Reseña (
     FOREIGN KEY (Id_Usuario) REFERENCES Usuarios(Id_Usuario)
 );
 
+-- Tabla Repartidor
+CREATE TABLE Repartidor (
+    ID_Repartidor INT PRIMARY KEY AUTO_INCREMENT,
+    Empresa_Matriz VARCHAR(255)
+);
+
 -- Tabla Envio
 CREATE TABLE Envio (
     ID_Envio INT PRIMARY KEY AUTO_INCREMENT,
@@ -75,12 +81,6 @@ CREATE TABLE Envio (
     Id_Repartidor INT,
     FOREIGN KEY (ID_Usuario) REFERENCES Usuarios(Id_Usuario),
     FOREIGN KEY (Id_Repartidor) REFERENCES Repartidor(ID_Repartidor)
-);
-
--- Tabla Repartidor
-CREATE TABLE Repartidor (
-    ID_Repartidor INT PRIMARY KEY AUTO_INCREMENT,
-    Empresa_Matriz VARCHAR(255)
 );
 
 -- Tabla Vio
@@ -115,9 +115,9 @@ CREATE TABLE Compone (
 -- Insertar datos en la tabla Usuarios
 INSERT INTO Usuarios (Password, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Foto)
 VALUES
-('password123', 'Av. Siempre Viva 123', 'Pérez', 'Juan', 'juan.perez@example.com', 5551234, 12345678, NULL),
-('password456', 'Calle Falsa 456', 'García', 'Ana', 'ana.garcia@example.com', 5555678, 87654321, NULL),
-('password789', 'Paseo de la Reforma 789', 'Martínez', 'Pedro', 'pedro.martinez@example.com', 5559101, 11223344, NULL);
+('Password123', 'Av. Siempre Viva 123', 'Pérez', 'Juan', 'juan.perez@example.com', 5551234, 12345678, NULL),
+('Password456', 'Calle Falsa 456', 'García', 'Ana', 'ana.garcia@example.com', 5555678, 87654321, NULL),
+('Password789', 'Paseo de la Reforma 789', 'Martínez', 'Pedro', 'pedro.martinez@example.com', 5559101, 11223344, NULL);
 
 -- Insertar datos en la tabla Empresa
 INSERT INTO Empresa (Password, Direccion, Nombre, RUT, Email, Telefono, Valoracion)

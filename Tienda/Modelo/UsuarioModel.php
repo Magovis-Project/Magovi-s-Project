@@ -1,5 +1,7 @@
 <?php
+
 require_once 'ConexionModel.php';
+
 
 class UsuarioModel
 {

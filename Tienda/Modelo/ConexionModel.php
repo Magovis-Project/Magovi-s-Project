@@ -1,4 +1,6 @@
 <?php
+
+require_once("../config/config.php");
 class conexionModelo {
 
 private static $instance;
