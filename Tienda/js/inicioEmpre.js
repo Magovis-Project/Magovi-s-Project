@@ -1,40 +1,32 @@
 $(document).ready(function() {
-
-    const empresas = [
-        { correoEmp: "empresa1@ejemplo.com", contraseñaEmp: "password123" },
-        { correoEmp: "empresa2@ejemplo.com", contraseñaEmp: "password456" }
-    ];
-
-
-    function Empresa(correoEmp, contraseñaEmp) {
-        this.correoEmp = correoEmp;
-        this.contraseñaEmp = contraseñaEmp;
-    }
-
-    $("#btnsubmit").click(function(event) {
+    $('#loginForm').submit(function(event) {
         event.preventDefault(); 
-        tomarDatos();
+
+        const email = $('#correoEmp').val();
+        const password = $('#contraEmp').val();
+        const mensaje = $('#msj');
+
+        // Realiza la solicitud AJAX al controlador de PHP
+        $.ajax({
+            url: '../../Controlador/EmpresaControlador.php', 
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                action: 'login',
+                email: email,
+                password: password,
+            }),
+            success: function(data) {
+                if (data.error) {
+                    mensaje.text(data.message).css('color', 'red');
+                } else {
+                    mensaje.text(data.message).css('color', 'green');
+                    window.location.href = '../../Vistas/manejos/manejoEmpresa.html';
+                }
+            },
+            error: function(xhr, status, error) {
+                mensaje.text('Error en la solicitud: ' + error).css('color', 'red'); // Muestra el mensaje de error
+            }
+        });
     });
-
-    function tomarDatos() {
- 
-        const correoEmp = $("#correoEmp").val();
-        const contraseñaEmp = $("#contraEmp").val();
-
-
-        const resultado = validarEmpresa(correoEmp, contraseñaEmp);
-        $("#msj").html(resultado);
-    }
-
-  
-    function validarEmpresa(unCorreoEmp, unaContraseñaEmp) {
-        const empresa = empresas.find(empresa => empresa.correoEmp === unCorreoEmp && empresa.contraseñaEmp === unaContraseñaEmp);
-
-        if (empresa) {
-    
-            window.location.href = "../manejos/manejoEmpresa.html";
-        } else {
-            return "Correo o contraseña incorrectos";
-        }
-    }
 });

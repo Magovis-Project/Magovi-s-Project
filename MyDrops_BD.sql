@@ -25,7 +25,8 @@ CREATE TABLE Empresa (
     RUT VARCHAR(20) NOT NULL UNIQUE,
     Email VARCHAR(255) NOT NULL UNIQUE,
     Telefono VARCHAR(20) NOT NULL,
-    Valoracion DECIMAL(2, 1)
+    Valoracion DECIMAL(2, 1),
+    foto_url VARCHAR(255)
 );
 
 -- Tabla Articulos

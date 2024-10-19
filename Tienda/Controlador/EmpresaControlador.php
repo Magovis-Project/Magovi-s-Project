@@ -1,5 +1,5 @@
 <?php
-require_once 'EmpresaModel.php';
+require_once '../Modelo/EmpresaModel.php';
 
 class EmpresaControlador
 {
@@ -10,114 +10,115 @@ class EmpresaControlador
         $this->empresaModel = new EmpresaModel();
     }
 
-    public function getEmpresasJSON()
+    public function processRequest()
     {
-        try {
-            $empresas = $this->empresaModel->getEmpresas();
-            header('Content-Type: application/json');
-            echo json_encode($empresas);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $input = json_decode(file_get_contents('php://input'), true);
+
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                echo json_encode(['error' => true, 'message' => 'Error en la decodificación JSON: ' . json_last_error_msg()]);
+                return;
+            }
+
+            if (isset($input['action'])) {
+                switch ($input['action']) {
+                    case 'create':
+                        $this->createEmpresa(
+                            $input['nombre'],
+                            $input['direccion'],
+                            $input['telefono'],
+                            $input['email'],
+                            $input['RUT'],
+                            $input['password']
+                        );
+                        break;
+
+                    case 'login':
+                        $this->iniciarSesion($input['email'], $input['password']);
+                        break;
+
+                        case 'getAllEmpresas':
+                            $this->getAllEmpresas();
+                            break;
+                        
+
+                    default:
+                        echo json_encode(['error' => true, 'message' => 'Acción no válida.']);
+                        break;
+                }
+            } else {
+                echo json_encode(['error' => true, 'message' => 'Acción no especificada.']);
+            }
+        } else {
+            echo json_encode(['error' => true, 'message' => 'Método no permitido.']);
         }
     }
 
-    public function createEmpresa($nombre, $direccion, $telefono, $email, $logo, $RUT)
+    public function iniciarSesion($email, $password)
     {
-        // Validación de datos
-        $validacion = $this->validarDatos($nombre, $direccion, $telefono, $email, $RUT);
-        
-        if ($validacion['error']) {
-            echo json_encode($validacion);
+        try {
+            $empresa = $this->empresaModel->getEmpresaByEmail($email);
+
+            if ($empresa && password_verify($password, $empresa['password'])) {
+                echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.', 'empresa' => $empresa]);
+            } else {
+                echo json_encode(['error' => true, 'message' => 'Email o contraseña incorrectos.']);
+            }
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function getAllEmpresas()
+    {
+        try {
+            $empresas = $this->empresaModel->getAllEmpresas();  // Llama al modelo para obtener los datos
+            header('Content-Type: application/json');
+            echo json_encode($empresas);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function createEmpresa($nombre, $direccion, $telefono, $email, $RUT, $password)
+    {
+        $validacion = $this->validarDatos($nombre, $direccion, $telefono, $email, $RUT, $password);
+        if ($validacion !== true) {
+            echo json_encode(['error' => true, 'message' => $validacion]);
             return;
         }
 
         try {
-            $this->empresaModel->createEmpresa($nombre, $direccion, $telefono, $email, $logo, $RUT);
+            $this->empresaModel->createEmpresa($nombre, $direccion, $telefono, $email, foto_url: null, rut: $RUT, password: $password);
             echo json_encode(['success' => true, 'message' => 'Empresa creada exitosamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    public function updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $logo, $RUT)
+    private function validarDatos($nombre, $direccion, $telefono, $email, $RUT, $password)
     {
-        // Validación de datos
-        $validacion = $this->validarDatos($nombre, $direccion, $telefono, $email, $RUT);
-        
-        if ($validacion['error']) {
-            echo json_encode($validacion);
-            return;
+        $mensaje = "";
+
+        if (empty($nombre) || empty($direccion) || empty($telefono) || empty($email) || empty($RUT) || empty($password)) {
+            return "Todos los campos son obligatorios.";
         }
 
-        try {
-            $this->empresaModel->updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $logo, $RUT);
-            echo json_encode(['success' => true, 'message' => 'Empresa actualizada correctamente']);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
-    }
-
-    public function deleteEmpresa($id_empresa)
-    {
-        try {
-            $this->empresaModel->deleteEmpresa($id_empresa);
-            echo json_encode(['success' => true, 'message' => 'Empresa eliminada correctamente']);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
-    }
-
-    public function getEmpresaById($id_empresa)
-    {
-        try {
-            $empresa = $this->empresaModel->getEmpresaById($id_empresa);
-            echo json_encode($empresa);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
-    }
-
-    private function validarDatos($nombre, $direccion, $telefono, $email, $RUT)
-    {
-        $errores = [];
-
-        // Validación de campos vacíos
-        if (empty($nombre)) {
-            $errores[] = 'El nombre no puede estar vacío.';
-        }
-        if (empty($direccion)) {
-            $errores[] = 'La dirección no puede estar vacía.';
-        }
-        if (empty($telefono)) {
-            $errores[] = 'El teléfono no puede estar vacío.';
-        }
-        if (empty($email)) {
-            $errores[] = 'El correo electrónico no puede estar vacío.';
-        }
-        if (empty($RUT)) {
-            $errores[] = 'El RUT no puede estar vacío.';
-        }
-
-        // Validación de longitud de teléfono (suponiendo que debería tener 9 dígitos)
         if (strlen($telefono) !== 9) {
-            $errores[] = 'El teléfono debe tener 9 dígitos.';
+            $mensaje .= "El teléfono debe tener exactamente 9 dígitos.<br>";
         }
 
-        // Validación de correo electrónico
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $errores[] = 'El correo electrónico no es válido.';
+            $mensaje .= "El correo electrónico no es válido.<br>";
         }
 
-        // Validación del RUT
         if (!$this->empresaModel->validarRUT($RUT)) {
-            $errores[] = 'El RUT no es válido.';
+            $mensaje .= "El RUT no es válido.<br>";
         }
 
-        // Retornar errores si los hay
-        if (!empty($errores)) {
-            return ['error' => true, 'mensajes' => $errores];
-        }
-
-        return ['error' => false];
+        return empty($mensaje) ? true : $mensaje;
     }
 }
+
+$controlador = new EmpresaControlador();
+$controlador->processRequest();

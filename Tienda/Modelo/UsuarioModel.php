@@ -1,5 +1,4 @@
 <?php
-
 require_once 'ConexionModel.php';
 
 
@@ -13,11 +12,12 @@ class UsuarioModel
     }
 
     public function getUsuarios()
-    {
-        $consulta = $this->conn->prepare("SELECT * FROM Usuarios;");
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
-    }
+{
+    $prepare = $this->conn->prepare("SELECT Id_Usuario, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Fecha_Creacion FROM Usuarios");
+    $prepare->execute();
+    return $prepare->fetchAll(PDO::FETCH_ASSOC);
+}
+
 
     public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
     {

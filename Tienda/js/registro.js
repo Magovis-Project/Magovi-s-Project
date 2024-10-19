@@ -55,13 +55,11 @@ function tomarDatos() {
                 nombre: nombre,
                 email: correo,
                 telefono: numero,
-                cedula: ci,
-                foto: foto
+                cedula: ci
             }),
             contentType: "application/json; charset=utf-8", // Asegura que se envíe como JSON
             dataType: "json", // Esperamos respuesta en JSON
-            success: function (response) {
-                console.log(response); 
+            success: function (response) { 
                 if (response.success) {
                     alert(response.message); // Éxito
                 } else {

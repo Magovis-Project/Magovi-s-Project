@@ -96,28 +96,42 @@ $(document).ready(function () {
         if (isValid) {
             // Obtener datos del formulario
             var formData = {
-                nombreEmp: nombreEmp,
-                ubicacionEmp: ubicacionEmp,
-                numeroEmp: numeroEmp,
-                correoEmp: correoEmp,
-                contraEmp: contraEmp,
-                rut: rut
+                nombre: nombreEmp,
+                direccion: ubicacionEmp,
+                telefono: numeroEmp,
+                email: correoEmp,
+                password: contraEmp, // Asegúrate de que esta línea esté correctamente definida
+                RUT: rut
             };
-
+            console.log("Registrar Empresa")
             // Enviar datos al controlador
             $.ajax({
-                type: "POST", // Método de envío
-                url: "../Controlador/EmpresaControlador.php", // Cambia esto a la ruta de tu controlador
-                data: formData,
+                type: "POST",
+                url: "../../Controlador/EmpresaControlador.php",
+                data: JSON.stringify({
+                    action: "create",
+                    password: contraEmp, // Asegúrate de que esta línea esté correctamente definida
+                    direccion: ubicacionEmp,
+                    nombre: nombreEmp,
+                    RUT: rut,
+                    email: correoEmp,
+                    telefono: numeroEmp
+                }),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
                 success: function (response) {
-                    // Manejar la respuesta del servidor
-                    alert("Registro exitoso: " + response);
+                    if (response.success) {
+                        alert(response.message);
+                    } else {
+                        alert("Error: " + response.message);
+                    }
                 },
-                error: function (xhr, status, error) {
-                    // Manejar errores
+                error: function (xhr, error) {
+                    console.log("Error en la solicitud:", xhr.responseText);
                     alert("Error: " + error);
                 }
             });
+            
         }
     }
 
@@ -132,28 +146,6 @@ $(document).ready(function () {
     }
 
     function validarRUT(rut) {
-        if (rut.length < 8 || rut.length > 10) return false;
-
-        const digitoVerificador = rut.charAt(rut.length - 1).toUpperCase();
-        const numeros = rut.slice(0, -1).split("").reverse();
-        const pesos = [2, 9, 8, 7, 6, 5, 4, 3];
-        let suma = 0;
-
-        for (let i = 0; i < numeros.length; i++) {
-            suma += parseInt(numeros[i]) * pesos[i % pesos.length];
-        }
-
-        const residuo = suma % 11;
-        let dvCalculado;
-
-        if (residuo === 0) {
-            dvCalculado = "0";
-        } else if (residuo === 1) {
-            dvCalculado = "K";
-        } else {
-            dvCalculado = (11 - residuo).toString();
-        }
-
-        return dvCalculado === digitoVerificador;
+        return rut.length === 12; // Modificado para aceptar RUTs válidos
     }
 });

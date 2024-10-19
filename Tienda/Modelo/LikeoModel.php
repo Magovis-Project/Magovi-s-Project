@@ -1,5 +1,5 @@
 <?php
-require_once 'conexionModelo.php';
+require_once 'ConexionModel.php';
 
 class LikeoModel
 {

@@ -3,9 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
 header('Content-Type: application/json');
-
 
 if (file_exists("../Modelo/UsuarioModel.php")) {
     require_once("../Modelo/UsuarioModel.php");
@@ -24,54 +22,86 @@ class UsuariosControlador
     }
 
     public function processRequest()
-{
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Leer el cuerpo de la solicitud JSON
-        $input = json_decode(file_get_contents('php://input'), true);
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Leer el cuerpo de la solicitud JSON
+            $input = json_decode(file_get_contents('php://input'), true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            echo json_encode(['error' => true, 'message' => 'Error en la decodificación JSON: ' . json_last_error_msg()]);
-            return;
-        }
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                echo json_encode(['error' => true, 'message' => 'Error en la decodificación JSON: ' . json_last_error_msg()]);
+                return;
+            }
 
-        if (isset($input['action'])) {
-            switch ($input['action']) {
-                case 'create':
-                    $this->createUsuario(
-                        $input['password'],
-                        $input['direccion'],
-                        $input['apellido'],
-                        $input['nombre'],
-                        $input['email'],
-                        $input['telefono'],
-                        $input['cedula'],
-                        $input['foto']
-                    );
-                    break;
+            if (isset($input['action'])) {
+                switch ($input['action']) {
+                    case 'create':
+                        $this->createUsuario(
+                            $input['password'],
+                            $input['direccion'],
+                            $input['apellido'],
+                            $input['nombre'],
+                            $input['email'],
+                            $input['telefono'],
+                            $input['cedula'],
+                            $input['foto']
+                        );
+                        break;
 
-                default:
-                    echo json_encode(['error' => true, 'message' => 'Acción no válida.']);
-                    break;
+                    case 'update':
+                        $this->updateUsuario(
+                            $input['id_usuario'],
+                            $input['password'],
+                            $input['direccion'],
+                            $input['apellido'],
+                            $input['nombre'],
+                            $input['email'],
+                            $input['telefono'],
+                            $input['cedula'],
+                            $input['foto']
+                        );
+                        break;
+
+                    case 'delete':
+                        $this->deleteUsuario($input['id_usuario']);
+                        break;
+
+                    case 'get':
+                        $this->getUsuariosJSON(); // Si quieres obtener todos los usuarios
+                        break;
+
+                    case 'getById':
+                        if (isset($input['id_usuario'])) {
+                            $this->getUsuarioById($input['id_usuario']);
+                        } else {
+                            echo json_encode(['error' => true, 'message' => 'ID de usuario no especificado.']);
+                        }
+                        break;
+
+                    default:
+                        echo json_encode(['error' => true, 'message' => 'Acción no válida.']);
+                        break;
+                }
+            } else {
+                echo json_encode(['error' => true, 'message' => 'Acción no especificada.']);
             }
         } else {
-            echo json_encode(['error' => true, 'message' => 'Acción no especificada.']);
+            echo json_encode(['error' => true, 'message' => 'Método no permitido.']);
         }
-    } else {
-        echo json_encode(['error' => true, 'message' => 'Método no permitido.']);
+    }
+
+    public function getUsuariosJSON()
+{
+    try {
+        $usuarios = $this->usuarioModel->getUsuarios();
+        header('Content-Type: application/json');
+        echo json_encode($usuarios);
+    } catch (PDOException $e) {
+        // Imprimir detalles del error
+        echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
+        error_log($e->getMessage()); // Registra el error en el log de PHP
     }
 }
 
-
-    public function getUsuariosJSON()
-    {
-        try {
-            $usuarios = $this->usuarioModel->getUsuarios();
-            header('Content-Type: application/json');
-            echo json_encode($usuarios);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
-        }
-    }
 
     public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
     {
@@ -159,6 +189,6 @@ class UsuariosControlador
         return empty($mensaje) ? true : $mensaje;
     }
 }
- 
+
 $controlador = new UsuariosControlador(); 
 $controlador->processRequest();

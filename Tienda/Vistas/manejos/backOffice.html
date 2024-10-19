@@ -15,15 +15,15 @@
         <div class="row">
             <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
                 <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
-                    <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;"  >
+                    <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;">
                     <span class="font-weight-bold" id="MyDrops">MyDrops</span>
                 </article>
 
                 <div class="d-flex align-items-center mb-3 mb-md-0">
-                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2"  >
+                    <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2">
                     <button class="btnBuscar"><img src="../../assets/lupa.png" alt="Lupa" style="width: 30px; height: 30px; filter:brightness(200);"></button>
                 </div>
-    
+
                 <article id="accionesUsuario" class="d-flex align-items-center">
                     <a href="../Vistas/registros/division.html" class="mr-2 btn btn-custom">
                         Crea tu cuenta
@@ -43,52 +43,78 @@
         <div class="bloqBlanco col-12 backoffice-section">
             <h3>Gestión de Usuarios</h3>
             <div class="segmentos">
-                <input type="text" placeholder="Buscar usuarios por id" id="buscarUsuarios" class="form-control mr-2"  >
-                <button class="btn btn-primary">Buscar</button>
+                <input type="text" placeholder="Buscar usuarios por ID" id="idUsuarios" class="form-control mr-2">
+                <button id="botonIdUdu" class="btn btn-primary">Buscar</button>
             </div>
             <div class="segmentos">
-                <p id="#">Aquí se mostrarán los usuarios que coincidan con la ID ingresada</p>
+                <p>Aquí se mostrarán los usuarios que coincidan con la ID ingresada</p>
             </div>
             <button class="btn btn-danger btnsGenerales">Banear Usuario</button>
             <button class="btn btn-secondary btnsGenerales">Mostrar Usuario</button>
-            <br>
-            <h3>Usuarios</h3>
+            <button id="btnMostrarUsuarios" class="btn btn-info btnsGenerales mt-2">Mostrar Todos los Usuarios</button>
+
             <table style="border: 1px solid black;">
-                    <thead>
-                        <tr>
+                <thead>
+                    <tr>
                         <th>Nombre</th>
                         <th>Apellido</th>
-                        </tr>
-                    </thead>
+                        <th>Dirección</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Cédula</th>
+                        <th>Fecha de Creación</th>
+                    </tr>
+                </thead>
                 <tbody id="lista-usuarios">
-                <!-- Aquí se llenará la tabla con los usuarios -->
+                    <!-- Aquí se llenará la tabla con los usuarios -->
                 </tbody>
-                </table>
+            </table>
+            <button id="btnLimpiarUsuarios" class="btn btn-info btnsGenerales mt-2">Ocultar Todos los Usuarios</button>
+
         </div>
 
         <!-- Gestión de Empresas -->
         <div class="bloqBlanco col-12 backoffice-section">
             <h3>Gestión de Empresas</h3>
             <div class="segmentos">
-                <input type="text" placeholder="Buscar empresas por id" id="buscarEmpresas" class="form-control mr-2"  >
+                <input type="text" placeholder="Buscar empresas por ID" id="buscarEmpresas" class="form-control mr-2">
                 <button class="btn btn-primary">Buscar</button>
             </div>
             <div class="segmentos">
-                <p id="lista-empresas">Aquí se mostrarán las empresas que coincidan con la ID ingresada</p>
+                <p>Aquí se mostrarán las empresas que coincidan con la ID ingresada</p>
             </div>
             <button class="btn btn-warning btnsGenerales">Banear Empresa</button>
             <button class="btn btn-secondary btnsGenerales">Mostrar Empresa</button>
+            <button id="btnMostrarEmpresas" class="btn btn-info btnsGenerales mt-2">Mostrar Todas las Empresas</button>
+
+            <table id="lista-empresas-tabla" style="border: 1px solid black;">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Dirección</th>
+                        <th>RUT</th>
+                        <th>Email</th>
+                        <th>Teléfono</th>
+                        <th>Valoración</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-empresas-tablon">
+                    <!-- Aquí se insertarán las filas de empresas -->
+                </tbody>
+            </table>
+            <button id="btnLimpiarEmpresas" class="btn btn-info btnsGenerales mt-2">Ocultar Todas las Empresas</button>
+
         </div>
 
         <!-- Gestión de Productos -->
         <div class="bloqBlanco col-12 backoffice-section">
             <h3>Gestión de Productos</h3>
             <div class="segmentos">
-                <input type="text" placeholder="Buscar productos por id o nombre" id="buscarProductos" class="form-control mr-2"  >
+                <input type="text" placeholder="Buscar productos por ID o nombre" id="buscarProductos" class="form-control mr-2">
                 <button class="btn btn-primary">Buscar</button>
             </div>
             <div class="segmentos">
-                <p id="lista-productos">Aquí se mostrarán los productos que coincidan con la búsqueda</p>
+                <p>Aquí se mostrarán los productos que coincidan con la búsqueda</p>
             </div>
             <button class="btn btn-secondary btnsGenerales">Bloquear Producto</button>
             <button class="btn btn-secondary btnsGenerales">Mostrar Producto</button>
@@ -111,11 +137,11 @@
         <div class="bloqBlanco col-12 backoffice-section">
             <h3>Gestión de Reclamaciones</h3>
             <div class="segmentos">
-                <input type="text" placeholder="Buscar reclamaciones por id" id="buscarReclamaciones" class="form-control mr-2"  >
+                <input type="text" placeholder="Buscar reclamaciones por ID" id="buscarReclamaciones" class="form-control mr-2">
                 <button class="btn btn-primary">Buscar</button>
             </div>
             <div class="segmentos">
-                <p id="lista-reclamaciones">Aquí se mostrarán las reclamaciones que coincidan con la ID ingresada</p>
+                <p>Aquí se mostrarán las reclamaciones que coincidan con la ID ingresada</p>
             </div>
             <button class="btn btn-success btnsGenerales">Responder Reclamación</button>
             <button class="btn btn-secondary btnsGenerales">Cerrar Reclamación</button>
@@ -125,11 +151,11 @@
         <div class="bloqBlanco col-12 backoffice-section">
             <h3>Gestión de Pagos</h3>
             <div class="segmentos">
-                <input type="text" placeholder="Buscar pagos por id" id="buscarPagos" class="form-control mr-2"  >
+                <input type="text" placeholder="Buscar pagos por ID" id="buscarPagos" class="form-control mr-2">
                 <button class="btn btn-primary">Buscar</button>
             </div>
             <div class="segmentos">
-                <p id="lista-pagos">Aquí se mostrarán los pagos que coincidan con la ID ingresada</p>
+                <p>Aquí se mostrarán los pagos que coincidan con la ID ingresada</p>
             </div>
             <button class="btn btn-success btnsGenerales">Aprobar Pago</button>
             <button class="btn btn-danger btnsGenerales">Rechazar Pago</button>
@@ -141,7 +167,7 @@
     <!-- Scripts -->
     <script src="../../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="../../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
-    <script src="../../js/inicioAdmin.js"></script>
+    <script src="../../js/Backoffice.js"></script>
 </body>
 
 </html>
