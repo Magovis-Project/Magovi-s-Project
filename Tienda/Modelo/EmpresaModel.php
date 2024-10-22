@@ -39,11 +39,11 @@ class EmpresaModel
     }
 
     public function getAllEmpresas()
-{
-    $consulta = $this->conn->prepare("SELECT ID_Empresa, Nombre, Direccion, RUT, Email, Telefono, Valoracion FROM Empresa");
-    $consulta->execute();
-    return $consulta->fetchAll(PDO::FETCH_ASSOC);
-}
+    {
+        $consulta = $this->conn->prepare("SELECT ID_Empresa, Nombre, Direccion, RUT, Email, Telefono, Valoracion FROM Empresa");
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public function updateEmpresa($id_empresa, $nombre, $direccion, $telefono, $email, $foto_url, $rut, $password)
     {
@@ -75,12 +75,15 @@ class EmpresaModel
     }
 
     public function getEmpresaById($id_empresa)
-    {
-        $consulta = $this->conn->prepare("SELECT * FROM Empresa WHERE Id_Empresa = :id_empresa");
-        $consulta->bindParam(':id_empresa', $id_empresa);
-        $consulta->execute();
-        return $consulta->fetch(PDO::FETCH_ASSOC);
-    }
+{
+    $consulta = $this->conn->prepare(
+        "SELECT * FROM Empresa WHERE Id_Empresa = :id_empresa");
+    $consulta->bindParam(':id_empresa', $id_empresa);
+    $consulta->execute();
+    return $consulta->fetch(PDO::FETCH_ASSOC);
+}
+
+
 
     // Método para validar el RUT
     public function validarRUT($rut)
@@ -93,5 +96,3 @@ class EmpresaModel
         }
     }
 }
-
-

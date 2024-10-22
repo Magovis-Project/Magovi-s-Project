@@ -1,4 +1,9 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+header('Content-Type: application/json');
 require_once '../Modelo/EmpresaModel.php';
 
 class EmpresaControlador
@@ -37,11 +42,17 @@ class EmpresaControlador
                         $this->iniciarSesion($input['email'], $input['password']);
                         break;
 
-                        case 'getAllEmpresas':
-                            $this->getAllEmpresas();
-                            break;
+                    case 'getAllEmpresas':
+                        $this->getAllEmpresas();
+                        break;
                         
-
+                    case 'getById':
+                        if(isset($input['id_empresa'])){
+                        $this->getEmpresaById($input['id_empresa']); 
+                        }else {
+                            echo json_encode(['error' => true, 'message' => 'ID de empresa no encontrado.']);
+                        }
+                        break;
                     default:
                         echo json_encode(['error' => true, 'message' => 'Acción no válida.']);
                         break;
@@ -53,6 +64,17 @@ class EmpresaControlador
             echo json_encode(['error' => true, 'message' => 'Método no permitido.']);
         }
     }
+
+    public function getEmpresaById($id_empresa)
+    {
+        try {
+            $empresa = $this->empresaModel->getEmpresaById($id_empresa);
+            echo json_encode($empresa);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
 
     public function iniciarSesion($email, $password)
     {

@@ -13,7 +13,8 @@ CREATE TABLE Usuarios (
     Telefono INT,
     Cedula INT NOT NULL UNIQUE,
     Fecha_Creacion DATETIME DEFAULT CURRENT_TIMESTAMP,
-    Foto TEXT
+    Foto TEXT,
+    Actividad ENUM("Activo","Desactivado")
 );
 
 -- Tabla Empresa
@@ -37,6 +38,8 @@ CREATE TABLE Articulos (
     Precio DECIMAL(10, 2) NOT NULL,
     Cantidad INT NOT NULL,
     Tipo VARCHAR(50) NOT NULL,
+    Valoracion DECIMAL(2,1) DEFAULT "0.0",
+    Actividad ENUM("Activo","Desactivado"),
     FOREIGN KEY (ID_Empresa) REFERENCES Empresa(ID_Empresa)
 );
 

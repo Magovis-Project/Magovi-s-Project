@@ -24,7 +24,6 @@ class UsuariosControlador
     public function processRequest()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Leer el cuerpo de la solicitud JSON
             $input = json_decode(file_get_contents('php://input'), true);
 
             if (json_last_error() !== JSON_ERROR_NONE) {
@@ -36,28 +35,18 @@ class UsuariosControlador
                 switch ($input['action']) {
                     case 'create':
                         $this->createUsuario(
-                            $input['password'],
-                            $input['direccion'],
-                            $input['apellido'],
-                            $input['nombre'],
-                            $input['email'],
-                            $input['telefono'],
-                            $input['cedula'],
-                            $input['foto']
+                            $input['password'], $input['direccion'], $input['apellido'], 
+                            $input['nombre'], $input['email'], $input['telefono'], 
+                            $input['cedula'], $input['foto'], $input['actividad']
                         );
                         break;
 
                     case 'update':
                         $this->updateUsuario(
-                            $input['id_usuario'],
-                            $input['password'],
-                            $input['direccion'],
-                            $input['apellido'],
-                            $input['nombre'],
-                            $input['email'],
-                            $input['telefono'],
-                            $input['cedula'],
-                            $input['foto']
+                            $input['id_usuario'], $input['password'], $input['direccion'], 
+                            $input['apellido'], $input['nombre'], $input['email'], 
+                            $input['telefono'], $input['cedula'], $input['foto'], 
+                            $input['actividad']
                         );
                         break;
 
@@ -66,14 +55,14 @@ class UsuariosControlador
                         break;
 
                     case 'get':
-                        $this->getUsuariosJSON(); // Si quieres obtener todos los usuarios
+                        $this->getUsuariosJSON();
                         break;
 
                     case 'getById':
                         if (isset($input['id_usuario'])) {
                             $this->getUsuarioById($input['id_usuario']);
                         } else {
-                            echo json_encode(['error' => true, 'message' => 'ID de usuario no especificado.']);
+                            echo json_encode(['error' => true, 'message' => 'ID de usuario no encontrado.']);
                         }
                         break;
 
@@ -90,20 +79,17 @@ class UsuariosControlador
     }
 
     public function getUsuariosJSON()
-{
-    try {
-        $usuarios = $this->usuarioModel->getUsuarios();
-        header('Content-Type: application/json');
-        echo json_encode($usuarios);
-    } catch (PDOException $e) {
-        // Imprimir detalles del error
-        echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
-        error_log($e->getMessage()); // Registra el error en el log de PHP
+    {
+        try {
+            $usuarios = $this->usuarioModel->getUsuarios();
+            echo json_encode($usuarios);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
+            error_log($e->getMessage());
+        }
     }
-}
 
-
-    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
+    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
     {
         $validacion = $this->validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
         if ($validacion !== true) {
@@ -112,14 +98,14 @@ class UsuariosControlador
         }
 
         try {
-            $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto);
+            $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad);
             echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }
     }
 
-    public function updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto)
+    public function updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
     {
         $validacion = $this->validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
         if ($validacion !== true) {
@@ -128,7 +114,7 @@ class UsuariosControlador
         }
 
         try {
-            $this->usuarioModel->updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto);
+            $this->usuarioModel->updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad);
             echo json_encode(['success' => true, 'message' => 'Usuario actualizado correctamente']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
@@ -155,40 +141,33 @@ class UsuariosControlador
         }
     }
 
-    // Método para validar los datos del usuario
     private function validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)
     {
         $mensaje = "";
 
-        // Validaciones de campos vacíos
         if (empty($nombre) || empty($apellido) || empty($direccion) || empty($email) || empty($telefono) || empty($cedula)) {
             return "Todos los campos son obligatorios.";
         }
 
-        // Validación de correo electrónico
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $mensaje .= "El correo electrónico no es válido.<br>";
         }
 
-        // Validación de número de teléfono
         if (!preg_match('/^\d{9}$/', $telefono)) {
             $mensaje .= "El número de teléfono debe tener exactamente 9 dígitos.<br>";
         }
 
-        // Validación de contraseña
         if (strlen($password) < 8 || !preg_match('/[A-Z]/', $password) || !preg_match('/[a-z]/', $password) || !preg_match('/\d/', $password)) {
-            $mensaje .= "La contraseña debe tener al menos 8 caracteres, incluyendo al menos una mayúscula, una minúscula y un número.<br>";
+            $mensaje .= "La contraseña debe tener al menos 8 caracteres, incluyendo una mayúscula, una minúscula y un número.<br>";
         }
 
-        // Validación de cédula
-        if (empty($cedula) || !preg_match('/^\d+$/', $cedula) || strlen($cedula) < 7) {
-            $mensaje .= "La cédula debe tener al menos 7 dígitos y solo puede contener números.<br>";
+        if (!preg_match('/^\d+$/', $cedula) || strlen($cedula) < 7) {
+            $mensaje .= "La cédula debe tener al menos 7 dígitos y solo contener números.<br>";
         }
 
-        // Si hay mensajes de error, los retornamos
         return empty($mensaje) ? true : $mensaje;
     }
 }
 
-$controlador = new UsuariosControlador(); 
+$controlador = new UsuariosControlador();
 $controlador->processRequest();
