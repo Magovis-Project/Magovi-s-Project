@@ -22,7 +22,7 @@ class UsuarioModel
     }
 
     // Crear un nuevo usuario
-    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
+    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)
     {
         // Verificar unicidad de email y cédula
         if ($this->usuarioExiste($email, $cedula)) {
@@ -30,8 +30,8 @@ class UsuarioModel
         }
 
         $consulta = $this->conn->prepare(
-            "INSERT INTO Usuarios (Password, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Foto, Actividad) 
-             VALUES (:password, :direccion, :apellido, :nombre, :email, :telefono, :cedula, :foto, :actividad)"
+            "INSERT INTO Usuarios (Password, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Foto) 
+             VALUES (:password, :direccion, :apellido, :nombre, :email, :telefono, :cedula, :foto)"
         );
 
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
@@ -43,7 +43,6 @@ class UsuarioModel
         $consulta->bindParam(':telefono', $telefono);
         $consulta->bindParam(':cedula', $cedula);
         $consulta->bindParam(':foto', $foto);
-        $consulta->bindParam(':actividad', $actividad);
 
         $consulta->execute();
     }

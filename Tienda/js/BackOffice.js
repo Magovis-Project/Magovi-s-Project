@@ -117,7 +117,7 @@ $("#btnMostrarEmpresas").click(function () {
         },
         error: function (error) {
             console.log("Error al obtener empresas:", error);
-        }
+        } 
     });
 });
 

@@ -37,7 +37,7 @@ class UsuariosControlador
                         $this->createUsuario(
                             $input['password'], $input['direccion'], $input['apellido'], 
                             $input['nombre'], $input['email'], $input['telefono'], 
-                            $input['cedula'], $input['foto'], $input['actividad']
+                            $input['cedula']
                         );
                         break;
 
@@ -80,29 +80,21 @@ class UsuariosControlador
 
     public function getUsuariosJSON()
     {
-        try {
             $usuarios = $this->usuarioModel->getUsuarios();
             echo json_encode($usuarios);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'mensaje' => $e->getMessage()]);
-            error_log($e->getMessage());
-        }
+        
     }
 
-    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
+    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)
     {
         $validacion = $this->validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
         if ($validacion !== true) {
             echo json_encode(['error' => true, 'message' => $validacion]);
             return;
         }
-
-        try {
-            $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad);
+            $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
             echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
+       
     }
 
     public function updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
@@ -133,12 +125,10 @@ class UsuariosControlador
 
     public function getUsuarioById($id_usuario)
     {
-        try {
+
             $usuario = $this->usuarioModel->getUsuarioById($id_usuario);
             echo json_encode($usuario);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
+       
     }
 
     private function validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)

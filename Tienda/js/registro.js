@@ -29,7 +29,7 @@ function tomarDatos() {
     const correo = $("#correo").val().trim();
     const contra = $("#contra").val().trim();
     const contraVerify = $("#contra2").val().trim();
-    const foto = "";
+    const foto = null;
 
     if (comprobar(ci, numero, contra, contraVerify)) {
         // Enviar datos al controlador

@@ -54,7 +54,7 @@
                 <a class="nav-link-custom" href="../Tienda/Vistas/inicios/inicioUsu.html">Historial</a>
             </div>
             <div>
-                <a class="nav-link-custom" href="#">Ayuda</a>
+                <a class="nav-link-custom" href="../Tienda/Vistas/ayuda.html">Ayuda</a>
             </div>
         </div>
         </nav>
