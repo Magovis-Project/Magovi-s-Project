@@ -251,3 +251,7 @@ $("#btnMostrarProductos").click(function () {
         }
     });
 });
+$("#btnLimpiarProductos").click(OcultarProductos);
+function OcultarProductos() {
+    $("#lista-productos-tablon").html("");
+}

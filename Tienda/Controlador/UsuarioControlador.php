@@ -49,6 +49,10 @@ class UsuariosControlador
                             $input['actividad']
                         );
                         break;
+                    
+                    case 'login':
+                        $this->checkLogin($input['email'], $input['password']);
+                        break;
 
                     case 'delete':
                         $this->deleteUsuario($input['id_usuario']);
@@ -131,6 +135,19 @@ class UsuariosControlador
        
     }
 
+    public function checkLogin($email, $password)
+    {
+        try {
+            $usuario = $this->usuarioModel->checkLogin($email, $password);
+            if ($usuario) {
+                echo json_encode(['success' => true, 'message' => 'Login exitoso', 'usuario' => $usuario]);
+            } else {
+                echo json_encode(['error' => true, 'message' => 'Credenciales inválidas']);
+            }
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
     private function validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)
     {
         $mensaje = "";
@@ -158,6 +175,8 @@ class UsuariosControlador
         return empty($mensaje) ? true : $mensaje;
     }
 }
+
+
 
 $controlador = new UsuariosControlador();
 $controlador->processRequest();

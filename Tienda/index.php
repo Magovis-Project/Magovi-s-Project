@@ -6,8 +6,6 @@
     <title>MyDrops</title>
     <!-- Bootstrap CSS para la versión 4.5.3 -->
     <link href="../Tienda/Estilos/css/bootstrap.css" rel="stylesheet">
-    <link href="../Tienda/Estilos/css/" rel="stylesheet">
-    
     <link href="../Tienda/Estilos/inicio.css" rel="stylesheet">
 </head>
 <body>
@@ -25,11 +23,7 @@
                 </div>
     
                 <article id="accionesUsuario" class="d-flex align-items-center">
-                    <a href="../Tienda/Vistas/registros/division.html" class="mr-2 btn btn-custom">
-                        Crea tu cuenta
-                    </a>
-                    <a href="../Tienda/Vistas/inicios/divisionIni.html" id="btnInicio" class="btn btn-custom mr-2">Ingresa</a>
-                    <button class="btn btn-custom mr-2">Mis compras</button>
+                <div id="usuarioAcciones"></div>
                     <a href="../Tienda/Vistas/carrito.html">
                         <img src="../Tienda/assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
                     </a>
@@ -51,7 +45,7 @@
                     </div>
                   </div>
                 <a class="nav-link-custom" href="#">Ofertas</a>
-                <a class="nav-link-custom" href="../Tienda/Vistas/inicios/inicioUsu.html">Historial</a>
+                <a class="nav-link-custom" id="btnHistorial" style="cursor: pointer">Historial</a>
             </div>
             <div>
                 <a class="nav-link-custom" href="../Tienda/Vistas/ayuda.html">Ayuda</a>
@@ -229,28 +223,6 @@
                             </div>
                         </div>
                     </div>
-
-                <section id="seccion-Categorias" class="col-8">
-                    <button class="btn col-2"><img src="../Tienda/assets/muebles.jpg" alt="Muebles" style="width: 50px; height: auto">Muebles</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 2</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 3</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 4</button>
-                <br>
-                    <button class="btn col-2"><img src="#" alt="vacio" >Categoria 5</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 6</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 7</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 8</button>
-                <br>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 9</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 10</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 11</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 12</button>
-                <br>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 13</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 14</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 15</button>
-                    <button class="btn col-2"><img src="#" alt="vacio">Categoria 16</button>
-                </section>
         </main>
     <footer class="col-12 text-center p-3 m-0">
         <div style="gap: 25px; margin-top: 15px;" class="row justify-content-center">

@@ -125,4 +125,28 @@ class UsuarioModel
         $consulta->execute();
         return $consulta->fetchColumn() > 0;
     }
+
+    // Verificar si el email y la contraseña coinciden con un usuario existente
+    public function checkLogin($email, $password)
+    {
+        $consulta = $this->conn->prepare(
+            "SELECT Id_Usuario, Direccion, Apellido, Nombre, Email, Telefono, Cedula, Fecha_Creacion, Actividad, Password 
+             FROM Usuarios 
+             WHERE Email = :email"
+        );
+        $consulta->bindParam(':email', $email);
+        $consulta->execute();
+        $result = $consulta->fetch(PDO::FETCH_ASSOC);
+    
+        if ($result && password_verify($password, $result['Password'])) {
+            // Eliminar el campo Password del resultado antes de devolverlo
+            unset($result['Password']);
+            return $result;  // Retorna los datos del usuario autenticado
+        }
+    
+        return false;  // Usuario no autenticado
+    }
+    
+
+
 }

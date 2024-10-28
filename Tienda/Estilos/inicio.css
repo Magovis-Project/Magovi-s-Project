@@ -461,4 +461,73 @@ border-radius: 15px;
   .dropdown:hover .dropbtn {
     background-color: #2980b9;
   }
-  
+/* Estilo básico para el botón */
+.profile-drop {
+    border-radius: 5px;
+    padding: 10px;
+    gap: 10px;
+    background-color: var(--primary-dark);
+    border: none;
+    cursor: pointer;
+    display: flex; /* Asegúrate de que el contenido esté alineado */
+    align-items: center; /* Centrar verticalmente */
+}
+
+/* Estilo para el contenedor del dropdown */
+.profile-dropdown {
+    display: flex;
+    align-items: center;
+    
+    border-radius: 5px;
+    height: 50px;
+    width: auto;
+    position: relative; /* Asegúrate de que el contenedor tenga position: relative */
+}
+
+/* Estilo para la imagen del perfil */
+#profPic {
+    border: var(--secondary) 3px solid;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+}
+
+/* Estilo para el contenido del dropdown */
+.profile-dropdown-content {
+    border-radius: 5px;
+    display: none; /* Oculto por defecto */
+    position: absolute; /* Para que se posicione relativo al contenedor */
+    top: 100%; /* Posicionar justo debajo del contenedor */
+    left: 0; /* Alinear al lado izquierdo del contenedor */
+    background-color: var(--primary-dark); /* Asegúrate de que sea visible */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links dentro del dropdown */
+.profile-dropdown-content a {
+    color: white; /* Cambia a un color que contraste con el fondo */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Cambiar el color al pasar el mouse sobre los links */
+.profile-dropdown-content a:hover {
+    background-color: var(--secondary); /* Asegúrate de que el hover sea visible */
+}
+
+/* Mostrar el contenido al pasar el mouse sobre el contenedor del dropdown */
+.profile-dropdown:hover .profile-dropdown-content {
+    display: block; /* Muestra el contenido cuando pasa el cursor sobre profile-dropdown */
+}
+
+/* Cambiar el color del botón al pasar el mouse */
+.profile-drop:hover {
+    background-color: var(--secondary); /* Cambiar color del botón al hacer hover directamente sobre él */
+}
+
+.profile-name{
+    font-size: large;
+}
