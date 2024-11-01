@@ -464,7 +464,7 @@ border-radius: 15px;
 /* Estilo básico para el botón */
 .profile-drop {
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     gap: 10px;
     background-color: var(--primary-dark);
     border: none;
@@ -516,6 +516,7 @@ border-radius: 15px;
 /* Cambiar el color al pasar el mouse sobre los links */
 .profile-dropdown-content a:hover {
     background-color: var(--secondary); /* Asegúrate de que el hover sea visible */
+    border-radius: 5px;
 }
 
 /* Mostrar el contenido al pasar el mouse sobre el contenedor del dropdown */

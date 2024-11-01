@@ -23,6 +23,7 @@ $(document).ready(function() {
                 console.log(response);
                
                 if (response.success) {
+                    sessionStorage.setItem('id', response.usuario.Id_Usuario);
                     sessionStorage.setItem('nombre', response.usuario.Nombre);
                     sessionStorage.setItem('apellido', response.usuario.Apellido);
                     sessionStorage.setItem('email', response.usuario.Email);

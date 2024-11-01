@@ -116,9 +116,6 @@ footer {
     background-color: white; 
 }
 
-
-
-
 /* Estilo básico para el botón */
 .profile-drop {
     border-radius: 5px;
@@ -189,30 +186,4 @@ footer {
 
 .profile-name{
     font-size: large;
-}
-
-#productos{
-    background-color: var(--secondary);
-    border-radius: 10px;
-    padding: 10px;
-}
-
-.producto{
-    background-color: white;
-    margin: 5px;
-}
-
-.oferta{
-    color: green;
-}
-
-.precioOriginal{
-    color: red;
-    text-decoration: line-through;
-}
-
-#bloqCategorias{
-    padding: 20px;
-    background-color: white;
-    border-radius: 10px;
 }

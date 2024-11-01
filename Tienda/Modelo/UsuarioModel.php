@@ -48,45 +48,39 @@ class UsuarioModel
     }
 
     // Actualizar un usuario existente
-    public function updateUsuario($id_usuario, $password, $direccion, $apellido, $nombre, $email, $telefono, $cedula, $foto, $actividad)
-    {
-        // Verificar unicidad de email y cédula
+    public function updateUsuario($id_usuario, $fieldsToUpdate)
+{
+    // Verifica si el email o la cédula están presentes para chequear su unicidad
+    if (isset($fieldsToUpdate['email']) || isset($fieldsToUpdate['cedula'])) {
+        $email = $fieldsToUpdate['email'] ?? null;
+        $cedula = $fieldsToUpdate['cedula'] ?? null;
+        
         if ($this->usuarioExiste($email, $cedula, $id_usuario)) {
             throw new Exception("El correo electrónico o la cédula ya están registrados.");
         }
-
-        $sql = "UPDATE Usuarios SET 
-                    Direccion = :direccion, 
-                    Apellido = :apellido, 
-                    Nombre = :nombre, 
-                    Email = :email, 
-                    Telefono = :telefono, 
-                    Cedula = :cedula, 
-                    Foto = :foto, 
-                    Actividad = :actividad" .
-                ($password ? ", Password = :password" : "") . 
-                " WHERE Id_Usuario = :id_usuario";
-
-        $consulta = $this->conn->prepare($sql);
-
-        // Solo hashear la contraseña si se proporciona
-        if ($password) {
-            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
-            $consulta->bindParam(':password', $hashedPassword);
-        }
-
-        $consulta->bindParam(':id_usuario', $id_usuario);
-        $consulta->bindParam(':direccion', $direccion);
-        $consulta->bindParam(':apellido', $apellido);
-        $consulta->bindParam(':nombre', $nombre);
-        $consulta->bindParam(':email', $email);
-        $consulta->bindParam(':telefono', $telefono);
-        $consulta->bindParam(':cedula', $cedula);
-        $consulta->bindParam(':foto', $foto);
-        $consulta->bindParam(':actividad', $actividad);
-
-        $consulta->execute();
     }
+
+    // Construye dinámicamente la parte 'SET' de la consulta SQL
+    $setPart = [];
+    $params = ['id_usuario' => $id_usuario];
+
+    foreach ($fieldsToUpdate as $field => $value) {
+        // Si el campo es 'password', encripta antes de guardarlo
+        if ($field === 'password') {
+            $value = password_hash($value, PASSWORD_BCRYPT);
+        }
+        $setPart[] = "`$field` = :$field";
+        $params[$field] = $value;
+    }
+
+    // Genera la consulta SQL de actualización con solo los campos necesarios
+    $sql = "UPDATE Usuarios SET " . implode(", ", $setPart) . " WHERE Id_Usuario = :id_usuario";
+    $consulta = $this->conn->prepare($sql);
+
+    // Ejecuta la consulta con los parámetros actualizados
+    $consulta->execute($params);
+}
+
 
     // Eliminar un usuario
     public function deleteUsuario($id_usuario)

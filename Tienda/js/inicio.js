@@ -2,7 +2,6 @@ $(document).ready(function() {
     // Comprobamos si hay datos en el storage
     const usuarioAcciones = document.getElementById('usuarioAcciones');
     const userData = sessionStorage.cedula; 
-    console.log(userData);
     
     if (userData) {
         // Si hay datos, mostrar el dropdown

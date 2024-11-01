@@ -61,7 +61,7 @@ function tomarDatos() {
             dataType: "json", // Esperamos respuesta en JSON
             success: function (response) { 
                 if (response.success) {
-                    alert(response.message); // Éxito
+                    window.location.href = '../index.php';
                 } else {
                     alert("Error: " + response.message); // Error desde el servidor
                 }
@@ -78,25 +78,38 @@ function tomarDatos() {
 function comprobar(ci, numero, contra, contraVerify) {
     let mensaje = "";
 
-    // Validación de Nombre
-    if (!$("#nombre").val().trim()) {
-        mensaje += "error";
-        $("#mensajeErrorNombre").html("El nombre no puede estar vacío");
-        setInputState($("#nombre"), false);
-    } else {
-        $("#mensajeErrorNombre").html("");
-        setInputState($("#nombre"), true);
-    }
+   // Validación de Nombre
+const nombre = $("#nombre").val().trim();
+if (!nombre) {
+    // El campo está vacío
+    $("#mensajeErrorNombre").html("El nombre no puede estar vacío");
+    setInputState($("#nombre"), false);
+} else if (!/^\w+$/.test(nombre)) {
+    // El campo contiene más de una palabra o caracteres no deseados
+    $("#mensajeErrorNombre").html("El nombre debe ser una sola palabra sin espacios");
+    setInputState($("#nombre"), false);
+} else {
+    // El campo es válido
+    $("#mensajeErrorNombre").html("");
+    setInputState($("#nombre"), true);
+}
 
     // Validación de Apellido
-    if (!$("#apellido").val().trim()) {
-        mensaje += "error";
-        $("#mensajeErrorApellido").html("El apellido no puede estar vacío");
-        setInputState($("#apellido"), false);
-    } else {
-        $("#mensajeErrorApellido").html("");
-        setInputState($("#apellido"), true);
-    }
+const apellido = $("#apellido").val().trim();
+if (!apellido) {
+    // El campo está vacío
+    $("#mensajeErrorApellido").html("El apellido no puede estar vacío");
+    setInputState($("#apellido"), false);
+} else if (!/^\w+$/.test(apellido)) {
+    // El campo contiene más de una palabra o caracteres no deseados
+    $("#mensajeErrorApellido").html("El apellido debe ser una sola palabra sin espacios");
+    setInputState($("#apellido"), false);
+} else {
+    // El campo es válido
+    $("#mensajeErrorApellido").html("");
+    setInputState($("#apellido"), true);
+}
+
 
     // Validación de Dirección
     if (!$("#direccion").val().trim()) {

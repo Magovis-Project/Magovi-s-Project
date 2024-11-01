@@ -13,7 +13,7 @@
     <div class="row">
         <header class="col-12 d-flex flex-column flex-md-row align-items-center justify-content-between">
             <article style="margin-right:10px;" class="d-flex align-items-center mb-3 mb-md-0">
-                <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;"  >
+               <a href="../../index.php"> <img src="../../assets/logo.png" id="logo" alt="MyDropsLogo" class="mr-1" style="height: 100px; width: 100px;"  >
                 <span class="font-weight-bold" id="MyDrops">MyDrops</span>
             </article>
 
@@ -23,15 +23,11 @@
             </div>
 
             <article id="accionesUsuario" class="d-flex align-items-center">
-                <a href="../registros/division.html" class="mr-2 btn btn-custom">
-                    Crea tu cuenta
-                </a>
-                <a href="../inicios/divisionIni.html" id="btnInicio" class="btn btn-custom mr-2">Ingresa</a>
-                <button class="btn btn-custom mr-2">Mis compras</button>
-                <a href="../carrito.html">
-                    <img src="../../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
-                </a>
-            </article>
+                <div id="usuarioAcciones"></div>
+                    <a href="../carrito.html">
+                        <img src="../../assets/carrito.png" alt="Carrito" id="imagenCarrito" style="height: auto; max-width: 100%;">
+                    </a>
+                </article>
         </header>
     </div>
     </section>
@@ -41,16 +37,16 @@
     <div class="col-4" style="margin: 20px 0;">
         <section class="bloqUsuario">
             <img src="../../assets/usuarioFoto.png" alt="TuFoto" style="width: 200px; height: 200px; align-self: center;">
-            <h2 class="usuario">juanpg123</h2> <!-- Cambié el ID para que sea único -->
-            <p><strong>Nombre:</strong> <span class="nombre">Juan</span></p>
-            <p><strong>Apellido:</strong> <span class="apellido">Perez</span></p>
-            <p><strong>Correo Electrónico:</strong> <span class="correo">juan.perez@gmail.com</span></p>
-            <p><strong>Teléfono:</strong> <span class="telefono">+34 123 456 789</span></p>
-            <p><strong>Cédula:</strong> 50921201</p>
+            <h2 class="usuario"></h2> <!-- Cambié el ID para que sea único -->
+            <p><strong>Nombre:</strong> <span class="nombre"></span></p>
+            <p><strong>Apellido:</strong> <span class="apellido"></span></p>
+            <p><strong>Correo Electrónico:</strong> <span class="correo"></span></p>
+            <p><strong>Teléfono:</strong> <span class="telefono"></span></p>
+            <p><strong>Cédula:</strong> <span class="cedula"></span></p>
         </section>
 
         <section class="bloqUsuario" style="height: 150px; padding: 25px; justify-content: center;">
-            <a href="#"><h5>Ayuda</h5></a>
+            <a href="../ayuda.html"><h5>Ayuda</h5></a>
             <a href="#"><h5>Contáctanos</h5></a>
         </section>
 
@@ -73,11 +69,11 @@
             </div>
             <div id="collapseInfoPersonal" class="collapse show" aria-labelledby="headingInfoPersonal">
                 <div class="card-body collapse-content">
-                    <p><strong>Nombre: </strong> <span class="nombre">Juan Pérez</span></p>
-                    <p><strong>Apellido: </strong> <span class="apellido">García</span></p>
-                    <p><strong>Correo Electrónico: </strong> <span class="correo">juan.perez@gmail.com</span></p>
-                    <p><strong>Teléfono: </strong> <span class="telefono">+34 123 456 789</span></p>
-                    <p><strong>Cédula: </strong> 50921201</p>
+                    <p><strong>Nombre: </strong> <span class="nombre"></span></p>
+                    <p><strong>Apellido: </strong> <span class="apellido"></span></p>
+                    <p><strong>Correo Electrónico: </strong> <span class="correo"></span></p>
+                    <p><strong>Teléfono: </strong> <span class="telefono"></span></p>
+                    <p><strong>Cédula: </strong> <span class="cedula"></span></p>
                 </div>
             </div>
         </div>
@@ -91,9 +87,9 @@
             </div>
             <div id="collapseDatosCuenta" class="collapse" aria-labelledby="headingDatosCuenta">
                 <div class="card-body collapse-content">
-                    <p><strong>Nombre de Usuario:</strong> <span class="usuario">juanpg123</span></p>
+                    <p><strong>Nombre de Usuario:</strong> <span class="usuario"></span></p>
                     <p><strong>Tipo de Cuenta:</strong> Premium</p>
-                    <p><strong>Fecha de Creación:</strong> 15 de enero de 2022</p>
+                    <p><strong>Fecha de Creación:</strong> <span id="creacion"></span></p>
                 </div>
             </div>
         </div>
@@ -102,28 +98,13 @@
         <div class="card mt-3">
             <div class="card-header" id="headingSeguridad" data-toggle="collapse" data-target="#collapseSeguridad" aria-expanded="false" aria-controls="collapseSeguridad">
                 <img src="../../assets/candado.png" alt="Seguridad" style="height: 60px; width: 60px; filter: grayscale(100);">
-                <h5 class="mb-0">Seguridad</h5>
+                <h5 class="mb-0" style="text-decoration: line-through;">Seguridad</h5> <p>En construccion</p>
                 <span class="arrow"></span>
             </div>
             <div id="collapseSeguridad" class="collapse" aria-labelledby="headingSeguridad">
                 <div class="card-body collapse-content">
                     <p><strong>Última actualización de contraseña:</strong> 2 de marzo de 2023</p>
                     <p><strong>Autenticación de Dos Factores:</strong> Activada</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Tarjetas -->
-        <div class="card mt-3">
-            <div class="card-header" id="headingTarjetas" data-toggle="collapse" data-target="#collapseTarjetas" aria-expanded="false" aria-controls="collapseTarjetas">
-                <img src="../../assets/medioPago.png" alt="Medios de Pago" style="height: 50px; width: 50px; filter: grayscale(100);">
-                <h5 class="mb-0">Mis medios de pago</h5>
-                <span class="arrow"></span>
-            </div>
-            <div id="collapseTarjetas" class="collapse" aria-labelledby="headingTarjetas">
-                <div class="card-body collapse-content">
-                    <p><strong>Tarjeta de Crédito:</strong><span id="tarjeta"> **** **** **** 1234</span></p>
-                    <p><strong>PayPal:</strong> <span id="paypal">Sin conectar</span></p>
                 </div>
             </div>
         </div>
@@ -137,8 +118,8 @@
             </div>
             <div id="collapseDirecciones" class="collapse" aria-labelledby="headingDirecciones">
                 <div class="card-body collapse-content">
-                    <p><strong>Dirección Principal:</strong> Calle Falsa 123, Ciudad Real, España</p>
-                    <p><strong>Dirección Secundaria:</strong> Avenida Siempreviva 742, Springfield</p>
+                    <p><strong>Dirección Principal:</strong> <span class="direccion"></span></p>
+                    <p><strong>Dirección Secundaria:</strong>No especificada</p>
                 </div>
             </div>
         </div>
@@ -147,7 +128,7 @@
         <div class="card mt-3">
             <div class="card-header" id="headingPrivacidad" data-toggle="collapse" data-target="#collapsePrivacidad" aria-expanded="false" aria-controls="collapsePrivacidad">
                 <img src="../../assets/privacidad.png" alt="Privacidad" style="height: 50px; width: 50px; filter: grayscale(100);">
-                <h5 class="mb-0">Privacidad</h5>
+                <h5 class="mb-0" style="text-decoration: line-through;">Privacidad</h5> <p>En construccion</p>
                 <span class="arrow"></span>
             </div>
             <div id="collapsePrivacidad" class="collapse" aria-labelledby="headingPrivacidad">
@@ -169,7 +150,7 @@
         <div class="card mt-3">
             <div class="card-header" id="headingComunicaciones" data-toggle="collapse" data-target="#collapseComunicaciones" aria-expanded="false" aria-controls="collapseComunicaciones">
                 <img src="../../assets/comunicacion.png" alt="Comunicacion" style="height: 50px; width: 50px; filter: grayscale(100);">
-                <h5 class="mb-0">Comunicaciones</h5>
+                <h5 class="mb-0" style="text-decoration: line-through;">Comunicaciones</h5> <p>En construccion</p>
                 <span class="arrow"></span>
             </div>
             <div id="collapseComunicaciones" class="collapse" aria-labelledby="headingComunicaciones">
@@ -206,16 +187,16 @@
 
                         <label class="form-label mt-3">Número telefonico</label>
                         <input type="number" id="numeroCam" name="numero" class="form-control"  >
+                        
+                        <label class="form-label mt-3">Direccion</label>
+                        <input type="text" id="direccionCam" name="direecion" class="form-control"  >
 
                         <label class="form-label mt-3">Correo/Mail</label>
                         <input type="email" id="correoCam" name="email" class="form-control"  >
-
-                        <!-- Campo adicional para nombre de usuario -->
-                        <label class="form-label mt-3">Nombre de Usuario</label>
-                        <input type="text" id="usuarioCam" name="usuario" class="form-control"  >
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="btn btn-primary" id="btnGuardar" data-dismiss="modal">Guardar Cambios</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardar">Guardar Cambios</button>
+                        <p id="errorActualizado"></p>
                     </div>
                 </form>
             </div>
