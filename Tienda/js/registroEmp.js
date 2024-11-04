@@ -122,6 +122,7 @@ $(document).ready(function () {
                 success: function (response) {
                     if (response.success) {
                         alert(response.message);
+                        window.location.href = '../../index.php';
                     } else {
                         alert("Error: " + response.message);
                     }
@@ -141,9 +142,10 @@ $(document).ready(function () {
     }
 
     function validarContrasena(contra) {
-        const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.,]{8,}$/;
+        const regex = /^(?=.*[a-zñ])(?=.*[A-ZÑ])(?=.*\d)[A-Za-zñÑ\d@$!%*?&.,]{8,}$/;
         return regex.test(contra);
     }
+    
 
     function validarRUT(rut) {
         return rut.length === 12; // Modificado para aceptar RUTs válidos

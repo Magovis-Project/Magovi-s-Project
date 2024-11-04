@@ -89,17 +89,25 @@ class UsuariosControlador
         
     }
 
-    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula)
-    {
+    public function createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula) {
+        // Validar datos de entrada
         $validacion = $this->validarDatos($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
         if ($validacion !== true) {
-            echo json_encode(['error' => true, 'message' => $validacion]);
+            echo json_encode(['success' => false, 'message' => $validacion]);
             return;
         }
-            $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
-            echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
-       
+    
+        // Verificar si el usuario ya existe antes de intentar crear uno nuevo
+        if ($this->usuarioModel->usuarioExiste($email, $cedula)) {
+            echo json_encode(['success' => false, 'message' => 'El correo electrónico o la cédula ya están registrados.']);
+            return;
+        }
+    
+        // Crear el usuario si la validación y la verificación han sido exitosas
+        $this->usuarioModel->createUsuario($password, $direccion, $apellido, $nombre, $email, $telefono, $cedula);
+        echo json_encode(['success' => true, 'message' => 'Usuario creado exitosamente']);
     }
+    
 
     public function updateUsuario($id_usuario, $password = null, $direccion = null, $apellido = null, $nombre = null, $email = null, $telefono = null, $cedula = null, $foto = null, $actividad = null)
 {

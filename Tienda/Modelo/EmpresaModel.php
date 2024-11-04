@@ -29,6 +29,20 @@ class EmpresaModel
         $consulta->execute();
     }
 
+    public function loginEmpresa($email, $password)
+    {
+        $consulta = $this->conn->prepare("SELECT * FROM Empresa WHERE Email = :email LIMIT 1");
+        $consulta->bindParam(':email', $email);
+        $consulta->execute();
+
+        $empresa = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        if ($empresa && password_verify($password, $empresa['Password'])) {
+            return $empresa;
+        } else {
+            return false;
+        }
+    }
     public function getEmpresaByEmail($email)
     {
         $consulta = $this->conn->prepare("SELECT * FROM Empresa WHERE Email = :email LIMIT 1");

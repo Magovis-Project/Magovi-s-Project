@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    $('#barraBusqueda').on('click', function(event) {
+        const buscarCoin = $("#barraBusqueda").val(); // Obtén el valor de la barra de búsqueda
+        localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage con la clave 'buscarCoin'
+        console.log(buscarCoin)
+    });
+    
     // Comprobamos si hay datos en el storage
     const usuarioAcciones = document.getElementById('usuarioAcciones');
     const userData = sessionStorage.cedula; 

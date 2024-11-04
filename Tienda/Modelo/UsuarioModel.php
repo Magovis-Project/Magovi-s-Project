@@ -103,7 +103,7 @@ class UsuarioModel
     }
 
     // Verificar si un usuario ya existe por email o cédula
-    private function usuarioExiste($email, $cedula, $id_usuario = null)
+    public function usuarioExiste($email, $cedula, $id_usuario = null)
     {
         $sql = "SELECT COUNT(*) FROM Usuarios WHERE (Email = :email OR Cedula = :cedula)" .
                ($id_usuario ? " AND Id_Usuario != :id_usuario" : "");

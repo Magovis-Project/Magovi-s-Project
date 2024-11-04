@@ -61,14 +61,13 @@ function tomarDatos() {
             dataType: "json", // Esperamos respuesta en JSON
             success: function (response) { 
                 if (response.success) {
-                    window.location.href = '../index.php';
-                } else {
-                    alert("Error: " + response.message); // Error desde el servidor
+                    window.location.href = '../../index.php';
+                } else{
+                    $("#mensajeErrorCorreoUni").html(response.message).css("color", "red");
                 }
             },
-            error: function (xhr, error) {
+            error: function (xhr) {
                 console.log("Error en la solicitud:", xhr.responseText);
-                alert("Error: " + error);
             }
         });
         

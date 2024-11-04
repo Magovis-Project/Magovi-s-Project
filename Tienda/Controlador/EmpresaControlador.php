@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 require_once '../Modelo/EmpresaModel.php';
@@ -79,9 +76,9 @@ class EmpresaControlador
     public function iniciarSesion($email, $password)
     {
         try {
-            $empresa = $this->empresaModel->getEmpresaByEmail($email);
+            $empresa = $this->empresaModel->loginEmpresa($email, $password);
 
-            if ($empresa && password_verify($password, $empresa['password'])) {
+            if ($empresa) {
                 echo json_encode(['success' => true, 'message' => 'Inicio de sesión exitoso.', 'empresa' => $empresa]);
             } else {
                 echo json_encode(['error' => true, 'message' => 'Email o contraseña incorrectos.']);

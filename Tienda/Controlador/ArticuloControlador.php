@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 header('Content-Type: application/json');
 require_once '../Modelo/ArticulosModel.php';
@@ -28,15 +25,7 @@ class ArticuloControlador
             if (isset($input['action'])) {
                 switch ($input['action']) {
                     case 'create':
-                        $this->createArticulo(
-                            $input['id_empresa'],
-                            $input['nombre'],
-                            $input['precio'],
-                            $input['cantidad'],
-                            $input['tipo'],
-                            $input['valoracion'],
-                            $input['actividad']
-                        );
+                        $this->createArticulo($input);
                         break;
 
                     case 'getAll':
@@ -45,7 +34,7 @@ class ArticuloControlador
 
                     case 'getById':
                         if (isset($input['id_articulo'])) {
-                            $this->getArticuloById($input['id_articulo']); 
+                            $this->getArticuloById($input['id_articulo']);
                         } else {
                             echo json_encode(['error' => true, 'message' => 'ID de artículo no proporcionado.']);
                         }
@@ -53,16 +42,7 @@ class ArticuloControlador
 
                     case 'update':
                         if (isset($input['id_articulo'])) {
-                            $this->updateArticulo(
-                                $input['id_articulo'],
-                                $input['id_empresa'],
-                                $input['nombre'],
-                                $input['precio'],
-                                $input['cantidad'],
-                                $input['tipo'],
-                                $input['valoracion'],
-                                $input['actividad']
-                            );
+                            $this->updateArticulo($input);
                         } else {
                             echo json_encode(['error' => true, 'message' => 'ID de artículo no proporcionado.']);
                         }
@@ -73,6 +53,14 @@ class ArticuloControlador
                             $this->deleteArticulo($input['id_articulo']);
                         } else {
                             echo json_encode(['error' => true, 'message' => 'ID de artículo no proporcionado.']);
+                        }
+                        break;
+
+                    case 'getAllByEmpresa':
+                        if (isset($input['id_empresa'])) {
+                            $this->getAllByEmpresa($input['id_empresa']);
+                        } else {
+                            echo json_encode(['error' => true, 'message' => 'ID de empresa no proporcionado.']);
                         }
                         break;
 
@@ -88,10 +76,18 @@ class ArticuloControlador
         }
     }
 
-    public function createArticulo($id_empresa, $nombre, $precio, $cantidad, $tipo, $valoracion, $actividad)
+    public function createArticulo($data)
     {
         try {
-            $this->articulosModel->createArticulo($id_empresa, $nombre, $precio, $cantidad, $tipo, $valoracion, $actividad);
+            $this->articulosModel->createArticulo(
+                $data['id_empresa'],
+                $data['nombre'],
+                $data['precio'],
+                $data['cantidad'],
+                $data['valoracion'],
+                $data['actividad'],
+                $data['descripcion']
+            );
             echo json_encode(['success' => true, 'message' => 'Artículo creado exitosamente.']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
@@ -118,10 +114,19 @@ class ArticuloControlador
         }
     }
 
-    public function updateArticulo($id_articulo, $id_empresa, $nombre, $precio, $cantidad, $tipo, $valoracion, $actividad)
+    public function updateArticulo($data)
     {
         try {
-            $this->articulosModel->updateArticulo($id_articulo, $id_empresa, $nombre, $precio, $cantidad, $tipo, $valoracion, $actividad);
+            $this->articulosModel->updateArticulo(
+                $data['id_articulo'],
+                $data['id_empresa'],
+                $data['nombre'],
+                $data['precio'],
+                $data['cantidad'],
+                $data['valoracion'],
+                $data['actividad'],
+                $data['descripcion']
+            );
             echo json_encode(['success' => true, 'message' => 'Artículo actualizado exitosamente.']);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
@@ -133,6 +138,16 @@ class ArticuloControlador
         try {
             $this->articulosModel->deleteArticulo($id_articulo);
             echo json_encode(['success' => true, 'message' => 'Artículo eliminado exitosamente.']);
+        } catch (PDOException $e) {
+            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+        }
+    }
+
+    public function getAllByEmpresa($id_empresa)
+    {
+        try {
+            $articulos = $this->articulosModel->getAllByEmpresa($id_empresa);
+            echo json_encode($articulos);
         } catch (PDOException $e) {
             echo json_encode(['error' => true, 'message' => $e->getMessage()]);
         }

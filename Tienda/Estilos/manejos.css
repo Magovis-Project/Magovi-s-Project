@@ -538,3 +538,9 @@ border-radius: 5px;
 .profile-name{
     font-size: large;
 }
+
+#btn-comprar{
+    color: #fff; 
+    background-color: #007bff; 
+    border-color: #007bff; 
+}

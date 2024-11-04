@@ -19,7 +19,7 @@ if (userData) {
             </div>
         </div>
     `;
-
+ 
     // Agregar evento para alternar el menú desplegable
     $('#profileMenu').on('click', function(event) {
         event.stopPropagation(); // Evita que el clic se propague

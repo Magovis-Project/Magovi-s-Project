@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyDrops Admin</title>
+    <title>MyDrops Empress</title>
     <!-- Bootstrap CSS -->
     <link href="../../Estilos/css/bootstrap.css" rel="stylesheet">
     <link href="../../Estilos/manejos.css" rel="stylesheet">
@@ -23,7 +23,7 @@
                 </div>
 
                 <article id="accionesUsuario" class="d-flex align-items-center">
-                    <a href="../../index.php" id="btnSalir" class="btn btn-custom mr-2">Salir</a>
+                    <a id="btnSalir" class="btn btn-custom mr-2">Salir</a>
                 </article>
             </header>
         </div>
@@ -45,6 +45,7 @@
                 <section class="secciones" id="productos">
                     <h2>Gestionar Productos</h2>
                     <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addProductModal">Añadir Producto</button>
+                    <button class="btn btn-primary mb-3" id="btnCargar">Cargar Productos</button>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -57,17 +58,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Producto Ejemplo</td>
-                                <td>Categoría Ejemplo</td>
-                                <td>$10.00</td>
-                                <td>50</td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#editProductModal" onclick="fillEditForm(1, 'Producto Ejemplo', 'Categoría Ejemplo', 10.00, 50)">Editar</button>
-                                    <button class="btn btn-danger btn-sm">Eliminar</button>
-                                </td>
-                            </tr>
+                            
                         </tbody>
                     </table>
                 </section>
@@ -97,42 +88,88 @@
     </section>
 
     <!-- Modal para añadir producto -->
-    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="addProductModalLabel">Añadir Producto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Añadir Producto</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container mt-5">
+                    <div class="row justify-content-center">
+                        <!-- Imagen del Producto -->
+                    <div class="col-6 mb-4"> <!-- Añadido mb-4 para espaciado -->
+                        <div class="card bg-white" style="padding: 15px;">
+                            <input type="file" accept="image/*" id="productImage" onchange="previewImage(event)" style="display: none;">
+                            <label for="productImage" class="form-control text-center" style="cursor: pointer; height: 300px; display: flex; align-items: center; justify-content: center;">
+                                <img id="imagePreview" src="https://via.placeholder.com/500" class="img-fluid rounded" alt="Producto" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                            </label>
+                            <p class="text-center mt-2">Haz clic aquí para subir una imagen</p>
+                        </div>
+                    </div>
+
+                        <!-- Información del Producto -->
+                        <div class="col-6"> <!-- Cambiado a col-6 para ajustar el tamaño -->
+                            <div class="card bg-white">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <label for="productName">Nombre del Producto</label>
+                                        <input type="text" class="form-control" id="productName" placeholder="Nombre del producto">
+                                        <a class="text-danger" title="Guardar como Favorito">
+                                            <i class="bi bi-heart"></i>
+                                        </a>
+                                    </h5>
+
+                                    <div class="d-flex mb-2">
+                                        <span class="me-1 text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+                                        <small>(número de opiniones)</small>
+                                    </div>
+
+                                    <div class="mb-3" style="display: flex; gap: 5px;"> <!-- Añadido mb-3 para espaciado -->
+                                        <div>
+                                            <label for="productPrice" class="text-primary">Precio</label><br>
+                                            <input type="number" class="form-control" id="productPrice" placeholder="Precio" style="width: 100px;">
+                                        </div>
+                                        <div>
+                                            <label for="productQuantity" class="text-muted">Cantidad</label>
+                                            <input type="number" class="form-control" id="productQuantity" placeholder="Cantidad" style="width: 120px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="productDescription" class="text-muted">Descripción</label>
+                                        <textarea class="form-control" id="productDescription" placeholder="Descripción" rows="1" oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px';"></textarea>
+                                    </div>
+
+                                    <div class="mb-3"> <!-- Añadido mb-3 para espaciado -->
+                                        <label class="text-muted">Categorías</label>
+                                        <div id="categoryCheck">
+                                            <!--Aca se va a generar los checkbox con las categorias existentes-->
+                                        </div>
+                                    </div>
+                                    <p id="msj"></p>
+                                    <div class="d-flex justify-content-between">
+                                        <a class="btn-comprar">Comprar ahora</a>
+                                        <a class="btn-outline-comprar">Agregar al carrito</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="productName">Nombre del Producto</label>
-                            <input type="text" class="form-control" id="productName" placeholder="Nombre del producto">
-                        </div>
-                        <div class="form-group">
-                            <label for="productCategory">Categoría</label>
-                            <input type="text" class="form-control" id="productCategory" placeholder="Categoría">
-                        </div>
-                        <div class="form-group">
-                            <label for="productPrice">Precio</label>
-                            <input type="number" class="form-control" id="productPrice" placeholder="Precio">
-                        </div>
-                        <div class="form-group">
-                            <label for="productQuantity">Cantidad</label>
-                            <input type="number" class="form-control" id="productQuantity" placeholder="Cantidad">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Guardar Producto</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardar">Guardar Producto</button>
             </div>
         </div>
     </div>
+</div>
+
+
 
 <!-- Modal para editar producto -->
 <div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
@@ -172,6 +209,27 @@
     </div>
 </div>
 
+<!-- Modal de confirmacion -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmar eliminación</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Estás seguro de que deseas eliminar este producto?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-danger" id="confirmDeleteButton">Borrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
     <footer class="col-12 text-center p-3 m-0">
         <div class="row justify-content-center" style="gap: 25px; margin-top: 15px;">
             <section class="col-md-3 col-sm-12 mb-3">
@@ -233,5 +291,6 @@
     <!-- Scripts -->
     <script src="../../js/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="../../js/jsboot/bootstrap.bundle.js" crossorigin="anonymous"></script>
+    <script src="../../js/manejoEmpresa.js" crossorigin="anonymous"></script>
 </body>
 </html>

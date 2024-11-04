@@ -19,7 +19,7 @@
     
                 <div class="d-flex align-items-center col-4">
                     <input type="text" placeholder="Buscar productos, marcas" id="barraBusqueda" class="form-control mr-2" >
-                    <button class="btnBuscar"><img src="../Tienda/assets/lupa.png" alt="lupa" style="width: 30px; height: 30px; filter:brightness(200);"></button>
+                    <button class="btnBuscar" id="btnLupa"><img src="../Tienda/assets/lupa.png" alt="lupa" style="width: 30px; height: 30px; filter:brightness(200);"></button>
                 </div>
     
                 <article id="accionesUsuario" class="d-flex align-items-center">
