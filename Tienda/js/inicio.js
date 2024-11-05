@@ -1,14 +1,20 @@
 $(document).ready(function() {
     
-    $('#btnBuscar').on('click', function(event) {
-        // Evitar el comportamiento por defecto del botón
-        event.preventDefault(); 
-
+    $('#btnLupa').on('click', function(event) {
+        event.preventDefault(); // Evitar el comportamiento por defecto del botón
+    
         const buscarCoin = $("#barraBusqueda").val(); // Obtén el valor de la barra de búsqueda
-        localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage
-        console.log(buscarCoin);
+    
+        if (buscarCoin.trim() === "") {
+            alert("Por favor, ingresa un término de búsqueda."); // Avisar si la búsqueda está vacía
+        } else {
+            localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage
+            window.location.href = '../Tienda/Vistas/productos.html';
+            // Vaciar el campo de búsqueda después de almacenar el valor
+            $("#barraBusqueda").val(""); // Limpia el input de búsqueda
+        }
     });
-
+    
     
     // Comprobamos si hay datos en el storage
     const usuarioAcciones = document.getElementById('usuarioAcciones');
@@ -67,7 +73,7 @@ $(document).ready(function() {
             window.location.href = '../Tienda/Vistas/inicios/inicioUsu.html';
         }
     });
-});
+
 
 $("#btnCategorias").on("click", function() {  
     $.ajax({
@@ -102,3 +108,4 @@ function mostrarCategorias(categorias) {
         `);
     });
 }
+});

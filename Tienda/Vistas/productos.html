@@ -32,8 +32,8 @@
     <div class="row">
         <!-- Categorías -->
         <div class="col-lg-3" id="bloqCategorias">
-            <h1 class="display-5 fw-bold">Boca</h1>
-            <p class="text-muted-foreground">3.744 resultados</p>
+            <h1 class="display-5 fw-bold" id="tituloBusqueda"></h1>
+            <div class="text-muted-foreground" id="resultados"></div>
 
             <!-- Checkbox de Envío Gratis -->
             <div class="card p-3 mb-3">
@@ -49,16 +49,8 @@
 
             <!-- Listado de Categorías -->
             <h2 class="h5 fw-semibold">Categorías</h2>
-            <ul class="list-unstyled ps-3 text-muted-foreground mb-3" id="categorias">
-                <li>Deportes y Fitness (317)</li>
-                <li>Libros Físicos (878)</li>
-                <li>Hogar, Muebles y Jardín (448)</li>
-                <li>Revistas (349)</li>
-                <li>Herramientas (334)</li>
-                <li>Accesorios para Vehículos (279)</li>
-                <li>Industrias y Oficinas (150)</li>
-                <li>Electrodomésticos y Aires Ac. (140)</li>
-                <li>Música y Películas (129)</li>
+            <ul class="list-unstyled ps-3 text-muted-foreground mb-3" id="listaCategorias">
+                
                 <li><a href="#" class="text-decoration-none text-primary">Mostrar más</a></li>
             </ul>
 
@@ -69,50 +61,10 @@
         </div>
 
         <!-- Productos -->
-        <div class="col-lg-8 offset-lg-1" id="productos">
-            <!-- Producto 1 -->
-            <div class="border p-4 rounded-lg bg-card producto">
-                <div class="d-flex align-items-center" style="gap: 15px;">
-                <div>
-                    <img src="https://placehold.co/100x100" alt="Camiseta Boca Juniors 23/24" class="me-4 rounded">
-                </div>
-                    <div>
-                        <h3 class="fw-bold mb-1">Camiseta Boca Juniors 23/24 - Remera Partido !!</h3>
-                        <p class="text-muted-foreground line-through mb-0 precioOriginal">$ 2.990</p>
-                        <p class="text-green-500">$ 2.691 <span class="small text-muted-foreground oferta">10% OFF</span></p>
-                        <p class="text-muted-foreground mb-0">Envío gratis</p>
-                        <span class="text-yellow-400">⭐ 4.7 (3)</span>
-                    </div>
-                </div>
-            </div>
+        <div class="col-lg-8 offset-lg-1" id="listaArticulos">
+            
 
-            <!-- Producto 2 -->
-            <div class="border p-4 rounded-lg bg-card">
-                <div class="d-flex align-items-center">
-                    <img src="https://placehold.co/100x100" alt="Camiseta Boca Juniors 24/25" class="me-4 rounded">
-                    <div>
-                        <h3 class="fw-bold mb-1">Camiseta Boca Juniors 24/25 Tercera Remera Partido Fútbol</h3>
-                        <p class="text-muted-foreground line-through mb-0">$ 3.890</p>
-                        <p class="text-green-500">$ 3.501 <span class="small text-muted-foreground">10% OFF</span></p>
-                        <p class="text-muted-foreground mb-0">en 10 cuotas de $ 350,10 sin interés</p>
-                        <p class="text-muted-foreground mb-0">Envío gratis</p>
-                        <span class="text-yellow-400">⭐ 5.0 (2)</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Producto 3 -->
-            <div class="border p-4 rounded-lg bg-card">
-                <div class="d-flex align-items-center">
-                    <img src="https://placehold.co/100x100" alt="Camiseta Boca Juniors 95" class="me-4 rounded">
-                    <div>
-                        <h3 class="fw-bold mb-1">Camiseta Boca Juniors 95 Titular Olan Parmalat</h3>
-                        <p class="text-green-500">$ 3.250</p>
-                        <p class="text-muted-foreground mb-0">en 10 cuotas de $ 325 sin interés</p>
-                        <p class="text-muted-foreground mb-0">Envío gratis</p>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

@@ -78,4 +78,12 @@ class ArticulosModel
     return $consulta->fetchAll(PDO::FETCH_ASSOC);
 }
 
+public function buscarArticulosPorNombre($texto) {
+        $sql = "SELECT * FROM Articulos WHERE nombre LIKE :texto";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['texto' => "%$texto%"]); // Usar % para buscar en cualquier parte del nombre
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+
 }

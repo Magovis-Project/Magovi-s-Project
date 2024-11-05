@@ -63,6 +63,14 @@ class ArticuloControlador
                             echo json_encode(['error' => true, 'message' => 'ID de empresa no proporcionado.']);
                         }
                         break;
+                    
+                        case 'buscarPorNombre':
+                            if (isset($input['texto'])) {
+                                $this->buscarArticulosPorNombre($input['texto']);
+                            } else {
+                                echo json_encode(['error' => true, 'message' => 'Texto de búsqueda no proporcionado.']);
+                            }
+                            break;
 
                     default:
                         echo json_encode(['error' => true, 'message' => 'Acción no válida.']);
@@ -147,6 +155,16 @@ class ArticuloControlador
 {
     try {
         $articulos = $this->articulosModel->getAllByEmpresa($id_empresa);
+        echo json_encode($articulos);
+    } catch (PDOException $e) {
+        echo json_encode(['error' => true, 'message' => $e->getMessage()]);
+    }
+}
+
+    public function buscarArticulosPorNombre($texto)
+{
+    try {
+        $articulos = $this->articulosModel->buscarArticulosPorNombre($texto);
         echo json_encode($articulos);
     } catch (PDOException $e) {
         echo json_encode(['error' => true, 'message' => $e->getMessage()]);
