@@ -144,14 +144,15 @@ class ArticuloControlador
     }
 
     public function getAllByEmpresa($id_empresa)
-    {
-        try {
-            $articulos = $this->articulosModel->getAllByEmpresa($id_empresa);
-            echo json_encode($articulos);
-        } catch (PDOException $e) {
-            echo json_encode(['error' => true, 'message' => $e->getMessage()]);
-        }
+{
+    try {
+        $articulos = $this->articulosModel->getAllByEmpresa($id_empresa);
+        echo json_encode($articulos);
+    } catch (PDOException $e) {
+        echo json_encode(['error' => true, 'message' => $e->getMessage()]);
     }
+}
+
 }
 
 $controlador = new ArticuloControlador();

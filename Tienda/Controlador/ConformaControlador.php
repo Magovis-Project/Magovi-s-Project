@@ -1,5 +1,5 @@
 <?php
-require_once 'ConformaModel.php';
+require_once '../Modelo/ConformaModel.php';
 
 class ConformaControlador
 {

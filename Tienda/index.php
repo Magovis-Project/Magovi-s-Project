@@ -36,12 +36,9 @@
             <div class="container" style="display: flex;">
                 <div style="flex: 1;">
                 <div class="dropdown">
-                    <p class="nav-link-custom drop">Categorias</p>
+                <p class="nav-link-custom drop" id="btnCategorias">Categorias</p>
                     <div class="dropdown-content">
-                      <a href="#">Accesorios</a>
-                      <a href="#">Calzado</a>
-                      <a href="#">Moda</a>
-                      <a href="#">Ver todas</a>
+                    <div id="listaCategorias"></div>
                     </div>
                   </div>
                 <a class="nav-link-custom" href="#">Ofertas</a>

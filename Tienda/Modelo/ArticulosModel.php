@@ -63,10 +63,19 @@ class ArticulosModel
     }
 
     public function getAllByEmpresa($id_empresa)
-    {
-        $consulta = $this->conn->prepare("SELECT ID_Empresa, Id_Articulos, Nombre, Precio, Cantidad, Actividad, Valoracion, Descripcion FROM Articulos WHERE ID_Empresa = :id_empresa");
-        $consulta->bindParam(':id_empresa', $id_empresa);
-        $consulta->execute();
-        return $consulta->fetchAll(PDO::FETCH_ASSOC);
-    }
+{
+    $consulta = $this->conn->prepare("
+        SELECT a.ID_Empresa, a.Id_Articulos, a.Nombre, a.Precio, a.Cantidad, a.Actividad, 
+               a.Valoracion, a.Descripcion, GROUP_CONCAT(c.Nombre SEPARATOR ', ') AS Categorias
+        FROM Articulos a
+        LEFT JOIN Categorizan ca ON a.Id_Articulos = ca.Id_Articulo
+        LEFT JOIN Categorias c ON ca.Id_Categoria = c.Id_Categoria
+        WHERE a.ID_Empresa = :id_empresa
+        GROUP BY a.Id_Articulos
+    ");
+    $consulta->bindParam(':id_empresa', $id_empresa);
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }

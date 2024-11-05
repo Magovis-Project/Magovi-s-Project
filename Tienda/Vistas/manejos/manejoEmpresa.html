@@ -44,16 +44,16 @@
                 <!-- Sección para gestionar productos -->
                 <section class="secciones" id="productos">
                     <h2>Gestionar Productos</h2>
-                    <button class="btn btn-primary mb-3" data-toggle="modal" data-target="#addProductModal">Añadir Producto</button>
+                    <button class="btn btn-primary mb-3" id="btnAgregar" data-toggle="modal" data-target="#addProductModal">Añadir Producto</button>
                     <button class="btn btn-primary mb-3" id="btnCargar">Cargar Productos</button>
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th>ID</th>
                                 <th>Nombre</th>
-                                <th>Categoría</th>
                                 <th>Precio</th>
                                 <th>Cantidad</th>
+                                <th>Categorias</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -66,9 +66,24 @@
                 <!-- Sección para ver reportes -->
                 <section id="reportes" class="secciones mt-4">
                     <h2>Ver Reportes</h2>
-                    <button class="btn btn-secondary">Generar Reporte de Ventas</button>
+                    <button class="btn btn-secondary" id="btnVentas">Generar Reporte de Ventas</button>
                     <button class="btn btn-secondary">Generar Reporte de Inventario</button>
                     <!-- Aquí se mostrarán los reportes generados -->
+                    <table id="ventas" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Venta</th>
+                                <th>Fecha</th>
+                                <th>Total</th>
+                                <th>Cliente</th>
+                                <th>Productos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se llenarán las filas con el AJAX -->
+                        </tbody>
+                    </table>
+                    
                 </section>
 
                 <!-- Sección para ver reseñas -->
@@ -146,7 +161,7 @@
 
                                     <div class="mb-3"> <!-- Añadido mb-3 para espaciado -->
                                         <label class="text-muted">Categorías</label>
-                                        <div id="categoryCheck">
+                                        <div id="listaCategorias">
                                             <!--Aca se va a generar los checkbox con las categorias existentes-->
                                         </div>
                                     </div>

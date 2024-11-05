@@ -1,5 +1,5 @@
 <?php
-require_once 'ComponeModel.php';
+require_once '../Modelo/ComponeModel.php';
 
 class ComponeControlador
 {

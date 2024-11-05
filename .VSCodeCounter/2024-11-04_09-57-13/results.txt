@@ -1,0 +1,129 @@
+Date : 2024-11-04 09:57:13
+Directory : c:\xampp\htdocs\magovis\Magovi-s-Project
+Total : 82 files,  29191 codes, 2036 comments, 4664 blanks, all 35891 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| CSS        |         15 |     15,570 |        133 |      1,906 |     17,609 |
+| JavaScript |         19 |      8,829 |      1,796 |      2,176 |     12,801 |
+| HTML       |         16 |      2,540 |         66 |        213 |      2,819 |
+| PHP        |         31 |      2,121 |         24 |        348 |      2,493 |
+| MS SQL     |          1 |        131 |         17 |         21 |        169 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                   | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                      |         82 |     29,191 |      2,036 |      4,664 |     35,891 |
+| . (Files)                                                                              |          1 |        131 |         17 |         21 |        169 |
+| Tienda                                                                                 |         77 |     28,598 |      2,017 |      4,575 |     35,190 |
+| Tienda (Files)                                                                         |          1 |        276 |          0 |         17 |        293 |
+| Tienda\Controlador                                                                     |         13 |      1,050 |          7 |        181 |      1,238 |
+| Tienda\Estilos                                                                         |         14 |     15,302 |        133 |      1,856 |     17,291 |
+| Tienda\Estilos (Files)                                                                 |          8 |      2,325 |         92 |        391 |      2,808 |
+| Tienda\Estilos\css                                                                     |          6 |     12,977 |         41 |      1,465 |     14,483 |
+| Tienda\Modelo                                                                          |         15 |        763 |         17 |        143 |        923 |
+| Tienda\Vistas                                                                          |         15 |      2,385 |         66 |        202 |      2,653 |
+| Tienda\Vistas (Files)                                                                  |          5 |        860 |         22 |         66 |        948 |
+| Tienda\Vistas\inicios                                                                  |          4 |        490 |          2 |         43 |        535 |
+| Tienda\Vistas\manejos                                                                  |          3 |        690 |         34 |         66 |        790 |
+| Tienda\Vistas\registros                                                                |          3 |        345 |          8 |         27 |        380 |
+| Tienda\config                                                                          |          1 |          6 |          0 |          0 |          6 |
+| Tienda\core                                                                            |          1 |         26 |          0 |          7 |         33 |
+| Tienda\js                                                                              |         17 |      8,790 |      1,794 |      2,169 |     12,753 |
+| Tienda\js (Files)                                                                      |         13 |      1,047 |        110 |        131 |      1,288 |
+| Tienda\js\jsboot                                                                       |          4 |      7,743 |      1,684 |      2,038 |     11,465 |
+| Web_Magovi´s                                                                           |          4 |        462 |          2 |         68 |        532 |
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                               | language   | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\xampp\htdocs\magovis\Magovi-s-Project\MyDrops_BD.sql                                | MS SQL     |        131 |         17 |         21 |        169 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\ArticuloControlador.php    | PHP        |        139 |          0 |         20 |        159 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\CarritoControlador.php     | PHP        |         56 |          0 |          8 |         64 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\CategoriaControlador.php   | PHP        |        106 |          0 |         18 |        124 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\CategorizanControlador.php | PHP        |        100 |          1 |         19 |        120 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\ComponeControlador.php     | PHP        |         56 |          0 |          8 |         64 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\ConformaControlador.php    | PHP        |         47 |          0 |          7 |         54 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\EmpresaControlador.php     | PHP        |        120 |          0 |         24 |        144 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\EnvioControlador.php       | PHP        |         56 |          0 |          8 |         64 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\LikeoControlador.php       | PHP        |         47 |          0 |          7 |         54 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\RepartidorControlador.php  | PHP        |         56 |          0 |          8 |         64 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\ResenaConrolador.php       | PHP        |         56 |          0 |          8 |         64 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\UsuarioControlador.php     | PHP        |        164 |          6 |         39 |        209 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Controlador\VioControlador.php         | PHP        |         47 |          0 |          7 |         54 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\carrito.css                    | CSS        |        201 |         14 |         37 |        252 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap-grid.css         | CSS        |      3,659 |          7 |        206 |      3,872 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap-grid.min.css     | CSS        |          1 |          6 |          0 |          7 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap-reboot.css       | CSS        |        263 |          8 |         55 |        326 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap-reboot.min.css   | CSS        |          1 |          7 |          0 |          8 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap.css              | CSS        |      9,052 |          7 |      1,204 |     10,263 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\css\bootstrap.min.css          | CSS        |          1 |          6 |          0 |          7 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\divisionIni.css                | CSS        |        296 |          7 |         50 |        353 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\inicio.css                     | CSS        |        438 |         22 |         74 |        534 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\iniciosSesion.css              | CSS        |        287 |          7 |         48 |        342 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\manejos.css                    | CSS        |        461 |         16 |         69 |        546 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\producto.css                   | CSS        |        156 |          8 |         25 |        189 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\productos.css                  | CSS        |        177 |          8 |         33 |        218 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Estilos\registro.css                   | CSS        |        309 |         10 |         55 |        374 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\ArticulosModel.php              | PHP        |         64 |          0 |          9 |         73 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\CarritoModel.php                | PHP        |         44 |          0 |          8 |         52 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\CategoriaModel.php              | PHP        |         42 |          0 |          8 |         50 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\CategorizanModel.php            | PHP        |         45 |          0 |          8 |         53 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\ComponeModel.php                | PHP        |         49 |          0 |          8 |         57 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\ConexionModel.php               | PHP        |         44 |          0 |         13 |         57 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\ConformaModel.php               | PHP        |         39 |          0 |          7 |         46 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\EmpresaModel.php                | PHP        |         93 |          3 |         17 |        113 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\EnvioModel.php                  | PHP        |         49 |          0 |          8 |         57 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\LikeoModel.php                  | PHP        |         39 |          0 |          7 |         46 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\RepartidorModel.php             | PHP        |         46 |          0 |          8 |         54 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\ResenaModel.php                 | PHP        |         51 |          0 |          8 |         59 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\UsuarioModel.php                | PHP        |        106 |         14 |         27 |        147 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\VioModel.php                    | PHP        |         39 |          0 |          7 |         46 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Modelo\pruebita.php                    | PHP        |         13 |          0 |          0 |         13 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\ayuda.html                      | HTML       |        170 |          5 |          8 |        183 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\carrito.html                    | HTML       |        106 |          3 |          8 |        117 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\inicio.html                     | HTML       |        300 |          2 |         19 |        321 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\inicios\divisionIni.html        | HTML       |        119 |          2 |         14 |        135 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\inicios\inicioAdmin.html        | HTML       |        117 |          0 |         11 |        128 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\inicios\inicioEmpresa.html      | HTML       |        127 |          0 |          8 |        135 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\inicios\inicioUsu.html          | HTML       |        127 |          0 |         10 |        137 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\manejos\backOffice.html         | HTML       |        160 |          9 |         15 |        184 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\manejos\manejoEmpresa.html      | HTML       |        262 |         13 |         22 |        297 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\manejos\manejoUsuario.html      | HTML       |        268 |         12 |         29 |        309 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\producto.html                   | HTML       |        123 |          3 |         15 |        141 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\productos.html                  | HTML       |        161 |          9 |         16 |        186 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\registros\RegistroEmpresa.html  | HTML       |        115 |          4 |          8 |        127 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\registros\division.html         | HTML       |        106 |          0 |          7 |        113 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\Vistas\registros\registro.html         | HTML       |        124 |          4 |         12 |        140 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\config\config.php                      | PHP        |          6 |          0 |          0 |          6 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\core\Database.php                      | PHP        |         26 |          0 |          7 |         33 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\index.php                              | PHP        |        276 |          0 |         17 |        293 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\BackOffice.js                       | JavaScript |        229 |         11 |         18 |        258 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\carrito.js                          | JavaScript |         36 |          7 |          7 |         50 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\inicio.js                           | JavaScript |         48 |         10 |          7 |         65 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\inicioAdmin.js                      | JavaScript |         13 |          1 |          5 |         19 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\inicioEmpre.js                      | JavaScript |         39 |          6 |          6 |         51 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\inicioUsu.js                        | JavaScript |         38 |          5 |          5 |         48 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\jquery-3.5.1.min.js                 | JavaScript |          1 |          1 |          0 |          2 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\jsboot\bootstrap.bundle.js          | JavaScript |      4,490 |      1,361 |      1,181 |      7,032 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\jsboot\bootstrap.bundle.min.js      | JavaScript |          1 |          6 |          0 |          7 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\jsboot\bootstrap.js                 | JavaScript |      3,251 |        311 |        857 |      4,419 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\jsboot\bootstrap.min.js             | JavaScript |          1 |          6 |          0 |          7 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\manejoEmpresa.js                    | JavaScript |        166 |         15 |         18 |        199 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\manejoUsuario.js                    | JavaScript |        103 |         14 |         13 |        130 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\producto.js                         | JavaScript |         36 |          7 |          7 |         50 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\productos.js                        | JavaScript |         36 |          7 |          7 |         50 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\registro.js                         | JavaScript |        173 |         17 |         22 |        212 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Tienda\js\registroEmp.js                      | JavaScript |        129 |          9 |         16 |        154 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Web_Magovi´s\SitioOficial.css                 | CSS        |        268 |          0 |         50 |        318 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Web_Magovi´s\SitioOficial.html                | HTML       |        155 |          0 |         11 |        166 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Web_Magovi´s\SitioOficial.js                  | JavaScript |         38 |          1 |          7 |         46 |
+| c:\xampp\htdocs\magovis\Magovi-s-Project\Web_Magovi´s\jquery-3.5.1.min.js              | JavaScript |          1 |          1 |          0 |          2 |
+| Total                                                                                  |            |     29,191 |      2,036 |      4,664 |     35,891 |
++----------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

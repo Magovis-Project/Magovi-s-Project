@@ -1,5 +1,5 @@
 <?php
-require_once 'EnvioModel.php';
+require_once '../Modelo/EnvioModel.php';
 
 class EnvioControlador
 {

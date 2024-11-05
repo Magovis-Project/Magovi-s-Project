@@ -1,5 +1,5 @@
 <?php
-require_once 'RepartidorModel.php';
+require_once '../Modelo/RepartidorModel.php';
 
 class RepartidorControlador
 {

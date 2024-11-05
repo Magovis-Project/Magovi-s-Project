@@ -1,5 +1,5 @@
 <?php
-require_once 'LikeoModel.php';
+require_once '../Modelo/LikeoModel.php';
 
 class LikeoControlador
 {

@@ -1,5 +1,5 @@
 <?php
-require_once 'ResenaModel.php';
+require_once '../Modelo/ResenaModel.php';
 
 class ReseñaControlador
 {

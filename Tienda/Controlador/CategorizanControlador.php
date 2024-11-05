@@ -1,7 +1,8 @@
 <?php
-
 header('Content-Type: application/json');
 require_once '../Modelo/CategorizanModel.php';
+
+
 
 class CategorizanControlador
 {
@@ -23,9 +24,16 @@ class CategorizanControlador
             }
 
             if (isset($input['action'])) {
+                
                 switch ($input['action']) {
                     case 'add':
-                        $this->addCategorizacion($input);
+                        var_dump(isset($input['id_articulo']) && isset($input['id_categoria']));
+                        // Verificar que ambos IDs (artículo y categoría) están presentes
+                        if (isset($input['id_articulo']) && isset($input['id_categoria'])) {
+                            $this->addCategorizacion($input);
+                        } else {
+                            echo json_encode(['error' => true, 'message' => 'ID de artículo o categoría no proporcionado.']);
+                        }
                         break;
 
                     case 'getCategoriasByArticulo':

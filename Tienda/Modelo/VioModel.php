@@ -42,4 +42,19 @@ class VioModel
         $consulta->execute();
         return $consulta->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getArticulosVistosByUsuario($id_usuario)
+{
+    $consulta = $this->conn->prepare("
+        SELECT a.* FROM Vio v
+        JOIN Articulos a ON v.Id_Articulo = a.Id_Articulo
+        WHERE v.Id_Usuario = :id_usuario
+    ");
+    $consulta->bindParam(':id_usuario', $id_usuario);
+    $consulta->execute();
+    return $consulta->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+
 }

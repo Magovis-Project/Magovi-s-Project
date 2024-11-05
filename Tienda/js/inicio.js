@@ -1,9 +1,14 @@
 $(document).ready(function() {
-    $('#barraBusqueda').on('click', function(event) {
+    
+    $('#btnBuscar').on('click', function(event) {
+        // Evitar el comportamiento por defecto del botón
+        event.preventDefault(); 
+
         const buscarCoin = $("#barraBusqueda").val(); // Obtén el valor de la barra de búsqueda
-        localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage con la clave 'buscarCoin'
-        console.log(buscarCoin)
+        localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage
+        console.log(buscarCoin);
     });
+
     
     // Comprobamos si hay datos en el storage
     const usuarioAcciones = document.getElementById('usuarioAcciones');
@@ -63,3 +68,37 @@ $(document).ready(function() {
         }
     });
 });
+
+$("#btnCategorias").on("click", function() {  
+    $.ajax({
+        url: "Controlador/CategoriaControlador.php",
+        method: "POST",
+        data: JSON.stringify({
+            action: "getAll"
+        }),
+        contentType: "application/json",
+        success: function(response) {
+            if (Array.isArray(response)) {
+                mostrarCategorias(response);
+            } else {
+                alert("Error al obtener categorías: " + response.message);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("Error en la solicitud AJAX:", error);
+            alert("Hubo un error al obtener las categorías.");
+        }
+    });
+});
+
+function mostrarCategorias(categorias) {
+    let contenedorCategorias = $("#listaCategorias"); // Asegúrate de que este ID coincida con el del elemento en tu HTML
+    contenedorCategorias.empty(); // Limpia las categorías existentes
+
+    categorias.forEach(categoria => {
+        // Crear un ID único para cada checkbox usando Id_Categoria
+        contenedorCategorias.append(`
+            <a>${categoria.Nombre}</a>
+        `);
+    });
+}

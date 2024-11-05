@@ -1,5 +1,5 @@
 <?php
-require_once 'CarritoModel.php';
+require_once '../Modelo/CarritoModel.php';
 
 class CarritoControlador
 {
