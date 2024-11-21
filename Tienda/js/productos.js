@@ -4,16 +4,18 @@ $(document).ready(function() {
         event.preventDefault(); // Evitar el comportamiento por defecto del botón
     
         const buscarCoin = $("#barraBusqueda").val(); // Obtén el valor de la barra de búsqueda
+        console.log(buscarCoin);
     
         if (buscarCoin.trim() === "") {
             alert("Por favor, ingresa un término de búsqueda."); // Avisar si la búsqueda está vacía
         } else {
             localStorage.setItem('buscarCoin', buscarCoin); // Almacena el valor en localStorage
-            window.location.href = '../Tienda/Vistas/productos.html';
+            location.reload();
             // Vaciar el campo de búsqueda después de almacenar el valor
             $("#barraBusqueda").val(""); // Limpia el input de búsqueda
         }
     });
+    
 
     const usuarioAcciones = document.getElementById('usuarioAcciones');
     const userData = sessionStorage.cedula; 
@@ -65,6 +67,7 @@ $(document).ready(function() {
                     $("#resultados").html(response.length+" resultados");
                     // Mostrar artículos encontrados
                     mostrarArticulos(response);
+                    console.log(response);
                 } else {
                     
                     mostrarVacio();
@@ -77,27 +80,41 @@ $(document).ready(function() {
         });
 
         function mostrarArticulos(articulos) {
-            let contenedorArticulos = $("#listaArticulos"); // Asegúrate de que este ID coincida con el del elemento en tu HTML
+            let contenedorArticulos = $("#listaArticulos"); // Contenedor de los artículos
             contenedorArticulos.empty(); // Limpia los artículos existentes
         
             articulos.forEach(articulo => {
                 contenedorArticulos.append(`
-                    <div class="border p-4 rounded-lg bg-card producto">
+                    <div class="border p-4 rounded-lg bg-card producto" data-id="${articulo.Id_Articulos}">
                         <div class="d-flex align-items-center" style="gap: 15px;">
                             <div>
-                                <img src="${articulo.foto_url || 'https://placehold.co/100x100'}" alt="${articulo.nombre}" class="me-4 rounded">
+                                <img src="${articulo.foto_url || 'https://placehold.co/100x100'}" alt="${articulo.Nombre}" class="me-4 rounded">
                             </div>
                             <div>
-                                <h3 class="fw-bold mb-1">${articulo.nombre}</h3>
-                                <p class="text-green-500">$ ${articulo.precioOriginal || '0.00'} <p>
-                                <p class="text-muted-foreground mb-0">Envío gratis</p>
-                                <span class="text-yellow-400">⭐ ${articulo.valoracion || '0'} (${articulo.reviews || '0'})</span>
+                                <h3 class="fw-bold mb-1">${articulo.Nombre}</h3>
+                                <p class="text-green-500">$ ${articulo.Precio || '0.00'}</p>
+                                <p class="text-muted-foreground mb-0">${articulo.Descripcion || ''}</p>
+                                <span class="text-yellow-400">⭐ ${articulo.Valoracion || '0.0'}</span>
+                                <p class="text-muted">Cantidad disponible: ${articulo.Cantidad || '0'}</p>
                             </div>
                         </div>
                     </div>
                 `);
             });
         }
+        
+        $(document).on('click', '.producto', function() {
+            const idProducto = $(this).data('id'); // Obtén el ID del producto
+            console.log("ID del producto clickeado:", idProducto); // Verifica en la consola
+            if (idProducto) {
+                window.location.href = `../Vistas/Producto.html?id=${idProducto}`;
+            } else {
+                console.error("ID no válido o no encontrado.");
+            }
+        });
+        
+
+        
         
         function mostrarVacio() {
             let contenedorArticulos = $("#listaArticulos"); // Asegúrate de que este ID coincida con el del elemento en tu HTML

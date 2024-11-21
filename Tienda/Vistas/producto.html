@@ -28,15 +28,14 @@
         </article>
     </header>
 
-    <div class="container mt-5" style="margin-bottom: 15px;">
+    <div class="container mt-5">
         <div class="row justify-content-center">
             <!-- Imagen del Producto -->
             <div class="col-6">
-                <div class="card bg-white" style="padding: 15px;"> <!-- Asegúrate de que el fondo blanco se aplique aquí -->
+                <div class="card bg-white" style="padding: 15px;">
                     <img src="https://via.placeholder.com/500" class="img-fluid rounded" alt="Producto">
                 </div>
             </div>
-            
     
             <!-- Información del Producto -->
             <div class="col-4">
@@ -48,24 +47,28 @@
                                 <i class="bi bi-heart"></i>
                             </a>
                         </h5>
-                        
                         <div class="d-flex mb-2">
                             <span class="me-1 text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
-                            <small>(120 opiniones)</small>
+                            <small id="opiCant">(120 opiniones)</small>
                         </div>
-                        
                         <h5 class="text-primary">$49.99</h5>
-                        
                         <p class="card-text text-muted">
                             Envío gratis a partir de $50 | Disponible para entrega inmediata
                         </p>
-                        
                         <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-custom">Comprar ahora</a>
+                            <a href="#" class="btn btn-outline-primary">Comprar ahora</a>
                             <a href="#" class="btn btn-outline-secondary">Agregar al carrito</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    
+        <!-- Contenedor de reseñas -->
+        <div class="row justify-content-center mt-3" style="margin-bottom: 10px;">
+            <div class="col-6" style="background-color: grey; border-radius: 10px; padding: 15px;">
+                <h4>Reseñas</h4>
+                <div id="resenasContainer"></div>
             </div>
         </div>
     </div>

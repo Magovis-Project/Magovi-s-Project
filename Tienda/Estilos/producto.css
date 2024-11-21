@@ -187,3 +187,8 @@ footer {
 .profile-name{
     font-size: large;
 }
+#resenasContainer{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
